@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17997D95-4F7D-4A6C-8851-C4DDF53B310C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CovidAirlines</RootNamespace>
+    <AssemblyName>CovidAirlines</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Airplane.cs">
+      <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CovidAirlinesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CovidAirlinesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CovidAirlinesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\AirplaneType.cs" />
+    <Compile Include="Enums\PaymentType.cs" />
+    <Compile Include="Enums\StatusType.cs" />
+    <Compile Include="Enums\UserType.cs" />
+    <Compile Include="ObservableListSource.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Route.cs">
+      <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction.cs">
+      <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+    <Compile Include="WinForms\Accountant\FormAccountant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Accountant\FormAccountant.Designer.cs">
+      <DependentUpon>FormAccountant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Accountant\FormAccountantSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Accountant\FormAccountantSummary.Designer.cs">
+      <DependentUpon>FormAccountantSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormBoardingPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormBoardingPass.Designer.cs">
+      <DependentUpon>FormBoardingPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormBookDepartFlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormBookDepartFlight.Designer.cs">
+      <DependentUpon>FormBookDepartFlight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormBookReturnFlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormBookReturnFlight.Designer.cs">
+      <DependentUpon>FormBookReturnFlight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormConfirmation.Designer.cs">
+      <DependentUpon>FormConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Customer\FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Flight Manager\FormFlightManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Flight Manager\FormFlightManager.Designer.cs">
+      <DependentUpon>FormFlightManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Flight Manager\FormFlightManifest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Flight Manager\FormFlightManifest.Designer.cs">
+      <DependentUpon>FormFlightManifest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Load Engineer\FormLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Load Engineer\FormLoad.Designer.cs">
+      <DependentUpon>FormLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Load Engineer\FormLoadAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Load Engineer\FormLoadAdd.Designer.cs">
+      <DependentUpon>FormLoadAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Marketing Manager\FormMarketing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Marketing Manager\FormMarketing.Designer.cs">
+      <DependentUpon>FormMarketing.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="WinForms\Accountant\FormAccountant.resx">
+      <DependentUpon>FormAccountant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Accountant\FormAccountantSummary.resx">
+      <DependentUpon>FormAccountantSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Customer\FormBoardingPass.resx">
+      <DependentUpon>FormBoardingPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Customer\FormBookDepartFlight.resx">
+      <DependentUpon>FormBookDepartFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Customer\FormBookReturnFlight.resx">
+      <DependentUpon>FormBookReturnFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Customer\FormConfirmation.resx">
+      <DependentUpon>FormConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Customer\FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Flight Manager\FormFlightManager.resx">
+      <DependentUpon>FormFlightManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Flight Manager\FormFlightManifest.resx">
+      <DependentUpon>FormFlightManifest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Load Engineer\FormLoad.resx">
+      <DependentUpon>FormLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Load Engineer\FormLoadAdd.resx">
+      <DependentUpon>FormLoadAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Marketing Manager\FormMarketing.resx">
+      <DependentUpon>FormMarketing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="CovidAirlinesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CovidAirlinesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CovidAirlinesModel.edmx.diagram">
+      <DependentUpon>CovidAirlinesModel.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CovidAirlinesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CovidAirlinesModel.edmx</DependentUpon>
+      <LastGenOutput>CovidAirlinesModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CovidAirlinesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CovidAirlinesModel.edmx</DependentUpon>
+      <LastGenOutput>CovidAirlinesModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
