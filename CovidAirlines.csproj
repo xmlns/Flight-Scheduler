@@ -54,6 +54,26 @@
     <Compile Include="City.cs">
       <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CovidAirlinesCities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesCities.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CovidAirlinesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CovidAirlinesDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CovidAirlinesDataSetRoutes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesDataSetRoutes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CovidAirlinesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -216,6 +236,50 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CovidAirlinesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="CovidAirlinesCities.xsc">
+      <DependentUpon>CovidAirlinesCities.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesCities.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CovidAirlinesCities.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CovidAirlinesCities.xss">
+      <DependentUpon>CovidAirlinesCities.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSet.xsc">
+      <DependentUpon>CovidAirlinesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CovidAirlinesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CovidAirlinesDataSet.xss">
+      <DependentUpon>CovidAirlinesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSet1.xsc">
+      <DependentUpon>CovidAirlinesDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CovidAirlinesDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CovidAirlinesDataSet1.xss">
+      <DependentUpon>CovidAirlinesDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSetRoutes.xsc">
+      <DependentUpon>CovidAirlinesDataSetRoutes.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSetRoutes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CovidAirlinesDataSetRoutes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CovidAirlinesDataSetRoutes.xss">
+      <DependentUpon>CovidAirlinesDataSetRoutes.xsd</DependentUpon>
+    </None>
     <None Include="CovidAirlinesModel.edmx.diagram">
       <DependentUpon>CovidAirlinesModel.edmx</DependentUpon>
     </None>

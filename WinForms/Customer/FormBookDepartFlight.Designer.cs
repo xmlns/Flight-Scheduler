@@ -29,6 +29,7 @@ namespace CovidAirlines
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.listViewHistory = new System.Windows.Forms.ListView();
 			this.columnHeaderFlightID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderOrigin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,6 +46,11 @@ namespace CovidAirlines
 			this.button1 = new System.Windows.Forms.Button();
 			this.labelChooseDeparture = new System.Windows.Forms.Label();
 			this.buttonCancel = new System.Windows.Forms.Button();
+			this.covidAirlinesDataSetRoutes = new CovidAirlines.CovidAirlinesDataSetRoutes();
+			this.routeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.routeTableAdapter = new CovidAirlines.CovidAirlinesDataSetRoutesTableAdapters.RouteTableAdapter();
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesDataSetRoutes)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// listViewHistory
@@ -172,6 +178,20 @@ namespace CovidAirlines
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
 			// 
+			// covidAirlinesDataSetRoutes
+			// 
+			this.covidAirlinesDataSetRoutes.DataSetName = "CovidAirlinesDataSetRoutes";
+			this.covidAirlinesDataSetRoutes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// routeBindingSource
+			// 
+			this.routeBindingSource.DataMember = "Route";
+			this.routeBindingSource.DataSource = this.covidAirlinesDataSetRoutes;
+			// 
+			// routeTableAdapter
+			// 
+			this.routeTableAdapter.ClearBeforeFill = true;
+			// 
 			// FormBookDepartFlight
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +214,8 @@ namespace CovidAirlines
 			this.TopMost = true;
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FormBookFlight_Load);
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesDataSetRoutes)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -217,5 +239,8 @@ namespace CovidAirlines
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label labelChooseDeparture;
 		private System.Windows.Forms.Button buttonCancel;
+		private CovidAirlinesDataSetRoutes covidAirlinesDataSetRoutes;
+		private System.Windows.Forms.BindingSource routeBindingSource;
+		private CovidAirlinesDataSetRoutesTableAdapters.RouteTableAdapter routeTableAdapter;
 	}
 }

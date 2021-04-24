@@ -19,8 +19,17 @@ namespace CovidAirlines
 
 		private void FormBookFlight_Load(object sender, EventArgs e)
 		{
+			// TODO: This line of code loads data into the 'covidAirlinesDataSetRoutes.Route' table. You can move, or remove it, as needed.
+			this.routeTableAdapter.Fill(this.covidAirlinesDataSetRoutes.Route);
 			buttonChooseFlight.Enabled = false;
 
+			using (var db = new CovidAirlinesEntities())
+			{
+				var flights = db.Routes.Where(r => r.OriginCityID == 1);
+				
+				
+
+			}
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -70,6 +79,11 @@ namespace CovidAirlines
 		private void buttonCancel_Click(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+
+		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			dataGridView1.
 		}
 	}
 }

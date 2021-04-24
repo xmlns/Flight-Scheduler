@@ -1,37 +1,56 @@
 ﻿using System;
 using System.Windows.Forms;
 
+using System.Linq;
+//using CovidAirlines.Enums;
+
 namespace CovidAirlines
 {
 	public partial class FormCustomer : Form
 	{
-		public FormCustomer()
+		private User CUSTOMER;//Logged in customer
+		public FormCustomer(User c)
 		{
 			InitializeComponent();
+			CUSTOMER = c;
 		}
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
+			// TODO: This line of code loads data into the 'covidAirlinesDataSet1.Transaction' table. You can move, or remove it, as needed.
+			this.transactionTableAdapter.Fill(this.covidAirlinesDataSet1.Transaction);
+			// TODO: This line of code loads data into the 'covidAirlinesCities.City' table. You can move, or remove it, as needed.
+			this.cityTableAdapter.Fill(this.covidAirlinesCities.City);
+			// TODO: This line of code loads data into the 'covidAirlinesDataSet.City' table. You can move, or remove it, as needed.
+			//this.cityTableAdapter.Fill(this.covidAirlinesDataSet.City);
+			// TODO: This line of code loads data into the 'covidAirlinesDataSet.City' table. You can move, or remove it, as needed.
+			//this.cityTableAdapter.Fill(this.covidAirlinesDataSet.City);
 			this.WindowState = FormWindowState.Maximized;
 			this.MinimumSize = this.Size;
 			this.MaximumSize = this.Size;
-
-			String[] CITIES = {
-				"Seattle, WA (SEA)",
-				"San Francisco, CA (SFO)",
-				"Los Angles, CA (LAX)",
-				"Bismarck, ND (BIS)",
-				"Denver, CO (DEN)",
-				"Austin, TX (AUS)",
-				"Cleveland, OH (CLE)",
-				"Nashville, TN (BNA)",
-				"Orlando, FL (MCO)",
-				"Augusta, ME (AUG)"
-			};
+			
 
 			//Populate city choices
-			comboBoxOrigin.Items.AddRange(CITIES);
-			comboBoxDestination.Items.AddRange(CITIES);
+			using (var entities = new CovidAirlinesEntities())
+			{
+				var cityList = entities.Cities.ToList();
+				foreach (City c in cityList)
+				{
+					comboBoxOrigin.Items.Add(c.Code + " - " + c.Name);
+					comboBoxDestination.Items.Add(c.Code + " - " + c.Name);
+				}
+			}
+
+			//Fill Expiry Month Combo box
+			for (int i = 1; i <= 12; i++)
+			{
+				comboBoxMonth.Items.Add(i.ToString());
+			}
+			//Fill Expiry Year Combo box
+			for (int i = 2021; i <= 2099; i++)
+			{
+				comboBoxYear.Items.Add(i.ToString());
+			}
 
 			//Set min(tomorrow) and max (6 months out) dates
 			dateTimePickerDepart.Value = dateTimePickerDepart.MinDate = DateTime.Today.AddDays(1);
@@ -39,6 +58,9 @@ namespace CovidAirlines
 			//Set return date picker to the same values
 			dateTimePickerReturn.Value = dateTimePickerReturn.MinDate = dateTimePickerDepart.Value.AddDays(1);//cannot return same day
 			dateTimePickerReturn.MaxDate = dateTimePickerDepart.MaxDate;
+
+			//Populate User Info
+			PopulateUserInfo();
 
 		}
 
@@ -171,9 +193,7 @@ namespace CovidAirlines
 			fBookDepartFlight.Show();
 			*/
 			
-			FormBookDepartFlight fBookDepartFlight = new FormBookDepartFlight();
-			
-			
+			FormBookDepartFlight fBookDepartFlight = new FormBookDepartFlight();			
 			fBookDepartFlight.Show();
 			
 		}
@@ -184,19 +204,122 @@ namespace CovidAirlines
 			fBoardingPass.ShowDialog();
 		}
 
-		private void tabPageBook_Click(object sender, EventArgs e)
+		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
+			//Grab all inputted information
+			string[] acctInfo = new string[12];
+
+			acctInfo[0] = textBoxName.Text;
+			acctInfo[1] = textBoxNewPassword.Text;
+			acctInfo[2] = textBoxConfirmPassword.Text;
+			acctInfo[3] = textBoxAddress.Text;
+			acctInfo[4] = textBoxCity.Text;
+			acctInfo[5] = textBoxZipcode.Text;
+			acctInfo[6] = textBoxNumber.Text;
+			acctInfo[7] = numericAge.Value.ToString();
+			acctInfo[8] = textBoxCC.Text;
+			acctInfo[9] = comboBoxMonth.GetItemText(comboBoxMonth.SelectedItem);
+			acctInfo[10] = comboBoxYear.GetItemText(comboBoxYear.SelectedItem);
+			acctInfo[11] = textBoxCSV.Text;
+
+			//Ensure all fields are filled
+			bool allFieldsFilled = true;
+			for (int i = 0; i < acctInfo.Length; i++)
+			{
+				if (checkBoxPassword.Checked ==false &&( i == 1 || i == 2)) continue; //skip password fields if boxed unchecked
+				allFieldsFilled &= !string.IsNullOrWhiteSpace(acctInfo[i]);
+			}
+
+			if (!allFieldsFilled)
+			{
+				labelResult.Text = "All fields are required!";
+				labelResult.Visible = true;
+				return;
+			}
+
+			//Now make sure password and confirmation password match
+			if (checkBoxPassword.Checked == true && acctInfo[1] != acctInfo[2])
+			{
+				labelResult.Text = "Password and confirmation password do not match!";
+				labelResult.Visible = true;
+				return;
+			}
+			using (var db = new CovidAirlinesEntities())
+			{
+				//TODO: NOT COMPLETE
+				User userEntry = db.Users.Where(u => u.UserID == CUSTOMER.UserID).FirstOrDefault();
+				if (userEntry != null)
+				{
+					CUSTOMER.FullName = acctInfo[0];
+					CUSTOMER.Address = acctInfo[3];
+					CUSTOMER.City = acctInfo[4];
+					CUSTOMER.ZipCode = acctInfo[5];
+					CUSTOMER.PhoneNumber = acctInfo[6];
+					CUSTOMER.Age = short.Parse(acctInfo[7]);
+					CUSTOMER.CardNumber = acctInfo[8];
+					CUSTOMER.CardExpiryDate = new DateTime(int.Parse(acctInfo[10]), int.Parse(acctInfo[9]), 1);
+					CUSTOMER.CardCVV = short.Parse(acctInfo[11]);
+					if (checkBoxPassword.Checked)
+					{
+						CUSTOMER.PasswordHash = Utility.GenerateHash(acctInfo[1]);
+					}
+					userEntry = CUSTOMER;
+					db.SaveChanges();
+				}
+
+				labelResult.Text = "Updating Account Information...";
+				labelResult.Visible = true;
+				//TODO: Update User entry with inputted info
+				//var userEntry = entities.Users.Where(u => u.UserID == CUSTOMER.UserID).FirstOrDefault();//query user entry
+				//entities.Users.
+				//byte[] currentPasswordHash = Utility.GenerateHash(textBoxCurrentPassword.Text);
+				//check if currentin
+
+				textBoxNewPassword.Text = string.Empty;
+				textBoxConfirmPassword.Text = string.Empty;
+
+			}
+		}
+
+		private void checkBox1_CheckedChanged(object sender, EventArgs e)
+		{
+			bool enabled = checkBoxPassword.Checked;
+
+			textBoxNewPassword.Enabled = enabled;
+			textBoxConfirmPassword.Enabled = enabled;
+
+			if (!enabled)
+			{
+				textBoxNewPassword.Text = string.Empty;
+				textBoxConfirmPassword.Text = string.Empty;
+			}
 
 		}
 
-		private void dateTimePickerReturn_ValueChanged(object sender, EventArgs e)
+		private void tabControlMenu_SelectedIndexChanged(object sender, EventArgs e)
 		{
-
+			if (tabControlMenu.SelectedTab == tabPageAccount)	PopulateUserInfo();
 		}
 
-		private void comboBoxOrigin_SelectedIndexChanged(object sender, EventArgs e)
+		private void PopulateUserInfo()
 		{
+			//Populate User Info
+			labelUserIDHere.Text = CUSTOMER.UserID.ToString();
+			labelPointsHere.Text = CUSTOMER.PointsAvailable.ToString();
+			labelRedeemedHere.Text = CUSTOMER.PointsRedeemed.ToString();
+			textBoxName.Text = CUSTOMER.FullName;
+			textBoxAddress.Text = CUSTOMER.Address;
+			textBoxCity.Text = CUSTOMER.City;
+			textBoxZipcode.Text = CUSTOMER.ZipCode;
+			textBoxNumber.Text = CUSTOMER.PhoneNumber;
+			numericAge.Value = CUSTOMER.Age;
+			textBoxCC.Text = CUSTOMER.CardNumber;
+			comboBoxMonth.SelectedIndex = CUSTOMER.CardExpiryDate.Month - 1;
+			comboBoxYear.SelectedIndex = CUSTOMER.CardExpiryDate.Year - 2021;
+			textBoxCSV.Text = CUSTOMER.CardCVV.ToString();
 
+			textBoxNewPassword.Text = string.Empty;
+			textBoxConfirmPassword.Text = string.Empty;
 		}
 	}
 }

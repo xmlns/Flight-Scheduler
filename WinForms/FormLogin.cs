@@ -67,8 +67,7 @@ namespace CovidAirlines
                         ErrorMessage.Show();
                         return;
                     }
-                    Console.WriteLine(user.UserID);
-
+                    //Generate hash of inputted password and check db for match
                     var hash = Utility.GenerateHash(PasswordTextBox.Text);
                     // password doesnt match
                     if (!user.PasswordHash.SequenceEqual(Utility.GenerateHash(PasswordTextBox.Text)))
@@ -77,43 +76,42 @@ namespace CovidAirlines
                         ErrorMessage.Show();
                         return;
                     }
-                    else
+                    //Redirect to corresponding homescreen
+                    switch (user.UserType)
                     {
-                        switch (user.UserType)
-                        {
-                            case (byte)UserType.CUSTOMER:
-                                FormCustomer fCustomer = new FormCustomer();
-                                fCustomer.ShowDialog();
-                                break;
+                        case (byte)UserType.CUSTOMER:
+                            FormCustomer fCustomer = new FormCustomer(user);
+                            fCustomer.ShowDialog();
+                            break;
 
-                            case (byte)UserType.LOAD_ENGINEER:
-                                FormLoad fLoad = new FormLoad();
-                                fLoad.ShowDialog();
-                                break;
+                        case (byte)UserType.LOAD_ENGINEER:
+                            FormLoad fLoad = new FormLoad();
+                            fLoad.ShowDialog();
+                            break;
 
-                            case (byte)UserType.MARKETING_MANAGER:
-                                FormMarketing fMarketing = new FormMarketing();
-                                fMarketing.ShowDialog();
-                                break;
+                        case (byte)UserType.MARKETING_MANAGER:
+                            FormMarketing fMarketing = new FormMarketing();
+                            fMarketing.ShowDialog();
+                            break;
 
-                            case (byte)UserType.FLIGHT_MANAGER:
-                                FormFlightManager fFlight = new FormFlightManager();
-                                fFlight.ShowDialog();
-                                break;
+                        case (byte)UserType.FLIGHT_MANAGER:
+                            FormFlightManager fFlight = new FormFlightManager();
+                            fFlight.ShowDialog();
+                            break;
 
-                            case (byte)UserType.ACCOUNTANT:
-                                FormAccountant fAccountant = new FormAccountant();
-                                fAccountant.ShowDialog();
-                                break;
-                        }
+                        case (byte)UserType.ACCOUNTANT:
+                            FormAccountant fAccountant = new FormAccountant();
+                            fAccountant.ShowDialog();
+                            break;
                     }
+                    
                 }
             }
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-
+            //Grab all inputted information
             string[] newAccount = new string[12];
 
             newAccount[0] = textBoxName.Text;
@@ -128,21 +126,21 @@ namespace CovidAirlines
             newAccount[9] = comboBoxMonth.GetItemText(comboBoxMonth.SelectedItem);
             newAccount[10] = comboBoxYear.GetItemText(comboBoxYear.SelectedItem);
             newAccount[11] = textBoxCSV.Text;
-
+            
+            //Ensure all fields are filled
             bool allFieldsFilled = true;
-
             foreach (string s in newAccount)
             {
                 allFieldsFilled &= !string.IsNullOrWhiteSpace(s);
             }
-            //Ensure all fields are filled
             if (!allFieldsFilled)
             {
                 labelResult.Text = "All fields are required!";
                 labelResult.Visible = true;
                 return;
             }
-            //then make sure password and confirmation password match
+
+            //Now make sure password and confirmation password match
             if (newAccount[1] != newAccount[2])
             {
                 labelResult.Text = "Password and confirmation password do not match!";
@@ -150,17 +148,24 @@ namespace CovidAirlines
                 return;
             }
 
-            //All fields valid, generate random 6-digit UserID (cannot start with zero)
+            
+            //All fields valid, create user object using all user inputted data
             string randUserID = "";
-            randUserID += random.Next(1, 9).ToString();//first digit CANT be zero
-            for (int i = 0; i < 5; i++)
-            {
-                randUserID += random.Next(0, 9).ToString();
-            }
-
-            //Create user object using all user inputted data
             using (var entities = new CovidAirlinesEntities())
             {
+                int intID;
+                //generate random 6-digit UserID (cannot start with zero)
+                do
+                {//keep generating User IDs if randID is already taken
+                    randUserID += random.Next(1, 9).ToString();//first digit CANT be zero
+                    for (int i = 0; i < 5; i++)
+                    {
+                        randUserID += random.Next(0, 9).ToString();
+                    }
+                    intID = int.Parse(randUserID);
+                } 
+                while (entities.Users.Where(u => u.UserID == intID).FirstOrDefault() != null); 
+
                 var user = new User
                 {
                     UserID = int.Parse(randUserID),
@@ -186,7 +191,6 @@ namespace CovidAirlines
             labelResult.Visible = true;
             ClearAllTextBoxes(this.Controls);
             UsernameTextBox.Text = randUserID;
-
         }
 
         public void ClearAllTextBoxes(Control.ControlCollection ctrlCollection)

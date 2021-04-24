@@ -29,6 +29,7 @@ namespace CovidAirlines
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.tabControlMenu = new System.Windows.Forms.TabControl();
 			this.tabPageBook = new System.Windows.Forms.TabPage();
 			this.labelSearchResponse = new System.Windows.Forms.Label();
@@ -68,6 +69,12 @@ namespace CovidAirlines
 			this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.button1 = new System.Windows.Forms.Button();
 			this.tabPageAccount = new System.Windows.Forms.TabPage();
+			this.labelRedeemedHere = new System.Windows.Forms.Label();
+			this.labelRedeemed = new System.Windows.Forms.Label();
+			this.labelPoints = new System.Windows.Forms.Label();
+			this.labelPointsHere = new System.Windows.Forms.Label();
+			this.labelUserIDHere = new System.Windows.Forms.Label();
+			this.labelUserID = new System.Windows.Forms.Label();
 			this.labelResult = new System.Windows.Forms.Label();
 			this.labelUpdateAccount = new System.Windows.Forms.Label();
 			this.buttonUpdate = new System.Windows.Forms.Button();
@@ -80,8 +87,7 @@ namespace CovidAirlines
 			this.labelExpiration = new System.Windows.Forms.Label();
 			this.labelCC = new System.Windows.Forms.Label();
 			this.groupBoxContactInfo = new System.Windows.Forms.GroupBox();
-			this.textBoxCurrentPassword = new System.Windows.Forms.TextBox();
-			this.labelCurrentPassword = new System.Windows.Forms.Label();
+			this.checkBoxPassword = new System.Windows.Forms.CheckBox();
 			this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
 			this.labelConfirmPassword = new System.Windows.Forms.Label();
 			this.labelNewPassword = new System.Windows.Forms.Label();
@@ -98,6 +104,12 @@ namespace CovidAirlines
 			this.labelNumber = new System.Windows.Forms.Label();
 			this.labelAddress = new System.Windows.Forms.Label();
 			this.labelName = new System.Windows.Forms.Label();
+			this.covidAirlinesCities = new CovidAirlines.CovidAirlinesCities();
+			this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.cityTableAdapter = new CovidAirlines.CovidAirlinesCitiesTableAdapters.CityTableAdapter();
+			this.covidAirlinesDataSet1 = new CovidAirlines.CovidAirlinesDataSet1();
+			this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.transactionTableAdapter = new CovidAirlines.CovidAirlinesDataSet1TableAdapters.TransactionTableAdapter();
 			this.tabControlMenu.SuspendLayout();
 			this.tabPageBook.SuspendLayout();
 			this.tabPageHistory.SuspendLayout();
@@ -105,6 +117,10 @@ namespace CovidAirlines
 			this.groupBoxBilling.SuspendLayout();
 			this.groupBoxContactInfo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericAge)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesCities)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesDataSet1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControlMenu
@@ -120,6 +136,7 @@ namespace CovidAirlines
 			this.tabControlMenu.SelectedIndex = 0;
 			this.tabControlMenu.Size = new System.Drawing.Size(1169, 607);
 			this.tabControlMenu.TabIndex = 0;
+			this.tabControlMenu.SelectedIndexChanged += new System.EventHandler(this.tabControlMenu_SelectedIndexChanged);
 			// 
 			// tabPageBook
 			// 
@@ -147,7 +164,6 @@ namespace CovidAirlines
 			this.tabPageBook.TabIndex = 0;
 			this.tabPageBook.Text = "Book Flight";
 			this.tabPageBook.UseVisualStyleBackColor = true;
-			this.tabPageBook.Click += new System.EventHandler(this.tabPageBook_Click);
 			// 
 			// labelSearchResponse
 			// 
@@ -249,7 +265,6 @@ namespace CovidAirlines
 			this.dateTimePickerReturn.Name = "dateTimePickerReturn";
 			this.dateTimePickerReturn.Size = new System.Drawing.Size(200, 20);
 			this.dateTimePickerReturn.TabIndex = 5;
-			this.dateTimePickerReturn.ValueChanged += new System.EventHandler(this.dateTimePickerReturn_ValueChanged);
 			// 
 			// labelDates
 			// 
@@ -329,7 +344,6 @@ namespace CovidAirlines
 			this.comboBoxOrigin.Size = new System.Drawing.Size(200, 21);
 			this.comboBoxOrigin.Sorted = true;
 			this.comboBoxOrigin.TabIndex = 0;
-			this.comboBoxOrigin.SelectedIndexChanged += new System.EventHandler(this.comboBoxOrigin_SelectedIndexChanged);
 			// 
 			// tabPageHistory
 			// 
@@ -488,6 +502,12 @@ namespace CovidAirlines
 			// 
 			// tabPageAccount
 			// 
+			this.tabPageAccount.Controls.Add(this.labelRedeemedHere);
+			this.tabPageAccount.Controls.Add(this.labelRedeemed);
+			this.tabPageAccount.Controls.Add(this.labelPoints);
+			this.tabPageAccount.Controls.Add(this.labelPointsHere);
+			this.tabPageAccount.Controls.Add(this.labelUserIDHere);
+			this.tabPageAccount.Controls.Add(this.labelUserID);
 			this.tabPageAccount.Controls.Add(this.labelResult);
 			this.tabPageAccount.Controls.Add(this.labelUpdateAccount);
 			this.tabPageAccount.Controls.Add(this.buttonUpdate);
@@ -499,6 +519,72 @@ namespace CovidAirlines
 			this.tabPageAccount.TabIndex = 2;
 			this.tabPageAccount.Text = "Account Information";
 			this.tabPageAccount.UseVisualStyleBackColor = true;
+			// 
+			// labelRedeemedHere
+			// 
+			this.labelRedeemedHere.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.labelRedeemedHere.AutoSize = true;
+			this.labelRedeemedHere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelRedeemedHere.Location = new System.Drawing.Point(820, 56);
+			this.labelRedeemedHere.Name = "labelRedeemedHere";
+			this.labelRedeemedHere.Size = new System.Drawing.Size(81, 16);
+			this.labelRedeemedHere.TabIndex = 18;
+			this.labelRedeemedHere.Text = "0,000,000";
+			// 
+			// labelRedeemed
+			// 
+			this.labelRedeemed.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.labelRedeemed.AutoSize = true;
+			this.labelRedeemed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelRedeemed.Location = new System.Drawing.Point(628, 56);
+			this.labelRedeemed.Name = "labelRedeemed";
+			this.labelRedeemed.Size = new System.Drawing.Size(186, 16);
+			this.labelRedeemed.TabIndex = 18;
+			this.labelRedeemed.Text = "Total Points Redeemed: ";
+			// 
+			// labelPoints
+			// 
+			this.labelPoints.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.labelPoints.AutoSize = true;
+			this.labelPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelPoints.Location = new System.Drawing.Point(408, 56);
+			this.labelPoints.Name = "labelPoints";
+			this.labelPoints.Size = new System.Drawing.Size(129, 16);
+			this.labelPoints.TabIndex = 17;
+			this.labelPoints.Text = "Available Points:";
+			// 
+			// labelPointsHere
+			// 
+			this.labelPointsHere.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.labelPointsHere.AutoSize = true;
+			this.labelPointsHere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelPointsHere.Location = new System.Drawing.Point(543, 56);
+			this.labelPointsHere.Name = "labelPointsHere";
+			this.labelPointsHere.Size = new System.Drawing.Size(67, 16);
+			this.labelPointsHere.TabIndex = 17;
+			this.labelPointsHere.Text = "000,000";
+			// 
+			// labelUserIDHere
+			// 
+			this.labelUserIDHere.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.labelUserIDHere.AutoSize = true;
+			this.labelUserIDHere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelUserIDHere.Location = new System.Drawing.Point(311, 56);
+			this.labelUserIDHere.Name = "labelUserIDHere";
+			this.labelUserIDHere.Size = new System.Drawing.Size(62, 16);
+			this.labelUserIDHere.TabIndex = 16;
+			this.labelUserIDHere.Text = "000000";
+			// 
+			// labelUserID
+			// 
+			this.labelUserID.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.labelUserID.AutoSize = true;
+			this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelUserID.Location = new System.Drawing.Point(236, 56);
+			this.labelUserID.Name = "labelUserID";
+			this.labelUserID.Size = new System.Drawing.Size(69, 16);
+			this.labelUserID.TabIndex = 16;
+			this.labelUserID.Text = "UserID: ";
 			// 
 			// labelResult
 			// 
@@ -531,6 +617,7 @@ namespace CovidAirlines
 			this.buttonUpdate.TabIndex = 2;
 			this.buttonUpdate.Text = "Update Account";
 			this.buttonUpdate.UseVisualStyleBackColor = true;
+			this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
 			// 
 			// groupBoxBilling
 			// 
@@ -611,8 +698,7 @@ namespace CovidAirlines
 			// groupBoxContactInfo
 			// 
 			this.groupBoxContactInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.groupBoxContactInfo.Controls.Add(this.textBoxCurrentPassword);
-			this.groupBoxContactInfo.Controls.Add(this.labelCurrentPassword);
+			this.groupBoxContactInfo.Controls.Add(this.checkBoxPassword);
 			this.groupBoxContactInfo.Controls.Add(this.textBoxConfirmPassword);
 			this.groupBoxContactInfo.Controls.Add(this.labelConfirmPassword);
 			this.groupBoxContactInfo.Controls.Add(this.labelNewPassword);
@@ -636,24 +722,20 @@ namespace CovidAirlines
 			this.groupBoxContactInfo.TabStop = false;
 			this.groupBoxContactInfo.Text = "Contact Information";
 			// 
-			// textBoxCurrentPassword
+			// checkBoxPassword
 			// 
-			this.textBoxCurrentPassword.Location = new System.Drawing.Point(113, 47);
-			this.textBoxCurrentPassword.Name = "textBoxCurrentPassword";
-			this.textBoxCurrentPassword.Size = new System.Drawing.Size(198, 20);
-			this.textBoxCurrentPassword.TabIndex = 1;
-			// 
-			// labelCurrentPassword
-			// 
-			this.labelCurrentPassword.AutoSize = true;
-			this.labelCurrentPassword.Location = new System.Drawing.Point(18, 50);
-			this.labelCurrentPassword.Name = "labelCurrentPassword";
-			this.labelCurrentPassword.Size = new System.Drawing.Size(90, 13);
-			this.labelCurrentPassword.TabIndex = 7;
-			this.labelCurrentPassword.Text = "Current Password";
+			this.checkBoxPassword.AutoSize = true;
+			this.checkBoxPassword.Location = new System.Drawing.Point(113, 49);
+			this.checkBoxPassword.Name = "checkBoxPassword";
+			this.checkBoxPassword.Size = new System.Drawing.Size(110, 17);
+			this.checkBoxPassword.TabIndex = 9;
+			this.checkBoxPassword.Text = "Update Password";
+			this.checkBoxPassword.UseVisualStyleBackColor = true;
+			this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
 			// 
 			// textBoxConfirmPassword
 			// 
+			this.textBoxConfirmPassword.Enabled = false;
 			this.textBoxConfirmPassword.Location = new System.Drawing.Point(113, 101);
 			this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
 			this.textBoxConfirmPassword.Size = new System.Drawing.Size(197, 20);
@@ -680,6 +762,7 @@ namespace CovidAirlines
 			// 
 			// textBoxNewPassword
 			// 
+			this.textBoxNewPassword.Enabled = false;
 			this.textBoxNewPassword.Location = new System.Drawing.Point(113, 74);
 			this.textBoxNewPassword.Name = "textBoxNewPassword";
 			this.textBoxNewPassword.Size = new System.Drawing.Size(197, 20);
@@ -782,6 +865,34 @@ namespace CovidAirlines
 			this.labelName.TabIndex = 0;
 			this.labelName.Text = "Name";
 			// 
+			// covidAirlinesCities
+			// 
+			this.covidAirlinesCities.DataSetName = "CovidAirlinesCities";
+			this.covidAirlinesCities.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// cityBindingSource
+			// 
+			this.cityBindingSource.DataMember = "City";
+			this.cityBindingSource.DataSource = this.covidAirlinesCities;
+			// 
+			// cityTableAdapter
+			// 
+			this.cityTableAdapter.ClearBeforeFill = true;
+			// 
+			// covidAirlinesDataSet1
+			// 
+			this.covidAirlinesDataSet1.DataSetName = "CovidAirlinesDataSet1";
+			this.covidAirlinesDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// transactionBindingSource
+			// 
+			this.transactionBindingSource.DataMember = "Transaction";
+			this.transactionBindingSource.DataSource = this.covidAirlinesDataSet1;
+			// 
+			// transactionTableAdapter
+			// 
+			this.transactionTableAdapter.ClearBeforeFill = true;
+			// 
 			// FormCustomer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -808,6 +919,10 @@ namespace CovidAirlines
 			this.groupBoxContactInfo.ResumeLayout(false);
 			this.groupBoxContactInfo.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericAge)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesCities)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesDataSet1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -859,8 +974,6 @@ namespace CovidAirlines
 		private System.Windows.Forms.ComboBox comboBoxOrigin;
 		private System.Windows.Forms.Label labelArrow1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label labelCurrentPassword;
-		private System.Windows.Forms.TextBox textBoxCurrentPassword;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.ListView listViewHistory;
 		private System.Windows.Forms.ColumnHeader columnHeaderFlightID;
@@ -883,5 +996,18 @@ namespace CovidAirlines
 		private System.Windows.Forms.ColumnHeader columnHeaderStop2;
 		private System.Windows.Forms.ColumnHeader columnHeaderS2Depart;
 		private System.Windows.Forms.ColumnHeader columnHeaderStatus;
+		private CovidAirlinesCities covidAirlinesCities;
+		private System.Windows.Forms.BindingSource cityBindingSource;
+		private CovidAirlinesCitiesTableAdapters.CityTableAdapter cityTableAdapter;
+		private System.Windows.Forms.Label labelRedeemedHere;
+		private System.Windows.Forms.Label labelRedeemed;
+		private System.Windows.Forms.Label labelPoints;
+		private System.Windows.Forms.Label labelPointsHere;
+		private System.Windows.Forms.Label labelUserIDHere;
+		private System.Windows.Forms.Label labelUserID;
+		private System.Windows.Forms.CheckBox checkBoxPassword;
+		private CovidAirlinesDataSet1 covidAirlinesDataSet1;
+		private System.Windows.Forms.BindingSource transactionBindingSource;
+		private CovidAirlinesDataSet1TableAdapters.TransactionTableAdapter transactionTableAdapter;
 	}
 }
