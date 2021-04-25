@@ -71,6 +71,7 @@ namespace CovidAirlines
 			this.listViewSchedule.TabIndex = 6;
 			this.listViewSchedule.UseCompatibleStateImageBehavior = false;
 			this.listViewSchedule.View = System.Windows.Forms.View.Details;
+			this.listViewSchedule.SelectedIndexChanged += new System.EventHandler(this.listViewSchedule_SelectedIndexChanged);
 			// 
 			// columnHeaderFlightID
 			// 
@@ -132,6 +133,7 @@ namespace CovidAirlines
 			// 
 			// buttonGenerate
 			// 
+			this.buttonGenerate.Enabled = false;
 			this.buttonGenerate.Location = new System.Drawing.Point(13, 306);
 			this.buttonGenerate.Name = "buttonGenerate";
 			this.buttonGenerate.Size = new System.Drawing.Size(148, 23);

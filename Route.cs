@@ -18,6 +18,7 @@ namespace CovidAirlines
         public Route()
         {
             this.Transactions = new ObservableListSource<Transaction>();
+            this.Flights = new ObservableListSource<Flight>();
         }
     
         public int RouteID { get; set; }
@@ -39,5 +40,7 @@ namespace CovidAirlines
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableListSource<Transaction> Transactions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableListSource<Flight> Flights { get; set; }
     }
 }

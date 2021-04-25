@@ -69,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CovidAirlinesDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CovidAirlinesDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CovidAirlinesDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CovidAirlinesDataSetRoutes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +98,9 @@
     <Compile Include="Enums\PaymentType.cs" />
     <Compile Include="Enums\StatusType.cs" />
     <Compile Include="Enums\UserType.cs" />
+    <Compile Include="Flight.cs">
+      <DependentUpon>CovidAirlinesModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ObservableListSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,17 +132,11 @@
     <Compile Include="WinForms\Customer\FormBoardingPass.Designer.cs">
       <DependentUpon>FormBoardingPass.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\Customer\FormBookDepartFlight.cs">
+    <Compile Include="WinForms\Customer\FormChooseFlight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForms\Customer\FormBookDepartFlight.Designer.cs">
-      <DependentUpon>FormBookDepartFlight.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForms\Customer\FormBookReturnFlight.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForms\Customer\FormBookReturnFlight.Designer.cs">
-      <DependentUpon>FormBookReturnFlight.cs</DependentUpon>
+    <Compile Include="WinForms\Customer\FormChooseFlight.Designer.cs">
+      <DependentUpon>FormChooseFlight.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\Customer\FormConfirmation.cs">
       <SubType>Form</SubType>
@@ -202,11 +204,8 @@
     <EmbeddedResource Include="WinForms\Customer\FormBoardingPass.resx">
       <DependentUpon>FormBoardingPass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\Customer\FormBookDepartFlight.resx">
-      <DependentUpon>FormBookDepartFlight.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\Customer\FormBookReturnFlight.resx">
-      <DependentUpon>FormBookReturnFlight.cs</DependentUpon>
+    <EmbeddedResource Include="WinForms\Customer\FormChooseFlight.resx">
+      <DependentUpon>FormChooseFlight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\Customer\FormConfirmation.resx">
       <DependentUpon>FormConfirmation.cs</DependentUpon>
@@ -268,6 +267,17 @@
     </None>
     <None Include="CovidAirlinesDataSet1.xss">
       <DependentUpon>CovidAirlinesDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSet2.xsc">
+      <DependentUpon>CovidAirlinesDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CovidAirlinesDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CovidAirlinesDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CovidAirlinesDataSet2.xss">
+      <DependentUpon>CovidAirlinesDataSet2.xsd</DependentUpon>
     </None>
     <None Include="CovidAirlinesDataSetRoutes.xsc">
       <DependentUpon>CovidAirlinesDataSetRoutes.xsd</DependentUpon>

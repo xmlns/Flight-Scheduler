@@ -41,6 +41,8 @@ namespace CovidAirlines
 
 		private void FormLoad_Load_1(object sender, EventArgs e)
 		{
+			// TODO: This line of code loads data into the 'covidAirlinesDataSet2.Route' table. You can move, or remove it, as needed.
+			this.routeTableAdapter.Fill(this.covidAirlinesDataSet2.Route);
 
 		}
 	}

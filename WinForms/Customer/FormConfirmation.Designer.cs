@@ -80,20 +80,20 @@ namespace CovidAirlines
 			this.labelROrigin = new System.Windows.Forms.Label();
 			this.labelRDepart = new System.Windows.Forms.Label();
 			this.groupBoxCost = new System.Windows.Forms.GroupBox();
-			this.buttonOrder = new System.Windows.Forms.Button();
-			this.buttonCancel = new System.Windows.Forms.Button();
-			this.labelCostDepart1 = new System.Windows.Forms.Label();
-			this.labelCostDepart = new System.Windows.Forms.Label();
-			this.labelCostReturn1 = new System.Windows.Forms.Label();
-			this.labelCostReturn = new System.Windows.Forms.Label();
-			this.labelTotalCost1 = new System.Windows.Forms.Label();
-			this.labelTotalCost = new System.Windows.Forms.Label();
-			this.radioButtonCredit = new System.Windows.Forms.RadioButton();
-			this.labelPaymentMethod = new System.Windows.Forms.Label();
 			this.radioButtonPoints = new System.Windows.Forms.RadioButton();
-			this.labelTotalPoints1 = new System.Windows.Forms.Label();
+			this.radioButtonCredit = new System.Windows.Forms.RadioButton();
 			this.labelTotalPoints = new System.Windows.Forms.Label();
 			this.labelOr = new System.Windows.Forms.Label();
+			this.labelTotalCost = new System.Windows.Forms.Label();
+			this.labelCostReturn = new System.Windows.Forms.Label();
+			this.labelCostDepart = new System.Windows.Forms.Label();
+			this.labelPaymentMethod = new System.Windows.Forms.Label();
+			this.labelTotalPoints1 = new System.Windows.Forms.Label();
+			this.labelTotalCost1 = new System.Windows.Forms.Label();
+			this.labelCostReturn1 = new System.Windows.Forms.Label();
+			this.labelCostDepart1 = new System.Windows.Forms.Label();
+			this.buttonOrder = new System.Windows.Forms.Button();
+			this.buttonCancel = new System.Windows.Forms.Button();
 			this.groupBoxDepartureFlight.SuspendLayout();
 			this.groupBoxReturnFlight.SuspendLayout();
 			this.groupBoxCost.SuspendLayout();
@@ -137,9 +137,10 @@ namespace CovidAirlines
 			this.labelDStop2.ForeColor = System.Drawing.Color.Black;
 			this.labelDStop2.Location = new System.Drawing.Point(17, 217);
 			this.labelDStop2.Name = "labelDStop2";
-			this.labelDStop2.Size = new System.Drawing.Size(120, 13);
+			this.labelDStop2.Size = new System.Drawing.Size(27, 13);
 			this.labelDStop2.TabIndex = 26;
-			this.labelDStop2.Text = "*Stop2 City Listed Here*";
+			this.labelDStop2.Text = "N/A";
+			this.labelDStop2.Visible = false;
 			// 
 			// labelDStop2Depart
 			// 
@@ -147,9 +148,10 @@ namespace CovidAirlines
 			this.labelDStop2Depart.ForeColor = System.Drawing.Color.Black;
 			this.labelDStop2Depart.Location = new System.Drawing.Point(382, 217);
 			this.labelDStop2Depart.Name = "labelDStop2Depart";
-			this.labelDStop2Depart.Size = new System.Drawing.Size(135, 13);
+			this.labelDStop2Depart.Size = new System.Drawing.Size(27, 13);
 			this.labelDStop2Depart.TabIndex = 25;
-			this.labelDStop2Depart.Text = "*Stop2 Depart Listed Here*";
+			this.labelDStop2Depart.Text = "N/A";
+			this.labelDStop2Depart.Visible = false;
 			// 
 			// labelDStop2Arrive
 			// 
@@ -157,9 +159,10 @@ namespace CovidAirlines
 			this.labelDStop2Arrive.ForeColor = System.Drawing.Color.Black;
 			this.labelDStop2Arrive.Location = new System.Drawing.Point(201, 217);
 			this.labelDStop2Arrive.Name = "labelDStop2Arrive";
-			this.labelDStop2Arrive.Size = new System.Drawing.Size(132, 13);
+			this.labelDStop2Arrive.Size = new System.Drawing.Size(27, 13);
 			this.labelDStop2Arrive.TabIndex = 24;
-			this.labelDStop2Arrive.Text = "*Stop2 Arrival Listed Here*";
+			this.labelDStop2Arrive.Text = "N/A";
+			this.labelDStop2Arrive.Visible = false;
 			// 
 			// labelDStop1Depart
 			// 
@@ -167,9 +170,10 @@ namespace CovidAirlines
 			this.labelDStop1Depart.ForeColor = System.Drawing.Color.Black;
 			this.labelDStop1Depart.Location = new System.Drawing.Point(382, 159);
 			this.labelDStop1Depart.Name = "labelDStop1Depart";
-			this.labelDStop1Depart.Size = new System.Drawing.Size(135, 13);
+			this.labelDStop1Depart.Size = new System.Drawing.Size(27, 13);
 			this.labelDStop1Depart.TabIndex = 23;
-			this.labelDStop1Depart.Text = "*Stop1 Depart Listed Here*";
+			this.labelDStop1Depart.Text = "N/A";
+			this.labelDStop1Depart.Visible = false;
 			// 
 			// labelDStop1Arrive
 			// 
@@ -177,9 +181,10 @@ namespace CovidAirlines
 			this.labelDStop1Arrive.ForeColor = System.Drawing.Color.Black;
 			this.labelDStop1Arrive.Location = new System.Drawing.Point(201, 159);
 			this.labelDStop1Arrive.Name = "labelDStop1Arrive";
-			this.labelDStop1Arrive.Size = new System.Drawing.Size(132, 13);
+			this.labelDStop1Arrive.Size = new System.Drawing.Size(27, 13);
 			this.labelDStop1Arrive.TabIndex = 22;
-			this.labelDStop1Arrive.Text = "*Stop1 Arrival Listed Here*";
+			this.labelDStop1Arrive.Text = "N/A";
+			this.labelDStop1Arrive.Visible = false;
 			// 
 			// labelDStop1
 			// 
@@ -187,9 +192,10 @@ namespace CovidAirlines
 			this.labelDStop1.ForeColor = System.Drawing.Color.Black;
 			this.labelDStop1.Location = new System.Drawing.Point(17, 159);
 			this.labelDStop1.Name = "labelDStop1";
-			this.labelDStop1.Size = new System.Drawing.Size(120, 13);
+			this.labelDStop1.Size = new System.Drawing.Size(27, 13);
 			this.labelDStop1.TabIndex = 21;
-			this.labelDStop1.Text = "*Stop1 City Listed Here*";
+			this.labelDStop1.Text = "N/A";
+			this.labelDStop1.Visible = false;
 			// 
 			// labelDArrive
 			// 
@@ -272,6 +278,7 @@ namespace CovidAirlines
 			this.labelDStop21.Size = new System.Drawing.Size(109, 13);
 			this.labelDStop21.TabIndex = 13;
 			this.labelDStop21.Text = "Second Stop City:";
+			this.labelDStop21.Visible = false;
 			// 
 			// labelDStop2Depart1
 			// 
@@ -283,6 +290,7 @@ namespace CovidAirlines
 			this.labelDStop2Depart1.Size = new System.Drawing.Size(175, 13);
 			this.labelDStop2Depart1.TabIndex = 12;
 			this.labelDStop2Depart1.Text = "Second Stop Departure Time:";
+			this.labelDStop2Depart1.Visible = false;
 			// 
 			// labelDStop2Arrive1
 			// 
@@ -294,6 +302,7 @@ namespace CovidAirlines
 			this.labelDStop2Arrive1.Size = new System.Drawing.Size(155, 13);
 			this.labelDStop2Arrive1.TabIndex = 11;
 			this.labelDStop2Arrive1.Text = "Second Stop Arrival Time:";
+			this.labelDStop2Arrive1.Visible = false;
 			// 
 			// labelDStop1Depart1
 			// 
@@ -305,6 +314,7 @@ namespace CovidAirlines
 			this.labelDStop1Depart1.Size = new System.Drawing.Size(156, 13);
 			this.labelDStop1Depart1.TabIndex = 10;
 			this.labelDStop1Depart1.Text = "First Stop Departure Time:";
+			this.labelDStop1Depart1.Visible = false;
 			// 
 			// labelDStop1Arrive1
 			// 
@@ -316,6 +326,7 @@ namespace CovidAirlines
 			this.labelDStop1Arrive1.Size = new System.Drawing.Size(136, 13);
 			this.labelDStop1Arrive1.TabIndex = 9;
 			this.labelDStop1Arrive1.Text = "First Stop Arrival Time:";
+			this.labelDStop1Arrive1.Visible = false;
 			// 
 			// labelDStop11
 			// 
@@ -327,6 +338,7 @@ namespace CovidAirlines
 			this.labelDStop11.Size = new System.Drawing.Size(90, 13);
 			this.labelDStop11.TabIndex = 8;
 			this.labelDStop11.Text = "First Stop City:";
+			this.labelDStop11.Visible = false;
 			// 
 			// labelDArrive1
 			// 
@@ -489,6 +501,7 @@ namespace CovidAirlines
 			this.labelRStop11.Size = new System.Drawing.Size(90, 13);
 			this.labelRStop11.TabIndex = 8;
 			this.labelRStop11.Text = "First Stop City:";
+			this.labelRStop11.Visible = false;
 			// 
 			// labelRDestination
 			// 
@@ -510,6 +523,7 @@ namespace CovidAirlines
 			this.labelRStop1Arrive1.Size = new System.Drawing.Size(136, 13);
 			this.labelRStop1Arrive1.TabIndex = 9;
 			this.labelRStop1Arrive1.Text = "First Stop Arrival Time:";
+			this.labelRStop1Arrive1.Visible = false;
 			// 
 			// labelRStop2
 			// 
@@ -517,9 +531,10 @@ namespace CovidAirlines
 			this.labelRStop2.ForeColor = System.Drawing.Color.Black;
 			this.labelRStop2.Location = new System.Drawing.Point(17, 217);
 			this.labelRStop2.Name = "labelRStop2";
-			this.labelRStop2.Size = new System.Drawing.Size(120, 13);
+			this.labelRStop2.Size = new System.Drawing.Size(27, 13);
 			this.labelRStop2.TabIndex = 26;
-			this.labelRStop2.Text = "*Stop2 City Listed Here*";
+			this.labelRStop2.Text = "N/A";
+			this.labelRStop2.Visible = false;
 			// 
 			// labelRStop1Depart1
 			// 
@@ -531,6 +546,7 @@ namespace CovidAirlines
 			this.labelRStop1Depart1.Size = new System.Drawing.Size(156, 13);
 			this.labelRStop1Depart1.TabIndex = 10;
 			this.labelRStop1Depart1.Text = "First Stop Departure Time:";
+			this.labelRStop1Depart1.Visible = false;
 			// 
 			// labelRStop2Depart
 			// 
@@ -538,9 +554,10 @@ namespace CovidAirlines
 			this.labelRStop2Depart.ForeColor = System.Drawing.Color.Black;
 			this.labelRStop2Depart.Location = new System.Drawing.Point(382, 217);
 			this.labelRStop2Depart.Name = "labelRStop2Depart";
-			this.labelRStop2Depart.Size = new System.Drawing.Size(135, 13);
+			this.labelRStop2Depart.Size = new System.Drawing.Size(27, 13);
 			this.labelRStop2Depart.TabIndex = 25;
-			this.labelRStop2Depart.Text = "*Stop2 Depart Listed Here*";
+			this.labelRStop2Depart.Text = "N/A";
+			this.labelRStop2Depart.Visible = false;
 			// 
 			// labelRStop2Arrive1
 			// 
@@ -552,6 +569,7 @@ namespace CovidAirlines
 			this.labelRStop2Arrive1.Size = new System.Drawing.Size(155, 13);
 			this.labelRStop2Arrive1.TabIndex = 11;
 			this.labelRStop2Arrive1.Text = "Second Stop Arrival Time:";
+			this.labelRStop2Arrive1.Visible = false;
 			// 
 			// labelRStop2Arrive
 			// 
@@ -559,9 +577,10 @@ namespace CovidAirlines
 			this.labelRStop2Arrive.ForeColor = System.Drawing.Color.Black;
 			this.labelRStop2Arrive.Location = new System.Drawing.Point(201, 217);
 			this.labelRStop2Arrive.Name = "labelRStop2Arrive";
-			this.labelRStop2Arrive.Size = new System.Drawing.Size(132, 13);
+			this.labelRStop2Arrive.Size = new System.Drawing.Size(27, 13);
 			this.labelRStop2Arrive.TabIndex = 24;
-			this.labelRStop2Arrive.Text = "*Stop2 Arrival Listed Here*";
+			this.labelRStop2Arrive.Text = "N/A";
+			this.labelRStop2Arrive.Visible = false;
 			// 
 			// labelRStop2Depart1
 			// 
@@ -573,6 +592,7 @@ namespace CovidAirlines
 			this.labelRStop2Depart1.Size = new System.Drawing.Size(175, 13);
 			this.labelRStop2Depart1.TabIndex = 12;
 			this.labelRStop2Depart1.Text = "Second Stop Departure Time:";
+			this.labelRStop2Depart1.Visible = false;
 			// 
 			// labelRStop1Depart
 			// 
@@ -580,9 +600,10 @@ namespace CovidAirlines
 			this.labelRStop1Depart.ForeColor = System.Drawing.Color.Black;
 			this.labelRStop1Depart.Location = new System.Drawing.Point(382, 159);
 			this.labelRStop1Depart.Name = "labelRStop1Depart";
-			this.labelRStop1Depart.Size = new System.Drawing.Size(135, 13);
+			this.labelRStop1Depart.Size = new System.Drawing.Size(27, 13);
 			this.labelRStop1Depart.TabIndex = 23;
-			this.labelRStop1Depart.Text = "*Stop1 Depart Listed Here*";
+			this.labelRStop1Depart.Text = "N/A";
+			this.labelRStop1Depart.Visible = false;
 			// 
 			// labelRStop21
 			// 
@@ -594,6 +615,7 @@ namespace CovidAirlines
 			this.labelRStop21.Size = new System.Drawing.Size(109, 13);
 			this.labelRStop21.TabIndex = 13;
 			this.labelRStop21.Text = "Second Stop City:";
+			this.labelRStop21.Visible = false;
 			// 
 			// labelRStop1Arrive
 			// 
@@ -601,9 +623,10 @@ namespace CovidAirlines
 			this.labelRStop1Arrive.ForeColor = System.Drawing.Color.Black;
 			this.labelRStop1Arrive.Location = new System.Drawing.Point(201, 159);
 			this.labelRStop1Arrive.Name = "labelRStop1Arrive";
-			this.labelRStop1Arrive.Size = new System.Drawing.Size(132, 13);
+			this.labelRStop1Arrive.Size = new System.Drawing.Size(27, 13);
 			this.labelRStop1Arrive.TabIndex = 22;
-			this.labelRStop1Arrive.Text = "*Stop1 Arrival Listed Here*";
+			this.labelRStop1Arrive.Text = "N/A";
+			this.labelRStop1Arrive.Visible = false;
 			// 
 			// labelRDestination1
 			// 
@@ -622,9 +645,10 @@ namespace CovidAirlines
 			this.labelRStop1.ForeColor = System.Drawing.Color.Black;
 			this.labelRStop1.Location = new System.Drawing.Point(17, 159);
 			this.labelRStop1.Name = "labelRStop1";
-			this.labelRStop1.Size = new System.Drawing.Size(120, 13);
+			this.labelRStop1.Size = new System.Drawing.Size(27, 13);
 			this.labelRStop1.TabIndex = 21;
-			this.labelRStop1.Text = "*Stop1 City Listed Here*";
+			this.labelRStop1.Text = "N/A";
+			this.labelRStop1.Visible = false;
 			// 
 			// labelRFlightNum
 			// 
@@ -687,84 +711,15 @@ namespace CovidAirlines
 			this.groupBoxCost.TabStop = false;
 			this.groupBoxCost.Text = "Cost Breakdown";
 			// 
-			// buttonOrder
+			// radioButtonPoints
 			// 
-			this.buttonOrder.Location = new System.Drawing.Point(825, 316);
-			this.buttonOrder.Name = "buttonOrder";
-			this.buttonOrder.Size = new System.Drawing.Size(101, 23);
-			this.buttonOrder.TabIndex = 35;
-			this.buttonOrder.Text = "Confirm Order";
-			this.buttonOrder.UseVisualStyleBackColor = true;
-			// 
-			// buttonCancel
-			// 
-			this.buttonCancel.ForeColor = System.Drawing.Color.Red;
-			this.buttonCancel.Location = new System.Drawing.Point(825, 543);
-			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(101, 23);
-			this.buttonCancel.TabIndex = 35;
-			this.buttonCancel.Text = "CANCEL ORDER";
-			this.buttonCancel.UseVisualStyleBackColor = true;
-			// 
-			// labelCostDepart1
-			// 
-			this.labelCostDepart1.AutoSize = true;
-			this.labelCostDepart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelCostDepart1.ForeColor = System.Drawing.Color.Black;
-			this.labelCostDepart1.Location = new System.Drawing.Point(6, 25);
-			this.labelCostDepart1.Name = "labelCostDepart1";
-			this.labelCostDepart1.Size = new System.Drawing.Size(102, 13);
-			this.labelCostDepart1.TabIndex = 4;
-			this.labelCostDepart1.Text = "Departure Flight:";
-			// 
-			// labelCostDepart
-			// 
-			this.labelCostDepart.AutoSize = true;
-			this.labelCostDepart.Location = new System.Drawing.Point(115, 25);
-			this.labelCostDepart.Name = "labelCostDepart";
-			this.labelCostDepart.Size = new System.Drawing.Size(39, 13);
-			this.labelCostDepart.TabIndex = 5;
-			this.labelCostDepart.Text = "*$100*";
-			// 
-			// labelCostReturn1
-			// 
-			this.labelCostReturn1.AutoSize = true;
-			this.labelCostReturn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelCostReturn1.ForeColor = System.Drawing.Color.Black;
-			this.labelCostReturn1.Location = new System.Drawing.Point(6, 43);
-			this.labelCostReturn1.Name = "labelCostReturn1";
-			this.labelCostReturn1.Size = new System.Drawing.Size(84, 13);
-			this.labelCostReturn1.TabIndex = 4;
-			this.labelCostReturn1.Text = "Return Flight:";
-			// 
-			// labelCostReturn
-			// 
-			this.labelCostReturn.AutoSize = true;
-			this.labelCostReturn.Location = new System.Drawing.Point(115, 43);
-			this.labelCostReturn.Name = "labelCostReturn";
-			this.labelCostReturn.Size = new System.Drawing.Size(39, 13);
-			this.labelCostReturn.TabIndex = 5;
-			this.labelCostReturn.Text = "*$200*";
-			// 
-			// labelTotalCost1
-			// 
-			this.labelTotalCost1.AutoSize = true;
-			this.labelTotalCost1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTotalCost1.ForeColor = System.Drawing.Color.Black;
-			this.labelTotalCost1.Location = new System.Drawing.Point(6, 176);
-			this.labelTotalCost1.Name = "labelTotalCost1";
-			this.labelTotalCost1.Size = new System.Drawing.Size(69, 13);
-			this.labelTotalCost1.TabIndex = 4;
-			this.labelTotalCost1.Text = "Total Cost:";
-			// 
-			// labelTotalCost
-			// 
-			this.labelTotalCost.AutoSize = true;
-			this.labelTotalCost.Location = new System.Drawing.Point(115, 176);
-			this.labelTotalCost.Name = "labelTotalCost";
-			this.labelTotalCost.Size = new System.Drawing.Size(39, 13);
-			this.labelTotalCost.TabIndex = 5;
-			this.labelTotalCost.Text = "*$300*";
+			this.radioButtonPoints.AutoSize = true;
+			this.radioButtonPoints.Location = new System.Drawing.Point(9, 123);
+			this.radioButtonPoints.Name = "radioButtonPoints";
+			this.radioButtonPoints.Size = new System.Drawing.Size(94, 17);
+			this.radioButtonPoints.TabIndex = 6;
+			this.radioButtonPoints.Text = "Reward Points";
+			this.radioButtonPoints.UseVisualStyleBackColor = true;
 			// 
 			// radioButtonCredit
 			// 
@@ -777,38 +732,6 @@ namespace CovidAirlines
 			this.radioButtonCredit.TabStop = true;
 			this.radioButtonCredit.Text = "Credit Card on File";
 			this.radioButtonCredit.UseVisualStyleBackColor = true;
-			// 
-			// labelPaymentMethod
-			// 
-			this.labelPaymentMethod.AutoSize = true;
-			this.labelPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPaymentMethod.ForeColor = System.Drawing.Color.Black;
-			this.labelPaymentMethod.Location = new System.Drawing.Point(6, 84);
-			this.labelPaymentMethod.Name = "labelPaymentMethod";
-			this.labelPaymentMethod.Size = new System.Drawing.Size(105, 13);
-			this.labelPaymentMethod.TabIndex = 4;
-			this.labelPaymentMethod.Text = "Payment Method:";
-			// 
-			// radioButtonPoints
-			// 
-			this.radioButtonPoints.AutoSize = true;
-			this.radioButtonPoints.Location = new System.Drawing.Point(9, 123);
-			this.radioButtonPoints.Name = "radioButtonPoints";
-			this.radioButtonPoints.Size = new System.Drawing.Size(94, 17);
-			this.radioButtonPoints.TabIndex = 6;
-			this.radioButtonPoints.Text = "Reward Points";
-			this.radioButtonPoints.UseVisualStyleBackColor = true;
-			// 
-			// labelTotalPoints1
-			// 
-			this.labelTotalPoints1.AutoSize = true;
-			this.labelTotalPoints1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelTotalPoints1.ForeColor = System.Drawing.Color.Black;
-			this.labelTotalPoints1.Location = new System.Drawing.Point(6, 215);
-			this.labelTotalPoints1.Name = "labelTotalPoints1";
-			this.labelTotalPoints1.Size = new System.Drawing.Size(79, 13);
-			this.labelTotalPoints1.TabIndex = 4;
-			this.labelTotalPoints1.Text = "Total Points:";
 			// 
 			// labelTotalPoints
 			// 
@@ -828,11 +751,117 @@ namespace CovidAirlines
 			this.labelOr.TabIndex = 5;
 			this.labelOr.Text = "OR";
 			// 
+			// labelTotalCost
+			// 
+			this.labelTotalCost.AutoSize = true;
+			this.labelTotalCost.Location = new System.Drawing.Point(115, 176);
+			this.labelTotalCost.Name = "labelTotalCost";
+			this.labelTotalCost.Size = new System.Drawing.Size(39, 13);
+			this.labelTotalCost.TabIndex = 5;
+			this.labelTotalCost.Text = "*$300*";
+			// 
+			// labelCostReturn
+			// 
+			this.labelCostReturn.AutoSize = true;
+			this.labelCostReturn.Location = new System.Drawing.Point(115, 43);
+			this.labelCostReturn.Name = "labelCostReturn";
+			this.labelCostReturn.Size = new System.Drawing.Size(13, 13);
+			this.labelCostReturn.TabIndex = 5;
+			this.labelCostReturn.Text = "0";
+			this.labelCostReturn.Visible = false;
+			// 
+			// labelCostDepart
+			// 
+			this.labelCostDepart.AutoSize = true;
+			this.labelCostDepart.Location = new System.Drawing.Point(115, 25);
+			this.labelCostDepart.Name = "labelCostDepart";
+			this.labelCostDepart.Size = new System.Drawing.Size(13, 13);
+			this.labelCostDepart.TabIndex = 5;
+			this.labelCostDepart.Text = "0";
+			// 
+			// labelPaymentMethod
+			// 
+			this.labelPaymentMethod.AutoSize = true;
+			this.labelPaymentMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelPaymentMethod.ForeColor = System.Drawing.Color.Black;
+			this.labelPaymentMethod.Location = new System.Drawing.Point(6, 84);
+			this.labelPaymentMethod.Name = "labelPaymentMethod";
+			this.labelPaymentMethod.Size = new System.Drawing.Size(105, 13);
+			this.labelPaymentMethod.TabIndex = 4;
+			this.labelPaymentMethod.Text = "Payment Method:";
+			// 
+			// labelTotalPoints1
+			// 
+			this.labelTotalPoints1.AutoSize = true;
+			this.labelTotalPoints1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelTotalPoints1.ForeColor = System.Drawing.Color.Black;
+			this.labelTotalPoints1.Location = new System.Drawing.Point(6, 215);
+			this.labelTotalPoints1.Name = "labelTotalPoints1";
+			this.labelTotalPoints1.Size = new System.Drawing.Size(79, 13);
+			this.labelTotalPoints1.TabIndex = 4;
+			this.labelTotalPoints1.Text = "Total Points:";
+			// 
+			// labelTotalCost1
+			// 
+			this.labelTotalCost1.AutoSize = true;
+			this.labelTotalCost1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelTotalCost1.ForeColor = System.Drawing.Color.Black;
+			this.labelTotalCost1.Location = new System.Drawing.Point(6, 176);
+			this.labelTotalCost1.Name = "labelTotalCost1";
+			this.labelTotalCost1.Size = new System.Drawing.Size(69, 13);
+			this.labelTotalCost1.TabIndex = 4;
+			this.labelTotalCost1.Text = "Total Cost:";
+			// 
+			// labelCostReturn1
+			// 
+			this.labelCostReturn1.AutoSize = true;
+			this.labelCostReturn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelCostReturn1.ForeColor = System.Drawing.Color.Black;
+			this.labelCostReturn1.Location = new System.Drawing.Point(6, 43);
+			this.labelCostReturn1.Name = "labelCostReturn1";
+			this.labelCostReturn1.Size = new System.Drawing.Size(84, 13);
+			this.labelCostReturn1.TabIndex = 4;
+			this.labelCostReturn1.Text = "Return Flight:";
+			this.labelCostReturn1.Visible = false;
+			// 
+			// labelCostDepart1
+			// 
+			this.labelCostDepart1.AutoSize = true;
+			this.labelCostDepart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelCostDepart1.ForeColor = System.Drawing.Color.Black;
+			this.labelCostDepart1.Location = new System.Drawing.Point(6, 25);
+			this.labelCostDepart1.Name = "labelCostDepart1";
+			this.labelCostDepart1.Size = new System.Drawing.Size(102, 13);
+			this.labelCostDepart1.TabIndex = 4;
+			this.labelCostDepart1.Text = "Departure Flight:";
+			// 
+			// buttonOrder
+			// 
+			this.buttonOrder.Location = new System.Drawing.Point(825, 316);
+			this.buttonOrder.Name = "buttonOrder";
+			this.buttonOrder.Size = new System.Drawing.Size(101, 23);
+			this.buttonOrder.TabIndex = 35;
+			this.buttonOrder.Text = "Confirm Order";
+			this.buttonOrder.UseVisualStyleBackColor = true;
+			this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
+			// 
+			// buttonCancel
+			// 
+			this.buttonCancel.ForeColor = System.Drawing.Color.Red;
+			this.buttonCancel.Location = new System.Drawing.Point(825, 543);
+			this.buttonCancel.Name = "buttonCancel";
+			this.buttonCancel.Size = new System.Drawing.Size(101, 23);
+			this.buttonCancel.TabIndex = 35;
+			this.buttonCancel.Text = "CANCEL ORDER";
+			this.buttonCancel.UseVisualStyleBackColor = true;
+			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+			// 
 			// FormConfirmation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(949, 588);
+			this.ControlBox = false;
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.buttonOrder);
 			this.Controls.Add(this.groupBoxCost);
@@ -842,8 +871,11 @@ namespace CovidAirlines
 			this.Controls.Add(this.labelName1);
 			this.Controls.Add(this.labelAcctNumber);
 			this.Controls.Add(this.labelName);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "FormConfirmation";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Confirm Purchase?";
+			this.Load += new System.EventHandler(this.FormConfirmation_Load);
 			this.groupBoxDepartureFlight.ResumeLayout(false);
 			this.groupBoxDepartureFlight.PerformLayout();
 			this.groupBoxReturnFlight.ResumeLayout(false);

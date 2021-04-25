@@ -16,5 +16,18 @@ namespace CovidAirlines
 		{
 			InitializeComponent();
 		}
+
+		private void listViewSchedule_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listViewSchedule.SelectedItems.Count > 0)
+			{
+				buttonGenerate.Enabled = true;
+
+			}
+			else
+			{
+				buttonGenerate.Enabled = false;
+			}
+		}
 	}
 }

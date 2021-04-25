@@ -14,6 +14,8 @@
         <AssociationConnector Association="CovidAirlinesModel.FK_Route_City" ManuallyRouted="false" />
         <AssociationConnector Association="CovidAirlinesModel.FK_Transaction_Route" ManuallyRouted="false" />
         <AssociationConnector Association="CovidAirlinesModel.FK_Transaction_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CovidAirlinesModel.Flight" Width="1.5" PointX="5.25" PointY="7.875" />
+        <AssociationConnector Association="CovidAirlinesModel.FK_Flight_Route" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

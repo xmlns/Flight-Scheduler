@@ -56,32 +56,29 @@ namespace CovidAirlines
 			this.labelStop2Arrival = new System.Windows.Forms.Label();
 			this.checkBoxStop1 = new System.Windows.Forms.CheckBox();
 			this.checkBoxStop2 = new System.Windows.Forms.CheckBox();
+			this.labelError = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// comboBoxOrigin
 			// 
-			this.comboBoxOrigin.DataSource = this.cityBindingSource;
-			this.comboBoxOrigin.DisplayMember = "Name";
 			this.comboBoxOrigin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxOrigin.FormattingEnabled = true;
-			this.comboBoxOrigin.Location = new System.Drawing.Point(133, 23);
+			this.comboBoxOrigin.Location = new System.Drawing.Point(118, 23);
 			this.comboBoxOrigin.Name = "comboBoxOrigin";
-			this.comboBoxOrigin.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxOrigin.Size = new System.Drawing.Size(155, 21);
 			this.comboBoxOrigin.TabIndex = 0;
-			this.comboBoxOrigin.ValueMember = "Name";
 			this.comboBoxOrigin.SelectedIndexChanged += new System.EventHandler(this.comboBoxOrigin_SelectedIndexChanged);
 			// 
 			// cityBindingSource
 			// 
 			this.cityBindingSource.AllowNew = true;
 			this.cityBindingSource.DataMember = "Name";
-			//this.cityBindingSource.DataSource = typeof(CovidAirlines.Data.City);
 			// 
 			// labelOrigin
 			// 
 			this.labelOrigin.AutoSize = true;
-			this.labelOrigin.Location = new System.Drawing.Point(38, 27);
+			this.labelOrigin.Location = new System.Drawing.Point(23, 27);
 			this.labelOrigin.Name = "labelOrigin";
 			this.labelOrigin.Size = new System.Drawing.Size(54, 13);
 			this.labelOrigin.TabIndex = 1;
@@ -91,16 +88,16 @@ namespace CovidAirlines
 			// 
 			this.comboBoxDestination.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxDestination.FormattingEnabled = true;
-			this.comboBoxDestination.Location = new System.Drawing.Point(398, 23);
+			this.comboBoxDestination.Location = new System.Drawing.Point(388, 23);
 			this.comboBoxDestination.Name = "comboBoxDestination";
-			this.comboBoxDestination.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxDestination.Size = new System.Drawing.Size(155, 21);
 			this.comboBoxDestination.Sorted = true;
 			this.comboBoxDestination.TabIndex = 0;
 			// 
 			// labelDestination
 			// 
 			this.labelDestination.AutoSize = true;
-			this.labelDestination.Location = new System.Drawing.Point(299, 27);
+			this.labelDestination.Location = new System.Drawing.Point(289, 27);
 			this.labelDestination.Name = "labelDestination";
 			this.labelDestination.Size = new System.Drawing.Size(80, 13);
 			this.labelDestination.TabIndex = 1;
@@ -110,7 +107,7 @@ namespace CovidAirlines
 			// 
 			this.dateTimePickerDepart.CustomFormat = "h:mm tt";
 			this.dateTimePickerDepart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerDepart.Location = new System.Drawing.Point(133, 76);
+			this.dateTimePickerDepart.Location = new System.Drawing.Point(118, 76);
 			this.dateTimePickerDepart.Name = "dateTimePickerDepart";
 			this.dateTimePickerDepart.ShowUpDown = true;
 			this.dateTimePickerDepart.Size = new System.Drawing.Size(85, 20);
@@ -121,7 +118,7 @@ namespace CovidAirlines
 			// labelDeparture
 			// 
 			this.labelDeparture.AutoSize = true;
-			this.labelDeparture.Location = new System.Drawing.Point(38, 80);
+			this.labelDeparture.Location = new System.Drawing.Point(23, 80);
 			this.labelDeparture.Name = "labelDeparture";
 			this.labelDeparture.Size = new System.Drawing.Size(80, 13);
 			this.labelDeparture.TabIndex = 3;
@@ -131,7 +128,7 @@ namespace CovidAirlines
 			// 
 			this.dateTimePickerArrival.CustomFormat = "h:mm tt";
 			this.dateTimePickerArrival.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerArrival.Location = new System.Drawing.Point(398, 76);
+			this.dateTimePickerArrival.Location = new System.Drawing.Point(388, 76);
 			this.dateTimePickerArrival.Name = "dateTimePickerArrival";
 			this.dateTimePickerArrival.ShowUpDown = true;
 			this.dateTimePickerArrival.Size = new System.Drawing.Size(85, 20);
@@ -142,7 +139,7 @@ namespace CovidAirlines
 			// labelArrival
 			// 
 			this.labelArrival.AutoSize = true;
-			this.labelArrival.Location = new System.Drawing.Point(299, 80);
+			this.labelArrival.Location = new System.Drawing.Point(289, 80);
 			this.labelArrival.Name = "labelArrival";
 			this.labelArrival.Size = new System.Drawing.Size(62, 13);
 			this.labelArrival.TabIndex = 3;
@@ -153,16 +150,16 @@ namespace CovidAirlines
 			this.comboBoxStop1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxStop1.Enabled = false;
 			this.comboBoxStop1.FormattingEnabled = true;
-			this.comboBoxStop1.Location = new System.Drawing.Point(133, 155);
+			this.comboBoxStop1.Location = new System.Drawing.Point(118, 155);
 			this.comboBoxStop1.Name = "comboBoxStop1";
-			this.comboBoxStop1.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxStop1.Size = new System.Drawing.Size(155, 21);
 			this.comboBoxStop1.Sorted = true;
 			this.comboBoxStop1.TabIndex = 0;
 			// 
 			// labelStop1City
 			// 
 			this.labelStop1City.AutoSize = true;
-			this.labelStop1City.Location = new System.Drawing.Point(38, 159);
+			this.labelStop1City.Location = new System.Drawing.Point(23, 159);
 			this.labelStop1City.Name = "labelStop1City";
 			this.labelStop1City.Size = new System.Drawing.Size(58, 13);
 			this.labelStop1City.TabIndex = 1;
@@ -173,7 +170,7 @@ namespace CovidAirlines
 			this.dateTimePickerStop1Depart.CustomFormat = "h:mm tt";
 			this.dateTimePickerStop1Depart.Enabled = false;
 			this.dateTimePickerStop1Depart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerStop1Depart.Location = new System.Drawing.Point(133, 208);
+			this.dateTimePickerStop1Depart.Location = new System.Drawing.Point(118, 208);
 			this.dateTimePickerStop1Depart.Name = "dateTimePickerStop1Depart";
 			this.dateTimePickerStop1Depart.ShowUpDown = true;
 			this.dateTimePickerStop1Depart.Size = new System.Drawing.Size(85, 20);
@@ -184,7 +181,7 @@ namespace CovidAirlines
 			// labelStop1Depart
 			// 
 			this.labelStop1Depart.AutoSize = true;
-			this.labelStop1Depart.Location = new System.Drawing.Point(38, 212);
+			this.labelStop1Depart.Location = new System.Drawing.Point(23, 212);
 			this.labelStop1Depart.Name = "labelStop1Depart";
 			this.labelStop1Depart.Size = new System.Drawing.Size(80, 13);
 			this.labelStop1Depart.TabIndex = 3;
@@ -195,16 +192,16 @@ namespace CovidAirlines
 			this.comboBoxStop2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxStop2.Enabled = false;
 			this.comboBoxStop2.FormattingEnabled = true;
-			this.comboBoxStop2.Location = new System.Drawing.Point(398, 155);
+			this.comboBoxStop2.Location = new System.Drawing.Point(388, 155);
 			this.comboBoxStop2.Name = "comboBoxStop2";
-			this.comboBoxStop2.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxStop2.Size = new System.Drawing.Size(155, 21);
 			this.comboBoxStop2.Sorted = true;
 			this.comboBoxStop2.TabIndex = 0;
 			// 
 			// labelStop2City
 			// 
 			this.labelStop2City.AutoSize = true;
-			this.labelStop2City.Location = new System.Drawing.Point(299, 159);
+			this.labelStop2City.Location = new System.Drawing.Point(289, 159);
 			this.labelStop2City.Name = "labelStop2City";
 			this.labelStop2City.Size = new System.Drawing.Size(58, 13);
 			this.labelStop2City.TabIndex = 1;
@@ -215,7 +212,7 @@ namespace CovidAirlines
 			this.dateTimePickerStop2Depart.CustomFormat = "h:mm tt";
 			this.dateTimePickerStop2Depart.Enabled = false;
 			this.dateTimePickerStop2Depart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerStop2Depart.Location = new System.Drawing.Point(398, 209);
+			this.dateTimePickerStop2Depart.Location = new System.Drawing.Point(388, 209);
 			this.dateTimePickerStop2Depart.Name = "dateTimePickerStop2Depart";
 			this.dateTimePickerStop2Depart.ShowUpDown = true;
 			this.dateTimePickerStop2Depart.Size = new System.Drawing.Size(85, 20);
@@ -226,7 +223,7 @@ namespace CovidAirlines
 			// labelStop2Depart
 			// 
 			this.labelStop2Depart.AutoSize = true;
-			this.labelStop2Depart.Location = new System.Drawing.Point(299, 213);
+			this.labelStop2Depart.Location = new System.Drawing.Point(289, 213);
 			this.labelStop2Depart.Name = "labelStop2Depart";
 			this.labelStop2Depart.Size = new System.Drawing.Size(80, 13);
 			this.labelStop2Depart.TabIndex = 3;
@@ -268,7 +265,7 @@ namespace CovidAirlines
 			this.dateTimePickerStop1Arrival.CustomFormat = "h:mm tt";
 			this.dateTimePickerStop1Arrival.Enabled = false;
 			this.dateTimePickerStop1Arrival.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerStop1Arrival.Location = new System.Drawing.Point(133, 182);
+			this.dateTimePickerStop1Arrival.Location = new System.Drawing.Point(118, 182);
 			this.dateTimePickerStop1Arrival.Name = "dateTimePickerStop1Arrival";
 			this.dateTimePickerStop1Arrival.ShowUpDown = true;
 			this.dateTimePickerStop1Arrival.Size = new System.Drawing.Size(85, 20);
@@ -279,7 +276,7 @@ namespace CovidAirlines
 			// labelStop1Arrival
 			// 
 			this.labelStop1Arrival.AutoSize = true;
-			this.labelStop1Arrival.Location = new System.Drawing.Point(38, 186);
+			this.labelStop1Arrival.Location = new System.Drawing.Point(23, 186);
 			this.labelStop1Arrival.Name = "labelStop1Arrival";
 			this.labelStop1Arrival.Size = new System.Drawing.Size(62, 13);
 			this.labelStop1Arrival.TabIndex = 3;
@@ -290,7 +287,7 @@ namespace CovidAirlines
 			this.dateTimePickerStop2Arrival.CustomFormat = "h:mm tt";
 			this.dateTimePickerStop2Arrival.Enabled = false;
 			this.dateTimePickerStop2Arrival.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerStop2Arrival.Location = new System.Drawing.Point(398, 182);
+			this.dateTimePickerStop2Arrival.Location = new System.Drawing.Point(388, 182);
 			this.dateTimePickerStop2Arrival.Name = "dateTimePickerStop2Arrival";
 			this.dateTimePickerStop2Arrival.ShowUpDown = true;
 			this.dateTimePickerStop2Arrival.Size = new System.Drawing.Size(85, 20);
@@ -301,7 +298,7 @@ namespace CovidAirlines
 			// labelStop2Arrival
 			// 
 			this.labelStop2Arrival.AutoSize = true;
-			this.labelStop2Arrival.Location = new System.Drawing.Point(299, 186);
+			this.labelStop2Arrival.Location = new System.Drawing.Point(289, 186);
 			this.labelStop2Arrival.Name = "labelStop2Arrival";
 			this.labelStop2Arrival.Size = new System.Drawing.Size(62, 13);
 			this.labelStop2Arrival.TabIndex = 3;
@@ -310,7 +307,7 @@ namespace CovidAirlines
 			// checkBoxStop1
 			// 
 			this.checkBoxStop1.AutoSize = true;
-			this.checkBoxStop1.Location = new System.Drawing.Point(41, 130);
+			this.checkBoxStop1.Location = new System.Drawing.Point(26, 130);
 			this.checkBoxStop1.Name = "checkBoxStop1";
 			this.checkBoxStop1.Size = new System.Drawing.Size(57, 17);
 			this.checkBoxStop1.TabIndex = 7;
@@ -322,13 +319,25 @@ namespace CovidAirlines
 			// 
 			this.checkBoxStop2.AutoSize = true;
 			this.checkBoxStop2.Enabled = false;
-			this.checkBoxStop2.Location = new System.Drawing.Point(306, 130);
+			this.checkBoxStop2.Location = new System.Drawing.Point(296, 130);
 			this.checkBoxStop2.Name = "checkBoxStop2";
 			this.checkBoxStop2.Size = new System.Drawing.Size(57, 17);
 			this.checkBoxStop2.TabIndex = 7;
 			this.checkBoxStop2.Text = "Stop 2";
 			this.checkBoxStop2.UseVisualStyleBackColor = true;
 			this.checkBoxStop2.CheckedChanged += new System.EventHandler(this.checkBoxStop2_CheckedChanged);
+			// 
+			// labelError
+			// 
+			this.labelError.AutoSize = true;
+			this.labelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelError.ForeColor = System.Drawing.Color.Red;
+			this.labelError.Location = new System.Drawing.Point(224, 306);
+			this.labelError.Name = "labelError";
+			this.labelError.Size = new System.Drawing.Size(93, 13);
+			this.labelError.TabIndex = 5;
+			this.labelError.Text = "*Error Message";
+			this.labelError.Visible = false;
 			// 
 			// FormLoadAdd
 			// 
@@ -338,6 +347,7 @@ namespace CovidAirlines
 			this.Controls.Add(this.checkBoxStop2);
 			this.Controls.Add(this.checkBoxStop1);
 			this.Controls.Add(this.buttonCancel);
+			this.Controls.Add(this.labelError);
 			this.Controls.Add(this.labelPlane);
 			this.Controls.Add(this.buttonAddRoute);
 			this.Controls.Add(this.labelStop2Depart);
@@ -397,5 +407,6 @@ namespace CovidAirlines
 		private System.Windows.Forms.Label labelStop2Arrival;
 		private System.Windows.Forms.CheckBox checkBoxStop1;
 		private System.Windows.Forms.CheckBox checkBoxStop2;
+		private System.Windows.Forms.Label labelError;
 	}
 }

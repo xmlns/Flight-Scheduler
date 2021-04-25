@@ -29,6 +29,7 @@ namespace CovidAirlines
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.listViewSchedule = new System.Windows.Forms.ListView();
 			this.columnHeaderFlightID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderOrigin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,6 +45,27 @@ namespace CovidAirlines
 			this.columnHeaderPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.buttonDelete = new System.Windows.Forms.Button();
 			this.buttonNew = new System.Windows.Forms.Button();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.covidAirlinesDataSet2 = new CovidAirlines.CovidAirlinesDataSet2();
+			this.routeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.routeTableAdapter = new CovidAirlines.CovidAirlinesDataSet2TableAdapters.RouteTableAdapter();
+			this.routeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.originCityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.destinationCityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.departureTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.arrivalTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.stop1CityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.stop1ArrivalTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.stop1DepartureTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.stop2CityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.stop2ArrivalTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.stop2DepartureTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.airplaneIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ticketPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.pointsAwardedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesDataSet2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// listViewSchedule
@@ -151,17 +173,159 @@ namespace CovidAirlines
 			this.buttonNew.UseVisualStyleBackColor = true;
 			this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
 			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.routeIDDataGridViewTextBoxColumn,
+            this.originCityIDDataGridViewTextBoxColumn,
+            this.destinationCityIDDataGridViewTextBoxColumn,
+            this.departureTimeDataGridViewTextBoxColumn,
+            this.arrivalTimeDataGridViewTextBoxColumn,
+            this.stop1CityIDDataGridViewTextBoxColumn,
+            this.stop1ArrivalTimeDataGridViewTextBoxColumn,
+            this.stop1DepartureTimeDataGridViewTextBoxColumn,
+            this.stop2CityIDDataGridViewTextBoxColumn,
+            this.stop2ArrivalTimeDataGridViewTextBoxColumn,
+            this.stop2DepartureTimeDataGridViewTextBoxColumn,
+            this.airplaneIDDataGridViewTextBoxColumn,
+            this.ticketPriceDataGridViewTextBoxColumn,
+            this.pointsAwardedDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.routeBindingSource;
+			this.dataGridView1.Location = new System.Drawing.Point(12, 39);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.Size = new System.Drawing.Size(1160, 260);
+			this.dataGridView1.TabIndex = 7;
+			// 
+			// covidAirlinesDataSet2
+			// 
+			this.covidAirlinesDataSet2.DataSetName = "CovidAirlinesDataSet2";
+			this.covidAirlinesDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// routeBindingSource
+			// 
+			this.routeBindingSource.DataMember = "Route";
+			this.routeBindingSource.DataSource = this.covidAirlinesDataSet2;
+			// 
+			// routeTableAdapter
+			// 
+			this.routeTableAdapter.ClearBeforeFill = true;
+			// 
+			// routeIDDataGridViewTextBoxColumn
+			// 
+			this.routeIDDataGridViewTextBoxColumn.DataPropertyName = "RouteID";
+			this.routeIDDataGridViewTextBoxColumn.HeaderText = "RouteID";
+			this.routeIDDataGridViewTextBoxColumn.Name = "routeIDDataGridViewTextBoxColumn";
+			this.routeIDDataGridViewTextBoxColumn.Width = 72;
+			// 
+			// originCityIDDataGridViewTextBoxColumn
+			// 
+			this.originCityIDDataGridViewTextBoxColumn.DataPropertyName = "OriginCityID";
+			this.originCityIDDataGridViewTextBoxColumn.HeaderText = "OriginCityID";
+			this.originCityIDDataGridViewTextBoxColumn.Name = "originCityIDDataGridViewTextBoxColumn";
+			this.originCityIDDataGridViewTextBoxColumn.Width = 87;
+			// 
+			// destinationCityIDDataGridViewTextBoxColumn
+			// 
+			this.destinationCityIDDataGridViewTextBoxColumn.DataPropertyName = "DestinationCityID";
+			this.destinationCityIDDataGridViewTextBoxColumn.HeaderText = "DestinationCityID";
+			this.destinationCityIDDataGridViewTextBoxColumn.Name = "destinationCityIDDataGridViewTextBoxColumn";
+			this.destinationCityIDDataGridViewTextBoxColumn.Width = 113;
+			// 
+			// departureTimeDataGridViewTextBoxColumn
+			// 
+			this.departureTimeDataGridViewTextBoxColumn.DataPropertyName = "DepartureTime";
+			this.departureTimeDataGridViewTextBoxColumn.HeaderText = "DepartureTime";
+			this.departureTimeDataGridViewTextBoxColumn.Name = "departureTimeDataGridViewTextBoxColumn";
+			this.departureTimeDataGridViewTextBoxColumn.Width = 102;
+			// 
+			// arrivalTimeDataGridViewTextBoxColumn
+			// 
+			this.arrivalTimeDataGridViewTextBoxColumn.DataPropertyName = "ArrivalTime";
+			this.arrivalTimeDataGridViewTextBoxColumn.HeaderText = "ArrivalTime";
+			this.arrivalTimeDataGridViewTextBoxColumn.Name = "arrivalTimeDataGridViewTextBoxColumn";
+			this.arrivalTimeDataGridViewTextBoxColumn.Width = 84;
+			// 
+			// stop1CityIDDataGridViewTextBoxColumn
+			// 
+			this.stop1CityIDDataGridViewTextBoxColumn.DataPropertyName = "Stop1CityID";
+			this.stop1CityIDDataGridViewTextBoxColumn.HeaderText = "Stop1CityID";
+			this.stop1CityIDDataGridViewTextBoxColumn.Name = "stop1CityIDDataGridViewTextBoxColumn";
+			this.stop1CityIDDataGridViewTextBoxColumn.Width = 88;
+			// 
+			// stop1ArrivalTimeDataGridViewTextBoxColumn
+			// 
+			this.stop1ArrivalTimeDataGridViewTextBoxColumn.DataPropertyName = "Stop1ArrivalTime";
+			this.stop1ArrivalTimeDataGridViewTextBoxColumn.HeaderText = "Stop1ArrivalTime";
+			this.stop1ArrivalTimeDataGridViewTextBoxColumn.Name = "stop1ArrivalTimeDataGridViewTextBoxColumn";
+			this.stop1ArrivalTimeDataGridViewTextBoxColumn.Width = 112;
+			// 
+			// stop1DepartureTimeDataGridViewTextBoxColumn
+			// 
+			this.stop1DepartureTimeDataGridViewTextBoxColumn.DataPropertyName = "Stop1DepartureTime";
+			this.stop1DepartureTimeDataGridViewTextBoxColumn.HeaderText = "Stop1DepartureTime";
+			this.stop1DepartureTimeDataGridViewTextBoxColumn.Name = "stop1DepartureTimeDataGridViewTextBoxColumn";
+			this.stop1DepartureTimeDataGridViewTextBoxColumn.Width = 130;
+			// 
+			// stop2CityIDDataGridViewTextBoxColumn
+			// 
+			this.stop2CityIDDataGridViewTextBoxColumn.DataPropertyName = "Stop2CityID";
+			this.stop2CityIDDataGridViewTextBoxColumn.HeaderText = "Stop2CityID";
+			this.stop2CityIDDataGridViewTextBoxColumn.Name = "stop2CityIDDataGridViewTextBoxColumn";
+			this.stop2CityIDDataGridViewTextBoxColumn.Width = 88;
+			// 
+			// stop2ArrivalTimeDataGridViewTextBoxColumn
+			// 
+			this.stop2ArrivalTimeDataGridViewTextBoxColumn.DataPropertyName = "Stop2ArrivalTime";
+			this.stop2ArrivalTimeDataGridViewTextBoxColumn.HeaderText = "Stop2ArrivalTime";
+			this.stop2ArrivalTimeDataGridViewTextBoxColumn.Name = "stop2ArrivalTimeDataGridViewTextBoxColumn";
+			this.stop2ArrivalTimeDataGridViewTextBoxColumn.Width = 112;
+			// 
+			// stop2DepartureTimeDataGridViewTextBoxColumn
+			// 
+			this.stop2DepartureTimeDataGridViewTextBoxColumn.DataPropertyName = "Stop2DepartureTime";
+			this.stop2DepartureTimeDataGridViewTextBoxColumn.HeaderText = "Stop2DepartureTime";
+			this.stop2DepartureTimeDataGridViewTextBoxColumn.Name = "stop2DepartureTimeDataGridViewTextBoxColumn";
+			this.stop2DepartureTimeDataGridViewTextBoxColumn.Width = 130;
+			// 
+			// airplaneIDDataGridViewTextBoxColumn
+			// 
+			this.airplaneIDDataGridViewTextBoxColumn.DataPropertyName = "AirplaneID";
+			this.airplaneIDDataGridViewTextBoxColumn.HeaderText = "AirplaneID";
+			this.airplaneIDDataGridViewTextBoxColumn.Name = "airplaneIDDataGridViewTextBoxColumn";
+			this.airplaneIDDataGridViewTextBoxColumn.Width = 81;
+			// 
+			// ticketPriceDataGridViewTextBoxColumn
+			// 
+			this.ticketPriceDataGridViewTextBoxColumn.DataPropertyName = "TicketPrice";
+			this.ticketPriceDataGridViewTextBoxColumn.HeaderText = "TicketPrice";
+			this.ticketPriceDataGridViewTextBoxColumn.Name = "ticketPriceDataGridViewTextBoxColumn";
+			this.ticketPriceDataGridViewTextBoxColumn.Width = 86;
+			// 
+			// pointsAwardedDataGridViewTextBoxColumn
+			// 
+			this.pointsAwardedDataGridViewTextBoxColumn.DataPropertyName = "PointsAwarded";
+			this.pointsAwardedDataGridViewTextBoxColumn.HeaderText = "PointsAwarded";
+			this.pointsAwardedDataGridViewTextBoxColumn.Name = "pointsAwardedDataGridViewTextBoxColumn";
+			this.pointsAwardedDataGridViewTextBoxColumn.Width = 103;
+			// 
 			// FormLoad
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1184, 461);
+			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.buttonNew);
 			this.Controls.Add(this.buttonDelete);
 			this.Controls.Add(this.listViewSchedule);
 			this.Name = "FormLoad";
 			this.Text = "FormLoad";
 			this.Load += new System.EventHandler(this.FormLoad_Load_1);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesDataSet2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -183,5 +347,23 @@ namespace CovidAirlines
 		private System.Windows.Forms.ColumnHeader columnHeaderPoints;
 		private System.Windows.Forms.Button buttonDelete;
 		private System.Windows.Forms.Button buttonNew;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private CovidAirlinesDataSet2 covidAirlinesDataSet2;
+		private System.Windows.Forms.BindingSource routeBindingSource;
+		private CovidAirlinesDataSet2TableAdapters.RouteTableAdapter routeTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn routeIDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn originCityIDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn destinationCityIDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn departureTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn arrivalTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn stop1CityIDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn stop1ArrivalTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn stop1DepartureTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn stop2CityIDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn stop2ArrivalTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn stop2DepartureTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn airplaneIDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ticketPriceDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn pointsAwardedDataGridViewTextBoxColumn;
 	}
 }

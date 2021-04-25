@@ -125,7 +125,8 @@ namespace CovidAirlines
         {
             using (var entities = new CovidAirlinesEntities())
             {
-                User user = new User
+                /*
+                User customer = new User
                 {
                     UserID = 0,
                     UserType = (byte)UserType.CUSTOMER,
@@ -142,7 +143,81 @@ namespace CovidAirlines
                     PointsAvailable = 999999999,
                     PointsRedeemed = 0
                 };
-                entities.Users.Add(user);
+                
+                User loadEngineer = new User
+                {
+                    UserID = 1,
+                    UserType = (byte)UserType.LOAD_ENGINEER,
+                    FullName = "LOAD ENGINEER",
+                    PasswordHash = Utility.GenerateHash("load"),
+                    Address = "1234 Load Address",
+                    City = "Load City, State",
+                    ZipCode = "11111",
+                    PhoneNumber = "9991234567",
+                    Age = 99,
+                    CardNumber = "1234123412341234",
+                    CardExpiryDate = new DateTime(2099, 12, 1),
+                    CardCVV = 999,
+                    PointsAvailable = 999999999,
+                    PointsRedeemed = 0
+                };
+                */
+                User marketManager = new User
+                {
+                    UserID = 2,
+                    UserType = (byte)UserType.MARKETING_MANAGER,
+                    FullName = "MARKETING MANAGER",
+                    PasswordHash = Utility.GenerateHash("market"),
+                    Address = "1234 Market Address",
+                    City = "Market City, State",
+                    ZipCode = "22222",
+                    PhoneNumber = "9991234567",
+                    Age = 99,
+                    CardNumber = "1234123412341234",
+                    CardExpiryDate = new DateTime(2099, 12, 1),
+                    CardCVV = 999,
+                    PointsAvailable = 999999999,
+                    PointsRedeemed = 0
+                };
+                entities.Users.Add(marketManager);
+                
+                User flightManager = new User
+                {
+                    UserID = 3,
+                    UserType = (byte)UserType.FLIGHT_MANAGER,
+                    FullName = "FLIGHT MANAGER",
+                    PasswordHash = Utility.GenerateHash("flight"),
+                    Address = "1234 Flight Address",
+                    City = "Flight City, State",
+                    ZipCode = "33333",
+                    PhoneNumber = "9991234567",
+                    Age = 99,
+                    CardNumber = "1234123412341234",
+                    CardExpiryDate = new DateTime(2099, 12, 1),
+                    CardCVV = 999,
+                    PointsAvailable = 999999999,
+                    PointsRedeemed = 0
+                };
+                entities.Users.Add(flightManager);
+                
+                User accountant = new User
+                {
+                    UserID = 4,
+                    UserType = (byte)UserType.ACCOUNTANT,
+                    FullName = "ACCOUNTING MANAGER",
+                    PasswordHash = Utility.GenerateHash("accountant"),
+                    Address = "1234 Accountant Address",
+                    City = "Accountant City, State",
+                    ZipCode = "44444",
+                    PhoneNumber = "9991234567",
+                    Age = 99,
+                    CardNumber = "1234123412341234",
+                    CardExpiryDate = new DateTime(2099, 12, 1),
+                    CardCVV = 999,
+                    PointsAvailable = 999999999,
+                    PointsRedeemed = 0
+                };
+                entities.Users.Add(accountant);
                 entities.SaveChanges();
             }
         }

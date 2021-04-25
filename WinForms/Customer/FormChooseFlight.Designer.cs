@@ -1,7 +1,7 @@
 ﻿
 namespace CovidAirlines
 {
-	partial class FormBookDepartFlight
+	partial class FormChooseFlight
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -30,21 +30,23 @@ namespace CovidAirlines
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.listViewHistory = new System.Windows.Forms.ListView();
-			this.columnHeaderFlightID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.listViewRoutes = new System.Windows.Forms.ListView();
+			this.columnHeaderRouteID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderOrigin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderDestination = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderArrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderSDepart1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderStop1Arrival = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderStop1Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderS2Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderStop2Arrival = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderStop2Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.buttonChooseFlight = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
-			this.labelChooseDeparture = new System.Windows.Forms.Label();
+			this.labelChooseFlight = new System.Windows.Forms.Label();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.covidAirlinesDataSetRoutes = new CovidAirlines.CovidAirlinesDataSetRoutes();
 			this.routeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -53,46 +55,49 @@ namespace CovidAirlines
 			((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// listViewHistory
+			// listViewRoutes
 			// 
-			this.listViewHistory.Activation = System.Windows.Forms.ItemActivation.OneClick;
-			this.listViewHistory.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.listViewHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderFlightID,
+			this.listViewRoutes.Activation = System.Windows.Forms.ItemActivation.OneClick;
+			this.listViewRoutes.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.listViewRoutes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderRouteID,
             this.columnHeaderOrigin,
             this.columnHeaderDestination,
             this.columnHeaderDepart,
             this.columnHeaderArrive,
             this.columnHeaderStop1,
-            this.columnHeaderSDepart1,
+            this.columnHeaderStop1Arrival,
+            this.columnHeaderStop1Depart,
             this.columnHeaderStop2,
-            this.columnHeaderS2Depart,
-            this.columnHeaderStatus,
-            this.columnHeaderPrice});
-			this.listViewHistory.FullRowSelect = true;
-			this.listViewHistory.HideSelection = false;
-			this.listViewHistory.Location = new System.Drawing.Point(16, 32);
-			this.listViewHistory.MultiSelect = false;
-			this.listViewHistory.Name = "listViewHistory";
-			this.listViewHistory.Size = new System.Drawing.Size(1173, 290);
-			this.listViewHistory.TabIndex = 4;
-			this.listViewHistory.UseCompatibleStateImageBehavior = false;
-			this.listViewHistory.View = System.Windows.Forms.View.Details;
-			this.listViewHistory.SelectedIndexChanged += new System.EventHandler(this.listViewHistory_SelectedIndexChanged);
+            this.columnHeaderStop2Arrival,
+            this.columnHeaderStop2Depart,
+            this.columnHeaderPrice,
+            this.columnHeaderPoints});
+			this.listViewRoutes.FullRowSelect = true;
+			this.listViewRoutes.HideSelection = false;
+			this.listViewRoutes.Location = new System.Drawing.Point(12, 31);
+			this.listViewRoutes.MultiSelect = false;
+			this.listViewRoutes.Name = "listViewRoutes";
+			this.listViewRoutes.Size = new System.Drawing.Size(1173, 290);
+			this.listViewRoutes.TabIndex = 4;
+			this.listViewRoutes.UseCompatibleStateImageBehavior = false;
+			this.listViewRoutes.View = System.Windows.Forms.View.Details;
+			this.listViewRoutes.SelectedIndexChanged += new System.EventHandler(this.listViewHistory_SelectedIndexChanged);
 			// 
-			// columnHeaderFlightID
+			// columnHeaderRouteID
 			// 
-			this.columnHeaderFlightID.Text = "FlightID";
+			this.columnHeaderRouteID.Text = "RouteID";
+			this.columnHeaderRouteID.Width = 55;
 			// 
 			// columnHeaderOrigin
 			// 
 			this.columnHeaderOrigin.Text = "Origin";
-			this.columnHeaderOrigin.Width = 64;
+			this.columnHeaderOrigin.Width = 88;
 			// 
 			// columnHeaderDestination
 			// 
 			this.columnHeaderDestination.Text = "Destination";
-			this.columnHeaderDestination.Width = 72;
+			this.columnHeaderDestination.Width = 89;
 			// 
 			// columnHeaderDepart
 			// 
@@ -109,34 +114,45 @@ namespace CovidAirlines
 			this.columnHeaderStop1.Text = "Stop 1";
 			this.columnHeaderStop1.Width = 89;
 			// 
-			// columnHeaderSDepart1
+			// columnHeaderStop1Arrival
 			// 
-			this.columnHeaderSDepart1.Text = "Stop 1 Departure Time";
-			this.columnHeaderSDepart1.Width = 112;
+			this.columnHeaderStop1Arrival.Text = "Stop 1 Arrival Time";
+			this.columnHeaderStop1Arrival.Width = 100;
+			// 
+			// columnHeaderStop1Depart
+			// 
+			this.columnHeaderStop1Depart.Text = "Stop 1 Departure Time";
+			this.columnHeaderStop1Depart.Width = 122;
 			// 
 			// columnHeaderStop2
 			// 
 			this.columnHeaderStop2.Text = "Stop 2";
 			// 
-			// columnHeaderS2Depart
+			// columnHeaderStop2Arrival
 			// 
-			this.columnHeaderS2Depart.Text = "Stop 2 Departure Time";
-			this.columnHeaderS2Depart.Width = 89;
+			this.columnHeaderStop2Arrival.Text = "Stop 2 Arrival Time";
+			this.columnHeaderStop2Arrival.Width = 101;
 			// 
-			// columnHeaderStatus
+			// columnHeaderStop2Depart
 			// 
-			this.columnHeaderStatus.Text = "Status";
+			this.columnHeaderStop2Depart.Text = "Stop 2 Departure Time";
+			this.columnHeaderStop2Depart.Width = 119;
 			// 
 			// columnHeaderPrice
 			// 
 			this.columnHeaderPrice.Text = "Ticket Price";
-			this.columnHeaderPrice.Width = 77;
+			this.columnHeaderPrice.Width = 69;
+			// 
+			// columnHeaderPoints
+			// 
+			this.columnHeaderPoints.Text = "Points Awarded";
+			this.columnHeaderPoints.Width = 86;
 			// 
 			// buttonChooseFlight
 			// 
 			this.buttonChooseFlight.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.buttonChooseFlight.AutoSize = true;
-			this.buttonChooseFlight.Location = new System.Drawing.Point(16, 325);
+			this.buttonChooseFlight.Location = new System.Drawing.Point(12, 324);
 			this.buttonChooseFlight.Name = "buttonChooseFlight";
 			this.buttonChooseFlight.Size = new System.Drawing.Size(126, 23);
 			this.buttonChooseFlight.TabIndex = 5;
@@ -148,7 +164,7 @@ namespace CovidAirlines
 			// 
 			this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.button1.Location = new System.Drawing.Point(1111, 325);
+			this.button1.Location = new System.Drawing.Point(1107, 324);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(78, 23);
 			this.button1.TabIndex = 6;
@@ -156,21 +172,22 @@ namespace CovidAirlines
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// labelChooseDeparture
+			// labelChooseFlight
 			// 
-			this.labelChooseDeparture.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.labelChooseDeparture.AutoSize = true;
-			this.labelChooseDeparture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelChooseDeparture.Location = new System.Drawing.Point(12, 9);
-			this.labelChooseDeparture.Name = "labelChooseDeparture";
-			this.labelChooseDeparture.Size = new System.Drawing.Size(206, 20);
-			this.labelChooseDeparture.TabIndex = 7;
-			this.labelChooseDeparture.Text = "Choose Departure Flight";
+			this.labelChooseFlight.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.labelChooseFlight.AutoSize = true;
+			this.labelChooseFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelChooseFlight.Location = new System.Drawing.Point(8, 8);
+			this.labelChooseFlight.Name = "labelChooseFlight";
+			this.labelChooseFlight.Size = new System.Drawing.Size(206, 20);
+			this.labelChooseFlight.TabIndex = 7;
+			this.labelChooseFlight.Text = "Choose Departure Flight";
 			// 
 			// buttonCancel
 			// 
 			this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.buttonCancel.Location = new System.Drawing.Point(16, 432);
+			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.buttonCancel.Location = new System.Drawing.Point(12, 431);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(126, 23);
 			this.buttonCancel.TabIndex = 8;
@@ -192,27 +209,25 @@ namespace CovidAirlines
 			// 
 			this.routeTableAdapter.ClearBeforeFill = true;
 			// 
-			// FormBookDepartFlight
+			// FormChooseFlight
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1200, 520);
+			this.ClientSize = new System.Drawing.Size(1185, 510);
 			this.ControlBox = false;
 			this.Controls.Add(this.buttonCancel);
-			this.Controls.Add(this.labelChooseDeparture);
+			this.Controls.Add(this.labelChooseFlight);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.buttonChooseFlight);
-			this.Controls.Add(this.listViewHistory);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Controls.Add(this.listViewRoutes);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "FormBookDepartFlight";
+			this.Name = "FormChooseFlight";
 			this.ShowIcon = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Book Your Flight!";
-			this.TopMost = true;
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FormBookFlight_Load);
 			((System.ComponentModel.ISupportInitialize)(this.covidAirlinesDataSetRoutes)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.routeBindingSource)).EndInit();
@@ -223,24 +238,26 @@ namespace CovidAirlines
 
 		#endregion
 
-		private System.Windows.Forms.ListView listViewHistory;
-		private System.Windows.Forms.ColumnHeader columnHeaderFlightID;
+		private System.Windows.Forms.ListView listViewRoutes;
+		private System.Windows.Forms.ColumnHeader columnHeaderRouteID;
 		private System.Windows.Forms.ColumnHeader columnHeaderOrigin;
 		private System.Windows.Forms.ColumnHeader columnHeaderDestination;
 		private System.Windows.Forms.ColumnHeader columnHeaderDepart;
 		private System.Windows.Forms.ColumnHeader columnHeaderArrive;
 		private System.Windows.Forms.ColumnHeader columnHeaderStop1;
-		private System.Windows.Forms.ColumnHeader columnHeaderSDepart1;
+		private System.Windows.Forms.ColumnHeader columnHeaderStop1Depart;
 		private System.Windows.Forms.ColumnHeader columnHeaderStop2;
-		private System.Windows.Forms.ColumnHeader columnHeaderS2Depart;
-		private System.Windows.Forms.ColumnHeader columnHeaderStatus;
+		private System.Windows.Forms.ColumnHeader columnHeaderStop2Depart;
 		private System.Windows.Forms.ColumnHeader columnHeaderPrice;
 		private System.Windows.Forms.Button buttonChooseFlight;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Label labelChooseDeparture;
+		private System.Windows.Forms.Label labelChooseFlight;
 		private System.Windows.Forms.Button buttonCancel;
 		private CovidAirlinesDataSetRoutes covidAirlinesDataSetRoutes;
 		private System.Windows.Forms.BindingSource routeBindingSource;
 		private CovidAirlinesDataSetRoutesTableAdapters.RouteTableAdapter routeTableAdapter;
+		private System.Windows.Forms.ColumnHeader columnHeaderStop1Arrival;
+		private System.Windows.Forms.ColumnHeader columnHeaderStop2Arrival;
+		private System.Windows.Forms.ColumnHeader columnHeaderPoints;
 	}
 }

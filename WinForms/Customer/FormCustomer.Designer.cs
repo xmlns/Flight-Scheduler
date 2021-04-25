@@ -35,7 +35,6 @@ namespace CovidAirlines
 			this.labelSearchResponse = new System.Windows.Forms.Label();
 			this.radioButtonRoundTrip = new System.Windows.Forms.RadioButton();
 			this.radioButtonOneway = new System.Windows.Forms.RadioButton();
-			this.buttonSignout = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.labelArrow1 = new System.Windows.Forms.Label();
 			this.labelArrow2 = new System.Windows.Forms.Label();
@@ -53,8 +52,6 @@ namespace CovidAirlines
 			this.buttonOneWeek = new System.Windows.Forms.Button();
 			this.buttonBoardingPass = new System.Windows.Forms.Button();
 			this.buttonCancelFlight = new System.Windows.Forms.Button();
-			this.textBoxSelected = new System.Windows.Forms.TextBox();
-			this.button2 = new System.Windows.Forms.Button();
 			this.listViewHistory = new System.Windows.Forms.ListView();
 			this.columnHeaderFlightID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderOrigin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -104,6 +101,7 @@ namespace CovidAirlines
 			this.labelNumber = new System.Windows.Forms.Label();
 			this.labelAddress = new System.Windows.Forms.Label();
 			this.labelName = new System.Windows.Forms.Label();
+			this.buttonSignout = new System.Windows.Forms.Button();
 			this.covidAirlinesCities = new CovidAirlines.CovidAirlinesCities();
 			this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.cityTableAdapter = new CovidAirlines.CovidAirlinesCitiesTableAdapters.CityTableAdapter();
@@ -134,7 +132,7 @@ namespace CovidAirlines
 			this.tabControlMenu.Location = new System.Drawing.Point(12, 12);
 			this.tabControlMenu.Name = "tabControlMenu";
 			this.tabControlMenu.SelectedIndex = 0;
-			this.tabControlMenu.Size = new System.Drawing.Size(1169, 607);
+			this.tabControlMenu.Size = new System.Drawing.Size(1169, 496);
 			this.tabControlMenu.TabIndex = 0;
 			this.tabControlMenu.SelectedIndexChanged += new System.EventHandler(this.tabControlMenu_SelectedIndexChanged);
 			// 
@@ -143,7 +141,6 @@ namespace CovidAirlines
 			this.tabPageBook.Controls.Add(this.labelSearchResponse);
 			this.tabPageBook.Controls.Add(this.radioButtonRoundTrip);
 			this.tabPageBook.Controls.Add(this.radioButtonOneway);
-			this.tabPageBook.Controls.Add(this.buttonSignout);
 			this.tabPageBook.Controls.Add(this.label1);
 			this.tabPageBook.Controls.Add(this.labelArrow1);
 			this.tabPageBook.Controls.Add(this.labelArrow2);
@@ -160,7 +157,7 @@ namespace CovidAirlines
 			this.tabPageBook.Location = new System.Drawing.Point(4, 22);
 			this.tabPageBook.Name = "tabPageBook";
 			this.tabPageBook.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageBook.Size = new System.Drawing.Size(1161, 581);
+			this.tabPageBook.Size = new System.Drawing.Size(1161, 470);
 			this.tabPageBook.TabIndex = 0;
 			this.tabPageBook.Text = "Book Flight";
 			this.tabPageBook.UseVisualStyleBackColor = true;
@@ -170,7 +167,7 @@ namespace CovidAirlines
 			this.labelSearchResponse.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelSearchResponse.AutoSize = true;
 			this.labelSearchResponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelSearchResponse.Location = new System.Drawing.Point(343, 373);
+			this.labelSearchResponse.Location = new System.Drawing.Point(334, 317);
 			this.labelSearchResponse.Name = "labelSearchResponse";
 			this.labelSearchResponse.Size = new System.Drawing.Size(176, 13);
 			this.labelSearchResponse.TabIndex = 14;
@@ -181,7 +178,7 @@ namespace CovidAirlines
 			// 
 			this.radioButtonRoundTrip.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.radioButtonRoundTrip.AutoSize = true;
-			this.radioButtonRoundTrip.Location = new System.Drawing.Point(436, 243);
+			this.radioButtonRoundTrip.Location = new System.Drawing.Point(427, 187);
 			this.radioButtonRoundTrip.Name = "radioButtonRoundTrip";
 			this.radioButtonRoundTrip.Size = new System.Drawing.Size(74, 17);
 			this.radioButtonRoundTrip.TabIndex = 3;
@@ -194,7 +191,7 @@ namespace CovidAirlines
 			this.radioButtonOneway.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.radioButtonOneway.AutoSize = true;
 			this.radioButtonOneway.Checked = true;
-			this.radioButtonOneway.Location = new System.Drawing.Point(343, 243);
+			this.radioButtonOneway.Location = new System.Drawing.Point(334, 187);
 			this.radioButtonOneway.Name = "radioButtonOneway";
 			this.radioButtonOneway.Size = new System.Drawing.Size(67, 17);
 			this.radioButtonOneway.TabIndex = 2;
@@ -203,23 +200,12 @@ namespace CovidAirlines
 			this.radioButtonOneway.UseVisualStyleBackColor = true;
 			this.radioButtonOneway.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
 			// 
-			// buttonSignout
-			// 
-			this.buttonSignout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonSignout.Location = new System.Drawing.Point(1080, 6);
-			this.buttonSignout.Name = "buttonSignout";
-			this.buttonSignout.Size = new System.Drawing.Size(75, 23);
-			this.buttonSignout.TabIndex = 13;
-			this.buttonSignout.Text = "Sign Out";
-			this.buttonSignout.UseVisualStyleBackColor = true;
-			this.buttonSignout.Click += new System.EventHandler(this.buttonSignout_Click);
-			// 
 			// label1
 			// 
 			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(448, 151);
+			this.label1.Location = new System.Drawing.Point(439, 95);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(237, 25);
 			this.label1.TabIndex = 12;
@@ -229,7 +215,7 @@ namespace CovidAirlines
 			// 
 			this.labelArrow1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelArrow1.AutoSize = true;
-			this.labelArrow1.Location = new System.Drawing.Point(552, 206);
+			this.labelArrow1.Location = new System.Drawing.Point(543, 150);
 			this.labelArrow1.Name = "labelArrow1";
 			this.labelArrow1.Size = new System.Drawing.Size(22, 13);
 			this.labelArrow1.TabIndex = 11;
@@ -239,7 +225,7 @@ namespace CovidAirlines
 			// 
 			this.labelArrow2.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelArrow2.AutoSize = true;
-			this.labelArrow2.Location = new System.Drawing.Point(552, 293);
+			this.labelArrow2.Location = new System.Drawing.Point(543, 237);
 			this.labelArrow2.Name = "labelArrow2";
 			this.labelArrow2.Size = new System.Drawing.Size(22, 13);
 			this.labelArrow2.TabIndex = 11;
@@ -249,7 +235,7 @@ namespace CovidAirlines
 			// 
 			this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.buttonSearch.AutoSize = true;
-			this.buttonSearch.Location = new System.Drawing.Point(518, 332);
+			this.buttonSearch.Location = new System.Drawing.Point(509, 276);
 			this.buttonSearch.Name = "buttonSearch";
 			this.buttonSearch.Size = new System.Drawing.Size(84, 23);
 			this.buttonSearch.TabIndex = 6;
@@ -261,7 +247,7 @@ namespace CovidAirlines
 			// 
 			this.dateTimePickerReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dateTimePickerReturn.Enabled = false;
-			this.dateTimePickerReturn.Location = new System.Drawing.Point(577, 289);
+			this.dateTimePickerReturn.Location = new System.Drawing.Point(568, 233);
 			this.dateTimePickerReturn.Name = "dateTimePickerReturn";
 			this.dateTimePickerReturn.Size = new System.Drawing.Size(200, 20);
 			this.dateTimePickerReturn.TabIndex = 5;
@@ -270,7 +256,7 @@ namespace CovidAirlines
 			// 
 			this.labelDates.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelDates.AutoSize = true;
-			this.labelDates.Location = new System.Drawing.Point(343, 273);
+			this.labelDates.Location = new System.Drawing.Point(334, 217);
 			this.labelDates.Name = "labelDates";
 			this.labelDates.Size = new System.Drawing.Size(41, 13);
 			this.labelDates.TabIndex = 8;
@@ -280,7 +266,7 @@ namespace CovidAirlines
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(286, 412);
+			this.label3.Location = new System.Drawing.Point(280, 315);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(0, 13);
 			this.label3.TabIndex = 7;
@@ -289,7 +275,7 @@ namespace CovidAirlines
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(286, 412);
+			this.label2.Location = new System.Drawing.Point(280, 315);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(0, 13);
 			this.label2.TabIndex = 6;
@@ -297,7 +283,7 @@ namespace CovidAirlines
 			// dateTimePickerDepart
 			// 
 			this.dateTimePickerDepart.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.dateTimePickerDepart.Location = new System.Drawing.Point(343, 289);
+			this.dateTimePickerDepart.Location = new System.Drawing.Point(334, 233);
 			this.dateTimePickerDepart.Name = "dateTimePickerDepart";
 			this.dateTimePickerDepart.Size = new System.Drawing.Size(200, 20);
 			this.dateTimePickerDepart.TabIndex = 4;
@@ -307,7 +293,7 @@ namespace CovidAirlines
 			// 
 			this.labelDestination.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelDestination.AutoSize = true;
-			this.labelDestination.Location = new System.Drawing.Point(577, 187);
+			this.labelDestination.Location = new System.Drawing.Point(568, 131);
 			this.labelDestination.Name = "labelDestination";
 			this.labelDestination.Size = new System.Drawing.Size(60, 13);
 			this.labelDestination.TabIndex = 3;
@@ -317,7 +303,7 @@ namespace CovidAirlines
 			// 
 			this.labelOrigin.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelOrigin.AutoSize = true;
-			this.labelOrigin.Location = new System.Drawing.Point(343, 187);
+			this.labelOrigin.Location = new System.Drawing.Point(334, 131);
 			this.labelOrigin.Name = "labelOrigin";
 			this.labelOrigin.Size = new System.Drawing.Size(34, 13);
 			this.labelOrigin.TabIndex = 2;
@@ -328,7 +314,7 @@ namespace CovidAirlines
 			this.comboBoxDestination.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.comboBoxDestination.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxDestination.FormattingEnabled = true;
-			this.comboBoxDestination.Location = new System.Drawing.Point(577, 203);
+			this.comboBoxDestination.Location = new System.Drawing.Point(568, 147);
 			this.comboBoxDestination.Name = "comboBoxDestination";
 			this.comboBoxDestination.Size = new System.Drawing.Size(200, 21);
 			this.comboBoxDestination.Sorted = true;
@@ -339,7 +325,7 @@ namespace CovidAirlines
 			this.comboBoxOrigin.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.comboBoxOrigin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxOrigin.FormattingEnabled = true;
-			this.comboBoxOrigin.Location = new System.Drawing.Point(343, 203);
+			this.comboBoxOrigin.Location = new System.Drawing.Point(334, 147);
 			this.comboBoxOrigin.Name = "comboBoxOrigin";
 			this.comboBoxOrigin.Size = new System.Drawing.Size(200, 21);
 			this.comboBoxOrigin.Sorted = true;
@@ -350,21 +336,20 @@ namespace CovidAirlines
 			this.tabPageHistory.Controls.Add(this.buttonOneWeek);
 			this.tabPageHistory.Controls.Add(this.buttonBoardingPass);
 			this.tabPageHistory.Controls.Add(this.buttonCancelFlight);
-			this.tabPageHistory.Controls.Add(this.textBoxSelected);
-			this.tabPageHistory.Controls.Add(this.button2);
 			this.tabPageHistory.Controls.Add(this.listViewHistory);
 			this.tabPageHistory.Controls.Add(this.button1);
 			this.tabPageHistory.Location = new System.Drawing.Point(4, 22);
 			this.tabPageHistory.Name = "tabPageHistory";
 			this.tabPageHistory.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageHistory.Size = new System.Drawing.Size(1161, 581);
+			this.tabPageHistory.Size = new System.Drawing.Size(1161, 470);
 			this.tabPageHistory.TabIndex = 1;
 			this.tabPageHistory.Text = "Flight History";
 			this.tabPageHistory.UseVisualStyleBackColor = true;
+			this.tabPageHistory.Click += new System.EventHandler(this.tabPageHistory_Click);
 			// 
 			// buttonOneWeek
 			// 
-			this.buttonOneWeek.Location = new System.Drawing.Point(1054, 519);
+			this.buttonOneWeek.Location = new System.Drawing.Point(1054, 354);
 			this.buttonOneWeek.Name = "buttonOneWeek";
 			this.buttonOneWeek.Size = new System.Drawing.Size(101, 23);
 			this.buttonOneWeek.TabIndex = 9;
@@ -376,7 +361,7 @@ namespace CovidAirlines
 			// 
 			this.buttonBoardingPass.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.buttonBoardingPass.Enabled = false;
-			this.buttonBoardingPass.Location = new System.Drawing.Point(176, 299);
+			this.buttonBoardingPass.Location = new System.Drawing.Point(176, 354);
 			this.buttonBoardingPass.Name = "buttonBoardingPass";
 			this.buttonBoardingPass.Size = new System.Drawing.Size(110, 23);
 			this.buttonBoardingPass.TabIndex = 7;
@@ -388,29 +373,12 @@ namespace CovidAirlines
 			// 
 			this.buttonCancelFlight.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.buttonCancelFlight.Enabled = false;
-			this.buttonCancelFlight.Location = new System.Drawing.Point(6, 299);
+			this.buttonCancelFlight.Location = new System.Drawing.Point(6, 354);
 			this.buttonCancelFlight.Name = "buttonCancelFlight";
 			this.buttonCancelFlight.Size = new System.Drawing.Size(121, 23);
 			this.buttonCancelFlight.TabIndex = 6;
 			this.buttonCancelFlight.Text = "Cancel Selected Flight";
 			this.buttonCancelFlight.UseVisualStyleBackColor = true;
-			// 
-			// textBoxSelected
-			// 
-			this.textBoxSelected.Location = new System.Drawing.Point(661, 554);
-			this.textBoxSelected.Name = "textBoxSelected";
-			this.textBoxSelected.Size = new System.Drawing.Size(387, 20);
-			this.textBoxSelected.TabIndex = 5;
-			// 
-			// button2
-			// 
-			this.button2.Location = new System.Drawing.Point(490, 551);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(80, 23);
-			this.button2.TabIndex = 4;
-			this.button2.Text = "Get Selected";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// listViewHistory
 			// 
@@ -433,7 +401,7 @@ namespace CovidAirlines
 			this.listViewHistory.Location = new System.Drawing.Point(6, 6);
 			this.listViewHistory.MultiSelect = false;
 			this.listViewHistory.Name = "listViewHistory";
-			this.listViewHistory.Size = new System.Drawing.Size(1149, 287);
+			this.listViewHistory.Size = new System.Drawing.Size(1149, 342);
 			this.listViewHistory.TabIndex = 3;
 			this.listViewHistory.UseCompatibleStateImageBehavior = false;
 			this.listViewHistory.View = System.Windows.Forms.View.Details;
@@ -492,7 +460,7 @@ namespace CovidAirlines
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(1054, 552);
+			this.button1.Location = new System.Drawing.Point(1054, 387);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(101, 23);
 			this.button1.TabIndex = 2;
@@ -515,83 +483,76 @@ namespace CovidAirlines
 			this.tabPageAccount.Controls.Add(this.groupBoxContactInfo);
 			this.tabPageAccount.Location = new System.Drawing.Point(4, 22);
 			this.tabPageAccount.Name = "tabPageAccount";
-			this.tabPageAccount.Size = new System.Drawing.Size(1161, 581);
+			this.tabPageAccount.Size = new System.Drawing.Size(1161, 470);
 			this.tabPageAccount.TabIndex = 2;
 			this.tabPageAccount.Text = "Account Information";
 			this.tabPageAccount.UseVisualStyleBackColor = true;
 			// 
 			// labelRedeemedHere
 			// 
-			this.labelRedeemedHere.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelRedeemedHere.AutoSize = true;
 			this.labelRedeemedHere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRedeemedHere.Location = new System.Drawing.Point(820, 56);
+			this.labelRedeemedHere.Location = new System.Drawing.Point(844, 25);
 			this.labelRedeemedHere.Name = "labelRedeemedHere";
-			this.labelRedeemedHere.Size = new System.Drawing.Size(81, 16);
+			this.labelRedeemedHere.Size = new System.Drawing.Size(72, 16);
 			this.labelRedeemedHere.TabIndex = 18;
 			this.labelRedeemedHere.Text = "0,000,000";
 			// 
 			// labelRedeemed
 			// 
-			this.labelRedeemed.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelRedeemed.AutoSize = true;
 			this.labelRedeemed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelRedeemed.Location = new System.Drawing.Point(628, 56);
+			this.labelRedeemed.Location = new System.Drawing.Point(652, 25);
 			this.labelRedeemed.Name = "labelRedeemed";
-			this.labelRedeemed.Size = new System.Drawing.Size(186, 16);
+			this.labelRedeemed.Size = new System.Drawing.Size(180, 16);
 			this.labelRedeemed.TabIndex = 18;
 			this.labelRedeemed.Text = "Total Points Redeemed: ";
 			// 
 			// labelPoints
 			// 
-			this.labelPoints.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelPoints.AutoSize = true;
 			this.labelPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPoints.Location = new System.Drawing.Point(408, 56);
+			this.labelPoints.Location = new System.Drawing.Point(432, 25);
 			this.labelPoints.Name = "labelPoints";
-			this.labelPoints.Size = new System.Drawing.Size(129, 16);
+			this.labelPoints.Size = new System.Drawing.Size(125, 16);
 			this.labelPoints.TabIndex = 17;
 			this.labelPoints.Text = "Available Points:";
 			// 
 			// labelPointsHere
 			// 
-			this.labelPointsHere.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelPointsHere.AutoSize = true;
 			this.labelPointsHere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPointsHere.Location = new System.Drawing.Point(543, 56);
+			this.labelPointsHere.Location = new System.Drawing.Point(567, 25);
 			this.labelPointsHere.Name = "labelPointsHere";
-			this.labelPointsHere.Size = new System.Drawing.Size(67, 16);
+			this.labelPointsHere.Size = new System.Drawing.Size(60, 16);
 			this.labelPointsHere.TabIndex = 17;
 			this.labelPointsHere.Text = "000,000";
 			// 
 			// labelUserIDHere
 			// 
-			this.labelUserIDHere.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelUserIDHere.AutoSize = true;
 			this.labelUserIDHere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelUserIDHere.Location = new System.Drawing.Point(311, 56);
+			this.labelUserIDHere.Location = new System.Drawing.Point(335, 25);
 			this.labelUserIDHere.Name = "labelUserIDHere";
-			this.labelUserIDHere.Size = new System.Drawing.Size(62, 16);
+			this.labelUserIDHere.Size = new System.Drawing.Size(56, 16);
 			this.labelUserIDHere.TabIndex = 16;
 			this.labelUserIDHere.Text = "000000";
 			// 
 			// labelUserID
 			// 
-			this.labelUserID.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelUserID.AutoSize = true;
 			this.labelUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelUserID.Location = new System.Drawing.Point(236, 56);
+			this.labelUserID.Location = new System.Drawing.Point(260, 25);
 			this.labelUserID.Name = "labelUserID";
-			this.labelUserID.Size = new System.Drawing.Size(69, 16);
+			this.labelUserID.Size = new System.Drawing.Size(64, 16);
 			this.labelUserID.TabIndex = 16;
 			this.labelUserID.Text = "UserID: ";
 			// 
 			// labelResult
 			// 
-			this.labelResult.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelResult.AutoSize = true;
 			this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelResult.Location = new System.Drawing.Point(263, 418);
+			this.labelResult.Location = new System.Drawing.Point(263, 389);
 			this.labelResult.Name = "labelResult";
 			this.labelResult.Size = new System.Drawing.Size(269, 13);
 			this.labelResult.TabIndex = 15;
@@ -600,9 +561,8 @@ namespace CovidAirlines
 			// 
 			// labelUpdateAccount
 			// 
-			this.labelUpdateAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelUpdateAccount.AutoSize = true;
-			this.labelUpdateAccount.Location = new System.Drawing.Point(503, 95);
+			this.labelUpdateAccount.Location = new System.Drawing.Point(503, 66);
 			this.labelUpdateAccount.Name = "labelUpdateAccount";
 			this.labelUpdateAccount.Size = new System.Drawing.Size(140, 13);
 			this.labelUpdateAccount.TabIndex = 14;
@@ -610,8 +570,7 @@ namespace CovidAirlines
 			// 
 			// buttonUpdate
 			// 
-			this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.buttonUpdate.Location = new System.Drawing.Point(263, 387);
+			this.buttonUpdate.Location = new System.Drawing.Point(263, 358);
 			this.buttonUpdate.Name = "buttonUpdate";
 			this.buttonUpdate.Size = new System.Drawing.Size(608, 23);
 			this.buttonUpdate.TabIndex = 2;
@@ -621,7 +580,6 @@ namespace CovidAirlines
 			// 
 			// groupBoxBilling
 			// 
-			this.groupBoxBilling.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.groupBoxBilling.Controls.Add(this.comboBoxMonth);
 			this.groupBoxBilling.Controls.Add(this.comboBoxYear);
 			this.groupBoxBilling.Controls.Add(this.textBoxCSV);
@@ -629,7 +587,7 @@ namespace CovidAirlines
 			this.groupBoxBilling.Controls.Add(this.labelCSV);
 			this.groupBoxBilling.Controls.Add(this.labelExpiration);
 			this.groupBoxBilling.Controls.Add(this.labelCC);
-			this.groupBoxBilling.Location = new System.Drawing.Point(263, 277);
+			this.groupBoxBilling.Location = new System.Drawing.Point(263, 248);
 			this.groupBoxBilling.Name = "groupBoxBilling";
 			this.groupBoxBilling.Size = new System.Drawing.Size(608, 104);
 			this.groupBoxBilling.TabIndex = 1;
@@ -697,7 +655,6 @@ namespace CovidAirlines
 			// 
 			// groupBoxContactInfo
 			// 
-			this.groupBoxContactInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.groupBoxContactInfo.Controls.Add(this.checkBoxPassword);
 			this.groupBoxContactInfo.Controls.Add(this.textBoxConfirmPassword);
 			this.groupBoxContactInfo.Controls.Add(this.labelConfirmPassword);
@@ -715,7 +672,7 @@ namespace CovidAirlines
 			this.groupBoxContactInfo.Controls.Add(this.labelNumber);
 			this.groupBoxContactInfo.Controls.Add(this.labelAddress);
 			this.groupBoxContactInfo.Controls.Add(this.labelName);
-			this.groupBoxContactInfo.Location = new System.Drawing.Point(263, 111);
+			this.groupBoxContactInfo.Location = new System.Drawing.Point(263, 82);
 			this.groupBoxContactInfo.Name = "groupBoxContactInfo";
 			this.groupBoxContactInfo.Size = new System.Drawing.Size(608, 160);
 			this.groupBoxContactInfo.TabIndex = 0;
@@ -865,6 +822,17 @@ namespace CovidAirlines
 			this.labelName.TabIndex = 0;
 			this.labelName.Text = "Name";
 			// 
+			// buttonSignout
+			// 
+			this.buttonSignout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonSignout.Location = new System.Drawing.Point(1106, 514);
+			this.buttonSignout.Name = "buttonSignout";
+			this.buttonSignout.Size = new System.Drawing.Size(75, 23);
+			this.buttonSignout.TabIndex = 13;
+			this.buttonSignout.Text = "Sign Out";
+			this.buttonSignout.UseVisualStyleBackColor = true;
+			this.buttonSignout.Click += new System.EventHandler(this.buttonSignout_Click);
+			// 
 			// covidAirlinesCities
 			// 
 			this.covidAirlinesCities.DataSetName = "CovidAirlinesCities";
@@ -888,6 +856,7 @@ namespace CovidAirlines
 			// 
 			this.transactionBindingSource.DataMember = "Transaction";
 			this.transactionBindingSource.DataSource = this.covidAirlinesDataSet1;
+			this.transactionBindingSource.CurrentChanged += new System.EventHandler(this.transactionBindingSource_CurrentChanged);
 			// 
 			// transactionTableAdapter
 			// 
@@ -897,21 +866,22 @@ namespace CovidAirlines
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1193, 631);
+			this.ClientSize = new System.Drawing.Size(1189, 544);
 			this.ControlBox = false;
 			this.Controls.Add(this.tabControlMenu);
-			this.IsMdiContainer = true;
+			this.Controls.Add(this.buttonSignout);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormCustomer";
 			this.ShowIcon = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Main Menu - Customer";
 			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.tabControlMenu.ResumeLayout(false);
 			this.tabPageBook.ResumeLayout(false);
 			this.tabPageBook.PerformLayout();
 			this.tabPageHistory.ResumeLayout(false);
-			this.tabPageHistory.PerformLayout();
 			this.tabPageAccount.ResumeLayout(false);
 			this.tabPageAccount.PerformLayout();
 			this.groupBoxBilling.ResumeLayout(false);
@@ -987,8 +957,6 @@ namespace CovidAirlines
 		private System.Windows.Forms.RadioButton radioButtonOneway;
 		private System.Windows.Forms.Button buttonSignout;
 		private System.Windows.Forms.RadioButton radioButtonRoundTrip;
-		private System.Windows.Forms.TextBox textBoxSelected;
-		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button buttonBoardingPass;
 		private System.Windows.Forms.Button buttonCancelFlight;
 		private System.Windows.Forms.Button buttonOneWeek;

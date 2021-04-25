@@ -11,7 +11,7 @@
           </Key>
           <Property Name="AirplaneID" Type="int" Nullable="false" />
           <Property Name="AirplaneType" Type="tinyint" Nullable="false" />
-          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -23,11 +23,21 @@
           <Property Name="Latitude" Type="decimal" Precision="8" Scale="6" Nullable="false" />
           <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
         </EntityType>
+        <EntityType Name="Flight">
+          <Key>
+            <PropertyRef Name="FlightNumber" />
+          </Key>
+          <Property Name="FlightNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="FlightDate" Type="datetime" Nullable="false" />
+          <Property Name="CurrentPassengers" Type="int" Nullable="false" />
+          <Property Name="MaxPassengers" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Route">
           <Key>
             <PropertyRef Name="RouteID" />
           </Key>
-          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="RouteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OriginCityID" Type="int" Nullable="false" />
           <Property Name="DestinationCityID" Type="int" Nullable="false" />
           <Property Name="DepartureTime" Type="datetime" Nullable="false" />
@@ -39,14 +49,14 @@
           <Property Name="Stop2ArrivalTime" Type="datetime" />
           <Property Name="Stop2DepartureTime" Type="datetime" />
           <Property Name="AirplaneID" Type="int" Nullable="false" />
-          <Property Name="TicketPrice" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="TicketPrice" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="PointsAwarded" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
             <PropertyRef Name="TransactionID" />
           </Key>
-          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FlightNumber" Type="int" Nullable="false" />
           <Property Name="RouteID" Type="int" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
@@ -73,6 +83,18 @@
           <Property Name="PointsAvailable" Type="int" Nullable="false" />
           <Property Name="PointsRedeemed" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Flight_Route">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="RouteID" />
+            </Principal>
+            <Dependent Role="Flight">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Route_Airplane">
           <End Role="Airplane" Type="Self.Airplane" Multiplicity="1" />
           <End Role="Route" Type="Self.Route" Multiplicity="*" />
@@ -124,9 +146,14 @@
         <EntityContainer Name="CovidAirlinesModelStoreContainer">
           <EntitySet Name="Airplane" EntityType="Self.Airplane" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Flight_Route" Association="Self.FK_Flight_Route">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="Flight" EntitySet="Flight" />
+          </AssociationSet>
           <AssociationSet Name="FK_Route_Airplane" Association="Self.FK_Route_Airplane">
             <End Role="Airplane" EntitySet="Airplane" />
             <End Role="Route" EntitySet="Route" />
@@ -154,8 +181,8 @@
           </Key>
           <Property Name="AirplaneID" Type="Int32" Nullable="false" />
           <Property Name="AirplaneType" Type="Byte" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Routes" Relationship="Self.FK_Route_Airplane" FromRole="Airplane" ToRole="Route" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -184,11 +211,12 @@
           <Property Name="Stop2ArrivalTime" Type="DateTime" Precision="3" />
           <Property Name="Stop2DepartureTime" Type="DateTime" Precision="3" />
           <Property Name="AirplaneID" Type="Int32" Nullable="false" />
-          <Property Name="TicketPrice" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="TicketPrice" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="PointsAwarded" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Airplane" Relationship="Self.FK_Route_Airplane" FromRole="Route" ToRole="Airplane" />
           <NavigationProperty Name="City" Relationship="Self.FK_Route_City" FromRole="Route" ToRole="City" />
           <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_Route" FromRole="Route" ToRole="Transaction" />
+          <NavigationProperty Name="Flights" Relationship="CovidAirlinesModel.FK_Flight_Route" FromRole="Route" ToRole="Flight" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
@@ -294,7 +322,35 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
+          <EntitySet Name="Flights" EntityType="CovidAirlinesModel.Flight" />
+          <AssociationSet Name="FK_Flight_Route" Association="CovidAirlinesModel.FK_Flight_Route">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="Flight" EntitySet="Flights" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Flight">
+          <Key>
+            <PropertyRef Name="FlightNumber" />
+          </Key>
+          <Property Name="FlightNumber" Type="Int32" Nullable="false" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="FlightDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CurrentPassengers" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Route" Relationship="CovidAirlinesModel.FK_Flight_Route" FromRole="Flight" ToRole="Route" />
+          <Property Name="MaxPassengers" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Flight_Route">
+          <End Type="CovidAirlinesModel.Route" Role="Route" Multiplicity="1" />
+          <End Type="CovidAirlinesModel.Flight" Role="Flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="RouteID" />
+            </Principal>
+            <Dependent Role="Flight">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -304,9 +360,9 @@
           <EntitySetMapping Name="Airplanes">
             <EntityTypeMapping TypeName="CovidAirlinesModel.Airplane">
               <MappingFragment StoreEntitySet="Airplane">
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
                 <ScalarProperty Name="AirplaneID" ColumnName="AirplaneID" />
                 <ScalarProperty Name="AirplaneType" ColumnName="AirplaneType" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -371,6 +427,17 @@
                 <ScalarProperty Name="CardCVV" ColumnName="CardCVV" />
                 <ScalarProperty Name="PointsAvailable" ColumnName="PointsAvailable" />
                 <ScalarProperty Name="PointsRedeemed" ColumnName="PointsRedeemed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flights">
+            <EntityTypeMapping TypeName="CovidAirlinesModel.Flight">
+              <MappingFragment StoreEntitySet="Flight">
+                <ScalarProperty Name="MaxPassengers" ColumnName="MaxPassengers" />
+                <ScalarProperty Name="CurrentPassengers" ColumnName="CurrentPassengers" />
+                <ScalarProperty Name="FlightDate" ColumnName="FlightDate" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="FlightNumber" ColumnName="FlightNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

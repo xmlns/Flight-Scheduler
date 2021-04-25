@@ -25,10 +25,11 @@ namespace CovidAirlines
 			//this.cityTableAdapter.Fill(this.covidAirlinesDataSet.City);
 			// TODO: This line of code loads data into the 'covidAirlinesDataSet.City' table. You can move, or remove it, as needed.
 			//this.cityTableAdapter.Fill(this.covidAirlinesDataSet.City);
+			/*
 			this.WindowState = FormWindowState.Maximized;
 			this.MinimumSize = this.Size;
 			this.MaximumSize = this.Size;
-			
+			*/
 
 			//Populate city choices
 			using (var entities = new CovidAirlinesEntities())
@@ -126,7 +127,7 @@ namespace CovidAirlines
 			{
 				var flight = listViewHistory.SelectedItems[0];
 				//rest of your logic
-				textBoxSelected.Text = flight.Text;
+				//textBoxSelected.Text = flight.Text;
 				
 			}
 		}
@@ -184,18 +185,85 @@ namespace CovidAirlines
 
 			labelSearchResponse.Text = "Searching...";
 			labelSearchResponse.Visible = true;
-			/*
-			FormBookDepartFlight fBookDepartFlight = new FormBookDepartFlight();
-			fBookDepartFlight.MdiParent = this;
-			fBookDepartFlight.BringToFront();
-			tabControlMenu.SendToBack();
 
-			fBookDepartFlight.Show();
-			*/
+			BookFlightFormLogic();
 			
-			FormBookDepartFlight fBookDepartFlight = new FormBookDepartFlight();			
-			fBookDepartFlight.Show();
+		}
+
+		private void BookFlightFormLogic()
+		{
+			this.Hide();
+			//Always go to book depart flight first (selected origin -> selected destination)
+			//combo box are zero-indexed
+			FormChooseFlight fDepartFlight = new FormChooseFlight(comboBoxOrigin.SelectedIndex+1, comboBoxDestination.SelectedIndex+1, false);
+			var departResult = fDepartFlight.ShowDialog();
 			
+			string departRouteID, returnRouteID;
+			departRouteID = returnRouteID = string.Empty;
+
+			if (departResult == DialogResult.OK)
+			{
+				//Get Depart route chosen
+				departRouteID = fDepartFlight.chosenRouteID;
+
+				int departFlightNumber, returnFlightNumber = -1;
+
+				//Get or create flight that matches depart route and date
+				departFlightNumber = ConfirmFlight(int.Parse(departRouteID), dateTimePickerDepart.Value);
+
+				if (radioButtonRoundTrip.Checked == true)
+				{//round trip, we need to choose return flight now (selected destination -> selected origin)
+					FormChooseFlight fReturnFlight = new FormChooseFlight(comboBoxDestination.SelectedIndex+1, comboBoxOrigin.SelectedIndex+1, true);
+					var returnResult = fReturnFlight.ShowDialog();
+
+					if (returnResult == DialogResult.Cancel) return;//dont continue
+
+					//Get Return route chosen
+					returnRouteID = fReturnFlight.chosenRouteID;
+					//Get or create flight that matches return route and date
+					returnFlightNumber = ConfirmFlight(int.Parse(returnRouteID), dateTimePickerReturn.Value);
+				}
+				FormConfirmation fConfirmation = new FormConfirmation(CUSTOMER.UserID, departFlightNumber, returnFlightNumber);
+				fConfirmation.ShowDialog();
+			}
+
+			//Clear old search criteria
+			comboBoxOrigin.SelectedIndex = -1;
+			comboBoxDestination.SelectedIndex = -1;
+			radioButtonOneway.Checked = true;
+			dateTimePickerDepart.Value = DateTime.Today.AddDays(1);
+			labelSearchResponse.Hide();
+
+			this.Show();
+
+		}
+
+		//This method will search Flights database to see if the chosen route and time already has flight created
+		//If this is the first booking of the inputted route and date, it will create a new flight in the database
+		//Will return FlightNumber of new or preexisting flight
+		private int ConfirmFlight(int routeID, DateTime flightDate)
+		{
+			using (var db = new CovidAirlinesEntities())
+			{
+				//First search if flight already exists in Flight Table
+				var flight = db.Flights.Where(r => r.RouteID == routeID).Where(d => d.FlightDate == flightDate.Date).FirstOrDefault();
+
+				//Flight Does Not Exist
+				if (flight == null)
+				{
+					var route = db.Routes.Where(r => r.RouteID == routeID).FirstOrDefault();
+					flight = new Flight
+					{
+						RouteID = routeID,
+						FlightDate = flightDate.Date,
+						CurrentPassengers = 0,
+						MaxPassengers = route.Airplane.Capacity
+					};
+					db.Flights.Add(flight);
+					db.SaveChanges();
+				}
+				return flight.FlightNumber;
+			}
 		}
 
 		private void buttonBoardingPass_Click(object sender, EventArgs e)
@@ -320,6 +388,16 @@ namespace CovidAirlines
 
 			textBoxNewPassword.Text = string.Empty;
 			textBoxConfirmPassword.Text = string.Empty;
+		}
+
+		private void tabPageHistory_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void transactionBindingSource_CurrentChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

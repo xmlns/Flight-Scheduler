@@ -40,6 +40,7 @@ namespace CovidAirlines
             {
                 ErrorMessage.Text = "Username and password must not be empty";
                 ErrorMessage.Show();
+                PasswordTextBox.Text = string.Empty;
             }
             else
             {
@@ -48,6 +49,7 @@ namespace CovidAirlines
                 {
                     ErrorMessage.Text = "Invalid UserID. Please enter a 6-digit UserID";
                     ErrorMessage.Show();
+                    PasswordTextBox.Text = string.Empty;
                     return;
                 }
                 else
@@ -65,6 +67,7 @@ namespace CovidAirlines
                     {
                         ErrorMessage.Text = "User does not exist. Create an account to login.";
                         ErrorMessage.Show();
+                        PasswordTextBox.Text = string.Empty;
                         return;
                     }
                     //Generate hash of inputted password and check db for match
@@ -74,9 +77,12 @@ namespace CovidAirlines
                     {
                         ErrorMessage.Text = "Username or password does not match";
                         ErrorMessage.Show();
+                        PasswordTextBox.Text = string.Empty;
                         return;
                     }
                     //Redirect to corresponding homescreen
+                    this.Hide();
+                    ClearAllTextBoxes(this.Controls);
                     switch (user.UserType)
                     {
                         case (byte)UserType.CUSTOMER:
@@ -104,6 +110,7 @@ namespace CovidAirlines
                             fAccountant.ShowDialog();
                             break;
                     }
+                    this.Show();
                     
                 }
             }
@@ -210,6 +217,9 @@ namespace CovidAirlines
                     ClearAllTextBoxes(ctrl.Controls);
                 }
             }
+
+            ErrorMessage.Text = string.Empty;
+            labelResult.Text = string.Empty;
 
             comboBoxMonth.SelectedIndex = -1;
             comboBoxYear.SelectedIndex = -1;

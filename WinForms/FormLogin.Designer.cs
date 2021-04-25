@@ -460,6 +460,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Margin = new System.Windows.Forms.Padding(1);
 			this.Name = "FormLogin";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Login";
 			this.Load += new System.EventHandler(this.Login_Load);
 			this.splitContainer1.Panel1.ResumeLayout(false);
