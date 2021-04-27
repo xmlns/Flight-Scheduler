@@ -90,6 +90,7 @@ namespace CovidAirlines
 								});
 				foreach (var history in histories)
 				{
+					var flightDate = entities.Flights.Find(history.FlightNumber).FlightDate;
 					string[] entry = {
 						history.FlightNumber.ToString(),
 						entities.Cities.Find(history.OriginCityID).Code,
@@ -448,6 +449,7 @@ namespace CovidAirlines
         {
 			CancelFlights(listViewHistory.SelectedItems);
 		}
+
 		private void CancelFlights(ListView.SelectedListViewItemCollection selectedItems)
 		{
 			if (selectedItems.Count == 0)
@@ -455,32 +457,23 @@ namespace CovidAirlines
 				return;
 			}
 
-			/* TO-DO: Iterate over the selected rows, check if the flight departs in 1 hour.
-						Decrement passengers, change transaction status to Cancelled, decrement points
 			using (var entities = new CovidAirlinesEntities())
 			{
 				foreach (ListViewItem row in selectedItems)
 				{
-					var flightNumber = row.SubItems[0];
+					var flightNumber = int.Parse(row.SubItems[0].Text);
                     var flight = entities.Flights.Find(flightNumber);
                     var route = entities.Routes.Find(flight.RouteID);
-                    var timeDiff = DateTime.UtcNow.TimeOfDay.Subtract(route.DepartureTime.TimeOfDay);
-
-                    if (timeDiff.Hours > 1)
-                    {
-						//.Text = "Flights can only be cancelled up to an hour before they depart";
-                        //labelErrorMessage.Show();
-                        return;
-                    }
-
 					var transaction = entities.Transactions.Where(t => t.RouteID == flight.RouteID).FirstOrDefault();
+
                     flight.CurrentPassengers--;
                     transaction.StatusType = (byte)StatusType.Cancelled;
-                    CUSTOMER.PointsAvailable -= route.PointsAwarded;
+					var user = entities.Users.Find(CUSTOMER.UserID);
+                    user.PointsAvailable -= route.PointsAwarded;
 				}
 				entities.SaveChanges();
 			}
-			*/
+			
 		}
 	}
 }
