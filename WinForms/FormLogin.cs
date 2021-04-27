@@ -42,6 +42,11 @@ namespace CovidAirlines
                 ErrorMessage.Show();
                 PasswordTextBox.Text = string.Empty;
             }
+            else if (!MatchesPasswordRequirement(PasswordTextBox.Text))
+            {
+                ErrorMessage.Text = "Password should be longer than 8 characters, should have atleast one uppercase and one lowercase character.";
+                ErrorMessage.Show();
+            }
             else
             {
                 int userId;
@@ -111,9 +116,15 @@ namespace CovidAirlines
                             break;
                     }
                     this.Show();
-                    
+
                 }
             }
+        }
+
+        // check if password has 8 characters, 1 uppercase, and 1 lowercase character
+        private bool MatchesPasswordRequirement(string password)
+        {
+            return (password.Length > 8 && password.Any(char.IsUpper) && password.Any(char.IsLower));
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
