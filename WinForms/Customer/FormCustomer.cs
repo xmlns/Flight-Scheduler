@@ -70,6 +70,7 @@ namespace CovidAirlines
 
 			using (var entities = new CovidAirlinesEntities())
 			{
+				const string BLANK = "-";
 				var histories = entities.Transactions.Where(x => x.UserID == CUSTOMER.UserID).Join(entities.Routes, t => t.RouteID, r => r.RouteID,
 								(t, r) =>
 								new {
@@ -81,7 +82,11 @@ namespace CovidAirlines
 									r.OriginCityID,
 									r.DestinationCityID,
 									r.DepartureTime,
-									r.ArrivalTime
+									r.ArrivalTime,
+									Stop1CityID = r.Stop1CityID == null ? BLANK : r.Stop1CityID.ToString(),
+									Stop1DepartureTime = r.Stop1DepartureTime == null ? BLANK : r.Stop1DepartureTime.ToString(),
+									Stop2CityID = r.Stop2CityID == null ? BLANK : r.Stop2CityID.ToString(),
+									Stop2DepartureTime = r.Stop2DepartureTime == null ? BLANK : r.Stop2DepartureTime.ToString()
 								});
 				foreach (var history in histories)
 				{
@@ -89,9 +94,13 @@ namespace CovidAirlines
 						history.FlightNumber.ToString(),
 						entities.Cities.Find(history.OriginCityID).Code,
 						entities.Cities.Find(history.DestinationCityID).Code,
-						Enum.Parse(typeof(StatusType), history.StatusType.ToString()).ToString(),
 						history.DepartureTime.TimeOfDay.ToString(),
 						history.ArrivalTime.TimeOfDay.ToString(),
+						history.Stop1CityID,
+						history.Stop1DepartureTime,
+						history.Stop2CityID,
+						history.Stop2DepartureTime,
+						Enum.Parse(typeof(StatusType), history.StatusType.ToString()).ToString(),
 						history.TicketPrice.ToString()
 					};
 
