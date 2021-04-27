@@ -62,10 +62,45 @@ namespace CovidAirlines
 
 			//Populate User Info
 			PopulateUserInfo();
-
+			PopulateFlightHistory();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+        private void PopulateFlightHistory()
+		{
+
+			using (var entities = new CovidAirlinesEntities())
+			{
+				var histories = entities.Transactions.Where(x => x.UserID == CUSTOMER.UserID).Join(entities.Routes, t => t.RouteID, r => r.RouteID,
+								(t, r) =>
+								new {
+									t.StatusType,
+									r.TicketPrice,
+									t.FlightNumber,
+									t.PaymentType,
+									r.PointsAwarded,
+									r.OriginCityID,
+									r.DestinationCityID,
+									r.DepartureTime,
+									r.ArrivalTime
+								});
+				foreach (var history in histories)
+				{
+					string[] entry = {
+						history.FlightNumber.ToString(),
+						entities.Cities.Find(history.OriginCityID).Code,
+						entities.Cities.Find(history.DestinationCityID).Code,
+						Enum.Parse(typeof(StatusType), history.StatusType.ToString()).ToString(),
+						history.DepartureTime.TimeOfDay.ToString(),
+						history.ArrivalTime.TimeOfDay.ToString(),
+						history.TicketPrice.ToString()
+					};
+
+					listViewHistory.Items.Add(new ListViewItem(entry));
+				}
+			}
+		}
+
+        private void button1_Click(object sender, EventArgs e)
 		{
 			string[] entry = {"123",
 				"Denver, CO (DEN)",
@@ -249,7 +284,7 @@ namespace CovidAirlines
 				var flight = db.Flights.Where(r => r.RouteID == routeID).Where(d => d.FlightDate == flightDate.Date).FirstOrDefault();
 
 				//Flight Does Not Exist
-				if (flight == null)
+				if (flight == null || flight.FlightDate < flightDate)
 				{
 					var route = db.Routes.Where(r => r.RouteID == routeID).FirstOrDefault();
 					flight = new Flight
@@ -262,6 +297,7 @@ namespace CovidAirlines
 					db.Flights.Add(flight);
 					db.SaveChanges();
 				}
+
 				return flight.FlightNumber;
 			}
 		}
@@ -315,38 +351,36 @@ namespace CovidAirlines
 			}
 			using (var db = new CovidAirlinesEntities())
 			{
-				//TODO: NOT COMPLETE
+				labelResult.Text = "Updating Account Information...";
+				labelResult.Visible = true;
+
 				User userEntry = db.Users.Where(u => u.UserID == CUSTOMER.UserID).FirstOrDefault();
 				if (userEntry != null)
 				{
-					CUSTOMER.FullName = acctInfo[0];
-					CUSTOMER.Address = acctInfo[3];
-					CUSTOMER.City = acctInfo[4];
-					CUSTOMER.ZipCode = acctInfo[5];
-					CUSTOMER.PhoneNumber = acctInfo[6];
-					CUSTOMER.Age = short.Parse(acctInfo[7]);
-					CUSTOMER.CardNumber = acctInfo[8];
-					CUSTOMER.CardExpiryDate = new DateTime(int.Parse(acctInfo[10]), int.Parse(acctInfo[9]), 1);
-					CUSTOMER.CardCVV = short.Parse(acctInfo[11]);
+					userEntry.FullName = acctInfo[0];
+					userEntry.Address = acctInfo[3];
+					userEntry.City = acctInfo[4];
+					userEntry.ZipCode = acctInfo[5];
+					userEntry.PhoneNumber = acctInfo[6];
+					userEntry.Age = short.Parse(acctInfo[7]);
+					userEntry.CardNumber = acctInfo[8];
+					userEntry.CardExpiryDate = new DateTime(int.Parse(acctInfo[10]), int.Parse(acctInfo[9]), 1);
+					userEntry.CardCVV = short.Parse(acctInfo[11]);
 					if (checkBoxPassword.Checked)
 					{
-						CUSTOMER.PasswordHash = Utility.GenerateHash(acctInfo[1]);
+						userEntry.PasswordHash = Utility.GenerateHash(acctInfo[1]);
 					}
-					userEntry = CUSTOMER;
 					db.SaveChanges();
+
+					textBoxNewPassword.Text = string.Empty;
+					textBoxConfirmPassword.Text = string.Empty;
+
+					labelResult.Text = "Account Information Updated...";
+					return;
 				}
 
-				labelResult.Text = "Updating Account Information...";
-				labelResult.Visible = true;
-				//TODO: Update User entry with inputted info
-				//var userEntry = entities.Users.Where(u => u.UserID == CUSTOMER.UserID).FirstOrDefault();//query user entry
-				//entities.Users.
-				//byte[] currentPasswordHash = Utility.GenerateHash(textBoxCurrentPassword.Text);
-				//check if currentin
 
-				textBoxNewPassword.Text = string.Empty;
-				textBoxConfirmPassword.Text = string.Empty;
-
+				labelResult.Text = "Error Updating Information...";
 			}
 		}
 
@@ -401,9 +435,43 @@ namespace CovidAirlines
 
 		}
 
-		private void buttonCancelFlight_Click(object sender, EventArgs e)
+        private void buttonCancelFlight_Click(object sender, EventArgs e)
+        {
+			CancelFlights(listViewHistory.SelectedItems);
+		}
+		private void CancelFlights(ListView.SelectedListViewItemCollection selectedItems)
 		{
+			if (selectedItems.Count == 0)
+			{
+				return;
+			}
 
+			/* TO-DO: Iterate over the selected rows, check if the flight departs in 1 hour.
+						Decrement passengers, change transaction status to Cancelled, decrement points
+			using (var entities = new CovidAirlinesEntities())
+			{
+				foreach (ListViewItem row in selectedItems)
+				{
+					var flightNumber = row.SubItems[0];
+                    var flight = entities.Flights.Find(flightNumber);
+                    var route = entities.Routes.Find(flight.RouteID);
+                    var timeDiff = DateTime.UtcNow.TimeOfDay.Subtract(route.DepartureTime.TimeOfDay);
+
+                    if (timeDiff.Hours > 1)
+                    {
+						//.Text = "Flights can only be cancelled up to an hour before they depart";
+                        //labelErrorMessage.Show();
+                        return;
+                    }
+
+					var transaction = entities.Transactions.Where(t => t.RouteID == flight.RouteID).FirstOrDefault();
+                    flight.CurrentPassengers--;
+                    transaction.StatusType = (byte)StatusType.Cancelled;
+                    CUSTOMER.PointsAvailable -= route.PointsAwarded;
+				}
+				entities.SaveChanges();
+			}
+			*/
 		}
 	}
 }
