@@ -140,6 +140,7 @@ namespace CovidAirlines
 			this.buttonGenerate.TabIndex = 7;
 			this.buttonGenerate.Text = "Generate Selected Manifest";
 			this.buttonGenerate.UseVisualStyleBackColor = true;
+			this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
 			// 
 			// FormFlightManager
 			// 

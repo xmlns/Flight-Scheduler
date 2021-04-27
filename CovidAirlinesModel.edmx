@@ -10,7 +10,6 @@
             <PropertyRef Name="AirplaneID" />
           </Key>
           <Property Name="AirplaneID" Type="int" Nullable="false" />
-          <Property Name="AirplaneType" Type="tinyint" Nullable="false" />
           <Property Name="Capacity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="City">
@@ -180,7 +179,6 @@
             <PropertyRef Name="AirplaneID" />
           </Key>
           <Property Name="AirplaneID" Type="Int32" Nullable="false" />
-          <Property Name="AirplaneType" Type="Byte" Nullable="false" />
           <NavigationProperty Name="Routes" Relationship="Self.FK_Route_Airplane" FromRole="Airplane" ToRole="Route" />
           <Property Name="Capacity" Type="Int32" Nullable="false" />
         </EntityType>
@@ -362,7 +360,6 @@
               <MappingFragment StoreEntitySet="Airplane">
                 <ScalarProperty Name="Capacity" ColumnName="Capacity" />
                 <ScalarProperty Name="AirplaneID" ColumnName="AirplaneID" />
-                <ScalarProperty Name="AirplaneType" ColumnName="AirplaneType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

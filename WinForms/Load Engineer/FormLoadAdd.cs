@@ -86,14 +86,10 @@ namespace CovidAirlines
 				return;
 			}
 				
-			
-
 			int count = 2;
 			if (checkBoxStop2.Checked == true) count = 4;
 			else if (checkBoxStop1.Checked == true) count = 3;
 
-
-			//bool allUnique = allCityIDs.Distinct().Count() == 4;
 			bool allUnique = allCityIDs.Take(count).Distinct().Count() == count;
 
 			if (!allUnique)
@@ -103,30 +99,29 @@ namespace CovidAirlines
 				return;
 			}
 
-			labelError.Text = "Success!";
-			labelError.Show();
+			
 
 			using (var db = new CovidAirlinesEntities()) {
 				List<City> CityList = db.Cities.ToList();
-				Airplane a = new Airplane { AirplaneID = 1, AirplaneType = (byte)AirplaneType.Boeing_737, Capacity = 100 };
 				
 				Route newRoute = new Route
 				{
-					//RouteID = 1,
-					OriginCityID = comboBoxOrigin.SelectedIndex,
-					DestinationCityID = comboBoxDestination.SelectedIndex,
+					//RouteID = 1, now auto increments
+					OriginCityID = comboBoxOrigin.SelectedIndex + 1,//+1 since comboboxes are zxero indexed and database starts at 1
+					DestinationCityID = comboBoxDestination.SelectedIndex + 1,
 					DepartureTime = dateTimePickerDepart.Value,
 					ArrivalTime = dateTimePickerArrival.Value,
-					Stop1CityID = comboBoxStop1.SelectedIndex,
+					Stop1CityID = comboBoxStop1.SelectedIndex + 1,
 					Stop1ArrivalTime = dateTimePickerStop1Arrival.Value,
 					Stop1DepartureTime = dateTimePickerStop1Depart.Value,
-					Stop2CityID = comboBoxStop2.SelectedIndex,
+					Stop2CityID = comboBoxStop2.SelectedIndex + 1,
 					Stop2ArrivalTime = dateTimePickerStop2Arrival.Value,
 					Stop2DepartureTime = dateTimePickerStop2Depart.Value,
-					Airplane = a,
-					TicketPrice = 150m,
-					PointsAwarded = 10000
+					AirplaneID = (byte)AirplaneType.Boeing_737
 				};
+				newRoute.TicketPrice = Utility.CalculateTicketPrice(newRoute.OriginCityID, newRoute.DestinationCityID);
+				newRoute.PointsAwarded = Utility.CalculatePointsAwarded(Convert.ToDouble(newRoute.TicketPrice));
+
 				if (checkBoxStop1.Checked == false)
 				{
 					newRoute.Stop1CityID = null;
@@ -143,9 +138,12 @@ namespace CovidAirlines
 				db.Routes.Add(newRoute);
 				db.SaveChanges();
 
+				labelError.Text = "Success!";
+				labelError.Show();
+
 			}
 
-			//this.Close();
+			this.Close();
 		}
 
 		private void buttonCancel_Click(object sender, EventArgs e)

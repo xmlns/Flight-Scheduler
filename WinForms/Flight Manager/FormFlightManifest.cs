@@ -12,12 +12,19 @@ namespace CovidAirlines
 {
 	public partial class FormFlightManifest : Form
 	{
-		public FormFlightManifest()
+		private int flightNumber;
+		public FormFlightManifest(int flightNum)
 		{
 			InitializeComponent();
+			flightNumber = flightNum;
 		}
 
 		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void FormFlightManifest_Load(object sender, EventArgs e)
 		{
 
 		}

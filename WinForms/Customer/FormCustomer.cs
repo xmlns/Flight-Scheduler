@@ -268,6 +268,7 @@ namespace CovidAirlines
 
 		private void buttonBoardingPass_Click(object sender, EventArgs e)
 		{
+			//TODO: Boarding Pass functionality, populate flight information and mark status as boarded in transaction table
 			FormBoardingPass fBoardingPass = new FormBoardingPass();
 			fBoardingPass.ShowDialog();
 		}
@@ -396,6 +397,11 @@ namespace CovidAirlines
 		}
 
 		private void transactionBindingSource_CurrentChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void buttonCancelFlight_Click(object sender, EventArgs e)
 		{
 
 		}

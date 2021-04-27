@@ -243,12 +243,12 @@ namespace CovidAirlines
 			// 
 			this.labelPlane.AutoSize = true;
 			this.labelPlane.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPlane.Location = new System.Drawing.Point(38, 270);
+			this.labelPlane.Location = new System.Drawing.Point(12, 270);
 			this.labelPlane.Name = "labelPlane";
-			this.labelPlane.Size = new System.Drawing.Size(501, 13);
+			this.labelPlane.Size = new System.Drawing.Size(541, 13);
 			this.labelPlane.TabIndex = 5;
-			this.labelPlane.Text = "*Plane will be defaulted to XXX and will need to be changed by the Marketing Mana" +
-    "ger";
+			this.labelPlane.Text = "*Plane will be defaulted to Boeing 737 and will need to be changed by the Marketi" +
+    "ng Manager";
 			// 
 			// buttonCancel
 			// 
@@ -371,6 +371,7 @@ namespace CovidAirlines
 			this.Controls.Add(this.comboBoxStop1);
 			this.Controls.Add(this.comboBoxOrigin);
 			this.Name = "FormLoadAdd";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Add New Route!";
 			this.Load += new System.EventHandler(this.FormLoadAdd_Load);
 			((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).EndInit();

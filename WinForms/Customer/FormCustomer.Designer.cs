@@ -379,6 +379,7 @@ namespace CovidAirlines
 			this.buttonCancelFlight.TabIndex = 6;
 			this.buttonCancelFlight.Text = "Cancel Selected Flight";
 			this.buttonCancelFlight.UseVisualStyleBackColor = true;
+			this.buttonCancelFlight.Click += new System.EventHandler(this.buttonCancelFlight_Click);
 			// 
 			// listViewHistory
 			// 

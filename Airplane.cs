@@ -21,7 +21,6 @@ namespace CovidAirlines
         }
     
         public int AirplaneID { get; set; }
-        public byte AirplaneType { get; set; }
         public int Capacity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

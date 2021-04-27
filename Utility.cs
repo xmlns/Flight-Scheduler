@@ -50,10 +50,10 @@ namespace CovidAirlines
         /// <param name="city1ID">Origin City ID</param>
         /// <param name="city2ID">Destination City ID</param>
         /// <returns>Ticket Price based on distance between given cities</returns>
-        public static double CalculateTicketPrice(int city1ID, int city2ID)
+        public static decimal CalculateTicketPrice(int city1ID, int city2ID)
         {
             double fixedPrice = 50.00 + 8.00;
-            return fixedPrice + CalculateDistanceBetween(city1ID, city2ID) * 0.12;
+            return Convert.ToDecimal(fixedPrice + CalculateDistanceBetween(city1ID, city2ID) * 0.12);
         }
 
         /// <summary>

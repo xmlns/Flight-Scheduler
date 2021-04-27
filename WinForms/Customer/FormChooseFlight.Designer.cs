@@ -75,7 +75,7 @@ namespace CovidAirlines
             this.columnHeaderPoints});
 			this.listViewRoutes.FullRowSelect = true;
 			this.listViewRoutes.HideSelection = false;
-			this.listViewRoutes.Location = new System.Drawing.Point(12, 31);
+			this.listViewRoutes.Location = new System.Drawing.Point(9, 31);
 			this.listViewRoutes.MultiSelect = false;
 			this.listViewRoutes.Name = "listViewRoutes";
 			this.listViewRoutes.Size = new System.Drawing.Size(1173, 290);
@@ -152,7 +152,7 @@ namespace CovidAirlines
 			// 
 			this.buttonChooseFlight.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.buttonChooseFlight.AutoSize = true;
-			this.buttonChooseFlight.Location = new System.Drawing.Point(12, 324);
+			this.buttonChooseFlight.Location = new System.Drawing.Point(9, 324);
 			this.buttonChooseFlight.Name = "buttonChooseFlight";
 			this.buttonChooseFlight.Size = new System.Drawing.Size(126, 23);
 			this.buttonChooseFlight.TabIndex = 5;
@@ -164,7 +164,7 @@ namespace CovidAirlines
 			// 
 			this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.button1.Location = new System.Drawing.Point(1107, 324);
+			this.button1.Location = new System.Drawing.Point(1104, 324);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(78, 23);
 			this.button1.TabIndex = 6;
@@ -177,7 +177,7 @@ namespace CovidAirlines
 			this.labelChooseFlight.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.labelChooseFlight.AutoSize = true;
 			this.labelChooseFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelChooseFlight.Location = new System.Drawing.Point(8, 8);
+			this.labelChooseFlight.Location = new System.Drawing.Point(12, 8);
 			this.labelChooseFlight.Name = "labelChooseFlight";
 			this.labelChooseFlight.Size = new System.Drawing.Size(206, 20);
 			this.labelChooseFlight.TabIndex = 7;
@@ -187,7 +187,7 @@ namespace CovidAirlines
 			// 
 			this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.Location = new System.Drawing.Point(12, 431);
+			this.buttonCancel.Location = new System.Drawing.Point(9, 430);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(126, 23);
 			this.buttonCancel.TabIndex = 8;
@@ -213,7 +213,7 @@ namespace CovidAirlines
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1185, 510);
+			this.ClientSize = new System.Drawing.Size(1189, 507);
 			this.ControlBox = false;
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.labelChooseFlight);

@@ -29,5 +29,12 @@ namespace CovidAirlines
 				buttonGenerate.Enabled = false;
 			}
 		}
+
+		private void buttonGenerate_Click(object sender, EventArgs e)
+		{
+			int selectedFlightNum = int.Parse(listViewSchedule.SelectedItems[0].Text);
+
+			FormFlightManifest fManifest = new FormFlightManifest(selectedFlightNum);
+		}
 	}
 }
