@@ -167,8 +167,9 @@
 			// 
 			this.ErrorMessage.AutoSize = true;
 			this.ErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ErrorMessage.Location = new System.Drawing.Point(19, 143);
+			this.ErrorMessage.Location = new System.Drawing.Point(19, 270);
 			this.ErrorMessage.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+			this.ErrorMessage.MaximumSize = new System.Drawing.Size(300, 0);
 			this.ErrorMessage.Name = "ErrorMessage";
 			this.ErrorMessage.Size = new System.Drawing.Size(125, 13);
 			this.ErrorMessage.TabIndex = 7;

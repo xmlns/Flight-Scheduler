@@ -67,7 +67,7 @@ namespace CovidAirlines
 
         private void PopulateFlightHistory()
 		{
-
+			listViewHistory.Items.Clear();
 			using (var entities = new CovidAirlinesEntities())
 			{
 				const string BLANK = "-";
@@ -110,29 +110,10 @@ namespace CovidAirlines
 			}
 		}
 
-        private void button1_Click(object sender, EventArgs e)
-		{
-			string[] entry = {"123",
-				"Denver, CO (DEN)",
-				"Austin, TX (AUS)",
-				DateTime.Now.ToString(),
-				"2:15pm",
-				"NONE",
-				"N/A",
-				"NONE",
-				"N/A",
-				"Active/Cancelled",
-				"$100"
-			};
-			Random rnd = new Random();
-			entry[0] = rnd.Next(999).ToString();  // creates a number between 1 and 999
-			ListViewItem lvi = new ListViewItem(entry);
-			listViewHistory.Items.Add(lvi);
-		}
-
 		private void listViewHistory_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (listViewHistory.SelectedItems.Count > 0)
+			//check if a flight is selected not cancelled (that leaves active or already printed)
+			if (listViewHistory.SelectedItems.Count > 0 && !string.Equals(listViewHistory.SelectedItems[0].SubItems[9].Text, "Cancelled"))
 			{
 				var selectedFlightTime = DateTime.Parse(listViewHistory.SelectedItems[0].SubItems[3].Text);//get time of flight departure
 				DateTime currentTime = DateTime.Now;//time must be within 24hrs
@@ -164,37 +145,6 @@ namespace CovidAirlines
 		private void buttonSignout_Click(object sender, EventArgs e)
 		{
 			this.Close();			
-		}
-
-		private void button2_Click(object sender, EventArgs e)
-		{
-			if (listViewHistory.SelectedItems.Count > 0)
-			{
-				var flight = listViewHistory.SelectedItems[0];
-				//rest of your logic
-				//textBoxSelected.Text = flight.Text;
-				
-			}
-		}
-
-		private void buttonOneWeek_Click(object sender, EventArgs e)
-		{
-			string[] entry = {"123",
-				"Denver, CO (DEN)",
-				"Austin, TX (AUS)",
-				DateTime.Now.AddDays(7).ToString(),
-				"2:15pm",
-				"NONE",
-				"N/A",
-				"NONE",
-				"N/A",
-				"Active/Cancelled",
-				"$100"
-			};
-			Random rnd = new Random();
-			entry[0] = rnd.Next(999).ToString();  // creates a number between 1 and 12
-			ListViewItem lvi = new ListViewItem(entry);
-			listViewHistory.Items.Add(lvi);
 		}
 
 		private void buttonSearch_Click(object sender, EventArgs e)
@@ -232,7 +182,13 @@ namespace CovidAirlines
 			labelSearchResponse.Visible = true;
 
 			BookFlightFormLogic();
-			
+
+			//Refresh UserInfo
+			using (var db = new CovidAirlinesEntities())
+			{
+				CUSTOMER = db.Users.Where(u => u.UserID == CUSTOMER.UserID).FirstOrDefault();
+			}
+
 		}
 
 		private void BookFlightFormLogic()
@@ -255,21 +211,30 @@ namespace CovidAirlines
 
 				//Get or create flight that matches depart route and date
 				departFlightNumber = ConfirmFlight(int.Parse(departRouteID), dateTimePickerDepart.Value);
-
-				if (radioButtonRoundTrip.Checked == true)
+				if (departFlightNumber == -1);//do nothing
+				else if (radioButtonRoundTrip.Checked == true)
 				{//round trip, we need to choose return flight now (selected destination -> selected origin)
-					FormChooseFlight fReturnFlight = new FormChooseFlight(comboBoxDestination.SelectedIndex+1, comboBoxOrigin.SelectedIndex+1, true);
+					FormChooseFlight fReturnFlight = new FormChooseFlight(comboBoxDestination.SelectedIndex + 1, comboBoxOrigin.SelectedIndex + 1, true);
 					var returnResult = fReturnFlight.ShowDialog();
 
-					if (returnResult == DialogResult.Cancel) return;//dont continue
-
-					//Get Return route chosen
-					returnRouteID = fReturnFlight.chosenRouteID;
-					//Get or create flight that matches return route and date
-					returnFlightNumber = ConfirmFlight(int.Parse(returnRouteID), dateTimePickerReturn.Value);
+					if (returnResult == DialogResult.OK)//Ensure user didnt cancel
+					{
+						//Get Return route chosen
+						returnRouteID = fReturnFlight.chosenRouteID;
+						//Get or create flight that matches return route and date
+						returnFlightNumber = ConfirmFlight(int.Parse(returnRouteID), dateTimePickerReturn.Value);
+						if (returnFlightNumber != -1)//ensure return flight isnt full
+						{
+							FormConfirmation fConfirmationRoundTrip = new FormConfirmation(CUSTOMER.UserID, departFlightNumber, returnFlightNumber);
+							fConfirmationRoundTrip.ShowDialog();
+						}
+					}
 				}
-				FormConfirmation fConfirmation = new FormConfirmation(CUSTOMER.UserID, departFlightNumber, returnFlightNumber);
-				fConfirmation.ShowDialog();
+				else //only move on to confirmation page if depart flight isnt full
+				{
+					FormConfirmation fConfirmationOneWay = new FormConfirmation(CUSTOMER.UserID, departFlightNumber, returnFlightNumber);
+					fConfirmationOneWay.ShowDialog();
+				}
 			}
 
 			//Clear old search criteria
@@ -286,6 +251,7 @@ namespace CovidAirlines
 		//This method will search Flights database to see if the chosen route and time already has flight created
 		//If this is the first booking of the inputted route and date, it will create a new flight in the database
 		//Will return FlightNumber of new or preexisting flight
+		//Returns -1 if flight is currently full
 		private int ConfirmFlight(int routeID, DateTime flightDate)
 		{
 			using (var db = new CovidAirlinesEntities())
@@ -307,6 +273,14 @@ namespace CovidAirlines
 					db.Flights.Add(flight);
 					db.SaveChanges();
 				}
+				else if (flight.CurrentPassengers == flight.MaxPassengers)
+				{
+					string message = "This flight is currently full! Please choose a different flight.";
+					string title = "Flight Full!";
+					MessageBoxButtons buttons = MessageBoxButtons.OK;
+					DialogResult result = MessageBox.Show(message, title, buttons);
+					return -1;
+				}
 
 				return flight.FlightNumber;
 			}
@@ -315,8 +289,10 @@ namespace CovidAirlines
 		private void buttonBoardingPass_Click(object sender, EventArgs e)
 		{
 			//TODO: Boarding Pass functionality, populate flight information and mark status as boarded in transaction table
-			FormBoardingPass fBoardingPass = new FormBoardingPass();
+			buttonBoardingPass.Enabled = false;
+			FormBoardingPass fBoardingPass = new FormBoardingPass(CUSTOMER.UserID, int.Parse(listViewHistory.SelectedItems[0].Text));
 			fBoardingPass.ShowDialog();
+			PopulateFlightHistory();//refresh history table
 		}
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
@@ -381,17 +357,19 @@ namespace CovidAirlines
 						userEntry.PasswordHash = Utility.GenerateHash(acctInfo[1]);
 					}
 					db.SaveChanges();
+					CUSTOMER = userEntry;//update customer global variable
 
 					textBoxNewPassword.Text = string.Empty;
 					textBoxConfirmPassword.Text = string.Empty;
 
-					labelResult.Text = "Account Information Updated...";
+					labelResult.Text = "Account Information Updated.";
 					return;
 				}
 
 
-				labelResult.Text = "Error Updating Information...";
+				labelResult.Text = "Error Updating Information.";
 			}
+			PopulateUserInfo();//refresh info fields
 		}
 
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -411,7 +389,8 @@ namespace CovidAirlines
 
 		private void tabControlMenu_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (tabControlMenu.SelectedTab == tabPageAccount)	PopulateUserInfo();
+			if (tabControlMenu.SelectedTab == tabPageAccount)		PopulateUserInfo();
+			else if (tabControlMenu.SelectedTab == tabPageHistory)	PopulateFlightHistory();
 		}
 
 		private void PopulateUserInfo()
@@ -433,11 +412,8 @@ namespace CovidAirlines
 
 			textBoxNewPassword.Text = string.Empty;
 			textBoxConfirmPassword.Text = string.Empty;
-		}
 
-		private void tabPageHistory_Click(object sender, EventArgs e)
-		{
-
+			labelResult.Text = string.Empty;
 		}
 
 		private void transactionBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -469,11 +445,11 @@ namespace CovidAirlines
                     flight.CurrentPassengers--;
                     transaction.StatusType = (byte)StatusType.Cancelled;
 					var user = entities.Users.Find(CUSTOMER.UserID);
-                    user.PointsAvailable -= route.PointsAwarded;
+                    user.PointsAvailable += route.PointsAwarded;
 				}
 				entities.SaveChanges();
 			}
-			
+			PopulateFlightHistory();//refresh table
 		}
 	}
 }

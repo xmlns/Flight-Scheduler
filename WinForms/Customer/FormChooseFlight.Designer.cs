@@ -45,7 +45,6 @@ namespace CovidAirlines
 			this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.buttonChooseFlight = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.labelChooseFlight = new System.Windows.Forms.Label();
 			this.buttonCancel = new System.Windows.Forms.Button();
 			this.covidAirlinesDataSetRoutes = new CovidAirlines.CovidAirlinesDataSetRoutes();
@@ -160,18 +159,6 @@ namespace CovidAirlines
 			this.buttonChooseFlight.UseVisualStyleBackColor = true;
 			this.buttonChooseFlight.Click += new System.EventHandler(this.buttonChooseFlight_Click);
 			// 
-			// button1
-			// 
-			this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.button1.Location = new System.Drawing.Point(1104, 324);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(78, 23);
-			this.button1.TabIndex = 6;
-			this.button1.Text = "Dummy Entry";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
 			// labelChooseFlight
 			// 
 			this.labelChooseFlight.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -213,11 +200,10 @@ namespace CovidAirlines
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1189, 507);
+			this.ClientSize = new System.Drawing.Size(1185, 503);
 			this.ControlBox = false;
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.labelChooseFlight);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.buttonChooseFlight);
 			this.Controls.Add(this.listViewRoutes);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -250,7 +236,6 @@ namespace CovidAirlines
 		private System.Windows.Forms.ColumnHeader columnHeaderStop2Depart;
 		private System.Windows.Forms.ColumnHeader columnHeaderPrice;
 		private System.Windows.Forms.Button buttonChooseFlight;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label labelChooseFlight;
 		private System.Windows.Forms.Button buttonCancel;
 		private CovidAirlinesDataSetRoutes covidAirlinesDataSetRoutes;

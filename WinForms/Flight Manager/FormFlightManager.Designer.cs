@@ -29,83 +29,83 @@ namespace CovidAirlines
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.listViewSchedule = new System.Windows.Forms.ListView();
+			this.listViewFlights = new System.Windows.Forms.ListView();
 			this.columnHeaderFlightID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderOrigin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderDestination = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderArrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderSDepart1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderS1Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderS2Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderPlane = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderTickets = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.buttonGenerate = new System.Windows.Forms.Button();
+			this.columnHeaderS1Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderS2Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
-			// listViewSchedule
+			// listViewFlights
 			// 
-			this.listViewSchedule.Activation = System.Windows.Forms.ItemActivation.OneClick;
-			this.listViewSchedule.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.listViewSchedule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.listViewFlights.Activation = System.Windows.Forms.ItemActivation.OneClick;
+			this.listViewFlights.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.listViewFlights.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderFlightID,
             this.columnHeaderOrigin,
             this.columnHeaderDestination,
             this.columnHeaderDepart,
             this.columnHeaderArrive,
             this.columnHeaderStop1,
-            this.columnHeaderSDepart1,
+            this.columnHeaderS1Arrive,
+            this.columnHeaderS1Depart,
             this.columnHeaderStop2,
+            this.columnHeaderS2Arrive,
             this.columnHeaderS2Depart,
-            this.columnHeaderPlane,
-            this.columnHeaderPrice,
-            this.columnHeaderPoints});
-			this.listViewSchedule.FullRowSelect = true;
-			this.listViewSchedule.HideSelection = false;
-			this.listViewSchedule.Location = new System.Drawing.Point(12, 12);
-			this.listViewSchedule.MultiSelect = false;
-			this.listViewSchedule.Name = "listViewSchedule";
-			this.listViewSchedule.Size = new System.Drawing.Size(1160, 287);
-			this.listViewSchedule.TabIndex = 6;
-			this.listViewSchedule.UseCompatibleStateImageBehavior = false;
-			this.listViewSchedule.View = System.Windows.Forms.View.Details;
-			this.listViewSchedule.SelectedIndexChanged += new System.EventHandler(this.listViewSchedule_SelectedIndexChanged);
+            this.columnHeaderTickets});
+			this.listViewFlights.FullRowSelect = true;
+			this.listViewFlights.HideSelection = false;
+			this.listViewFlights.Location = new System.Drawing.Point(12, 12);
+			this.listViewFlights.MultiSelect = false;
+			this.listViewFlights.Name = "listViewFlights";
+			this.listViewFlights.Size = new System.Drawing.Size(1160, 287);
+			this.listViewFlights.TabIndex = 6;
+			this.listViewFlights.UseCompatibleStateImageBehavior = false;
+			this.listViewFlights.View = System.Windows.Forms.View.Details;
+			this.listViewFlights.SelectedIndexChanged += new System.EventHandler(this.listViewSchedule_SelectedIndexChanged);
 			// 
 			// columnHeaderFlightID
 			// 
-			this.columnHeaderFlightID.Text = "Route ID";
+			this.columnHeaderFlightID.Text = "Flight Number";
+			this.columnHeaderFlightID.Width = 77;
 			// 
 			// columnHeaderOrigin
 			// 
 			this.columnHeaderOrigin.Text = "Origin";
-			this.columnHeaderOrigin.Width = 79;
+			this.columnHeaderOrigin.Width = 70;
 			// 
 			// columnHeaderDestination
 			// 
 			this.columnHeaderDestination.Text = "Destination";
-			this.columnHeaderDestination.Width = 87;
+			this.columnHeaderDestination.Width = 70;
 			// 
 			// columnHeaderDepart
 			// 
 			this.columnHeaderDepart.Text = "Departure Time";
-			this.columnHeaderDepart.Width = 106;
+			this.columnHeaderDepart.Width = 125;
 			// 
 			// columnHeaderArrive
 			// 
 			this.columnHeaderArrive.Text = "Arrival Time";
-			this.columnHeaderArrive.Width = 85;
+			this.columnHeaderArrive.Width = 125;
 			// 
 			// columnHeaderStop1
 			// 
 			this.columnHeaderStop1.Text = "Stop 1";
-			this.columnHeaderStop1.Width = 85;
 			// 
-			// columnHeaderSDepart1
+			// columnHeaderS1Depart
 			// 
-			this.columnHeaderSDepart1.Text = "Stop 1 Departure Time";
-			this.columnHeaderSDepart1.Width = 123;
+			this.columnHeaderS1Depart.Text = "Stop 1 Departure Time";
+			this.columnHeaderS1Depart.Width = 125;
 			// 
 			// columnHeaderStop2
 			// 
@@ -114,22 +114,12 @@ namespace CovidAirlines
 			// columnHeaderS2Depart
 			// 
 			this.columnHeaderS2Depart.Text = "Stop 2 Departure Time";
-			this.columnHeaderS2Depart.Width = 121;
+			this.columnHeaderS2Depart.Width = 119;
 			// 
-			// columnHeaderPlane
+			// columnHeaderTickets
 			// 
-			this.columnHeaderPlane.Text = "Plane";
-			this.columnHeaderPlane.Width = 45;
-			// 
-			// columnHeaderPrice
-			// 
-			this.columnHeaderPrice.Text = "Ticket Price";
-			this.columnHeaderPrice.Width = 69;
-			// 
-			// columnHeaderPoints
-			// 
-			this.columnHeaderPoints.Text = "Points Awarded";
-			this.columnHeaderPoints.Width = 89;
+			this.columnHeaderTickets.Text = "Tickets Sold";
+			this.columnHeaderTickets.Width = 75;
 			// 
 			// buttonGenerate
 			// 
@@ -142,34 +132,46 @@ namespace CovidAirlines
 			this.buttonGenerate.UseVisualStyleBackColor = true;
 			this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
 			// 
+			// columnHeaderS1Arrive
+			// 
+			this.columnHeaderS1Arrive.Text = "Stop 1 Arrival Time";
+			this.columnHeaderS1Arrive.Width = 125;
+			// 
+			// columnHeaderS2Arrive
+			// 
+			this.columnHeaderS2Arrive.Text = "Stop 2 Arrival Time";
+			this.columnHeaderS2Arrive.Width = 125;
+			// 
 			// FormFlightManager
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1184, 461);
 			this.Controls.Add(this.buttonGenerate);
-			this.Controls.Add(this.listViewSchedule);
+			this.Controls.Add(this.listViewFlights);
 			this.Name = "FormFlightManager";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Main Menu - Flight Manager";
+			this.Load += new System.EventHandler(this.FormFlightManager_Load);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.ListView listViewSchedule;
+		private System.Windows.Forms.ListView listViewFlights;
 		private System.Windows.Forms.ColumnHeader columnHeaderFlightID;
 		private System.Windows.Forms.ColumnHeader columnHeaderOrigin;
 		private System.Windows.Forms.ColumnHeader columnHeaderDestination;
 		private System.Windows.Forms.ColumnHeader columnHeaderDepart;
 		private System.Windows.Forms.ColumnHeader columnHeaderArrive;
 		private System.Windows.Forms.ColumnHeader columnHeaderStop1;
-		private System.Windows.Forms.ColumnHeader columnHeaderSDepart1;
+		private System.Windows.Forms.ColumnHeader columnHeaderS1Depart;
 		private System.Windows.Forms.ColumnHeader columnHeaderStop2;
 		private System.Windows.Forms.ColumnHeader columnHeaderS2Depart;
-		private System.Windows.Forms.ColumnHeader columnHeaderPlane;
-		private System.Windows.Forms.ColumnHeader columnHeaderPrice;
-		private System.Windows.Forms.ColumnHeader columnHeaderPoints;
+		private System.Windows.Forms.ColumnHeader columnHeaderTickets;
 		private System.Windows.Forms.Button buttonGenerate;
+		private System.Windows.Forms.ColumnHeader columnHeaderS1Arrive;
+		private System.Windows.Forms.ColumnHeader columnHeaderS2Arrive;
 	}
 }

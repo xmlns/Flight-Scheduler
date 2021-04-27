@@ -16,5 +16,10 @@ namespace CovidAirlines
 		{
 			InitializeComponent();
 		}
+
+		private void FormAccountant_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

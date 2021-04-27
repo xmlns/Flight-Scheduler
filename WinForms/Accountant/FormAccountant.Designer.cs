@@ -148,7 +148,7 @@ namespace CovidAirlines
 			this.buttonCompany.Text = "Generate Company Summary";
 			this.buttonCompany.UseVisualStyleBackColor = true;
 			// 
-			// FormAccounting
+			// FormAccountant
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,8 +156,9 @@ namespace CovidAirlines
 			this.Controls.Add(this.buttonCompany);
 			this.Controls.Add(this.buttonSingle);
 			this.Controls.Add(this.listViewSchedule);
-			this.Name = "FormAccounting";
+			this.Name = "FormAccountant";
 			this.Text = "Main Menu - Accounting Manager";
+			this.Load += new System.EventHandler(this.FormAccountant_Load);
 			this.ResumeLayout(false);
 
 		}

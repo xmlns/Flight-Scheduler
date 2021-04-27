@@ -12,7 +12,8 @@ namespace CovidAirlines
 {
 	public partial class FormConfirmation : Form
 	{
-		static int USERID, DEPART_FLIGHTNUMBER, RETURN_FLIGHTNUMBER;
+		int USERID, DEPART_FLIGHTNUMBER, RETURN_FLIGHTNUMBER, TOTALPOINTCOST;
+		decimal TOTALCOST;
 
 		List<City> cityList;
 
@@ -39,9 +40,10 @@ namespace CovidAirlines
 			PopulateDepartureFlightInfo();
 			if (RETURN_FLIGHTNUMBER != -1) PopulateReturnFlightInfo();
 
-			decimal totalCost = decimal.Parse(labelCostDepart.Text) + decimal.Parse(labelCostReturn.Text);
-			labelTotalCost.Text = totalCost.ToString();
-			labelTotalPoints.Text = (totalCost*100).ToString();
+			TOTALCOST = decimal.Parse(labelCostDepart.Text) + decimal.Parse(labelCostReturn.Text);
+			TOTALPOINTCOST = (int)(TOTALCOST * 100);
+			labelTotalCost.Text = "$"+ TOTALCOST.ToString();
+			labelTotalPoints.Text = TOTALPOINTCOST.ToString();
 		}
 
 		private void PopulateDepartureFlightInfo()
@@ -156,7 +158,7 @@ namespace CovidAirlines
 			
 			ProcessTransactions();
 
-			this.Close();
+			//this.Close(); moved into ProcessTransactions()
 		}
 
 		private void ProcessTransactions()
@@ -165,16 +167,26 @@ namespace CovidAirlines
 
 			using (var db = new CovidAirlinesEntities())
 			{
+				//Ensure user has sufficient point balance if needed
+				if (paymentMethod == PaymentType.Points)
+				{
+					var customer = db.Users.Where(u => u.UserID == USERID).FirstOrDefault();
+					if (customer.PointsAvailable < TOTALPOINTCOST)
+					{
+						string message = "Insufficient Balance. Current Reward Points: " + customer.PointsAvailable;
+						string title = "Please pay using credit card!";
+						MessageBoxButtons buttons = MessageBoxButtons.OK;
+						DialogResult result = MessageBox.Show(message, title, buttons);
+						return;//dont update any database table nor close confirmation form
+					}
+					//Sufficient points, subtract point cost from user
+					customer.PointsAvailable -= TOTALPOINTCOST;
+					customer.PointsRedeemed += TOTALPOINTCOST;
+				}
 				//Get Flight and increment passenger count in Flights table
 				var departFlight = db.Flights.Where(f => f.FlightNumber == DEPART_FLIGHTNUMBER).FirstOrDefault();
 
-				if (departFlight.CurrentPassengers == departFlight.MaxPassengers)
-				{
-					MessageBox.Show("Sorry flight " + departFlight.FlightNumber + " is currently fulled!");
-					return;
-				}
-
-				departFlight.CurrentPassengers++;
+				departFlight.CurrentPassengers++;//flight was confirmed not full in Customer.cs->ConfirmFlight()
 
 				//Add new entry to Transaction table
 				Transaction departTransaction = new Transaction
@@ -193,13 +205,7 @@ namespace CovidAirlines
 				{
 					var returnFlight = db.Flights.Where(f => f.FlightNumber == RETURN_FLIGHTNUMBER).FirstOrDefault();
 
-					if (returnFlight.CurrentPassengers == returnFlight.MaxPassengers)
-					{
-						MessageBox.Show("Sorry flight " + returnFlight.FlightNumber + " is currently fulled!");
-						return;
-					}
-
-					returnFlight.CurrentPassengers++;
+					returnFlight.CurrentPassengers++;//flight was confirmed not full in Customer.cs->ConfirmFlight()
 					//Add new entry to Transaction table
 					Transaction returnTransaction = new Transaction
 					{
@@ -217,7 +223,7 @@ namespace CovidAirlines
 
 				db.SaveChanges();//Save all changes before existing
 			}
-
+			this.Close();
 		}
 	}
 }

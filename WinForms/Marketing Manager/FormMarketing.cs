@@ -67,27 +67,6 @@ namespace CovidAirlines
 			}
 		}
 
-		private void buttonDummy_Click(object sender, EventArgs e)
-		{
-			string[] entry = {"1",
-				"Denver, CO (DEN)",
-				"Austin, TX (AUS)",
-				"12:00pm",
-				"2:15pm",
-				"NONE",
-				"N/A",
-				"NONE",
-				"N/A",
-				"737",
-				"$100",
-				"100"
-			};
-			Random rnd = new Random();
-			entry[0] = rnd.Next(99).ToString();  // creates a number between 1 and 12
-			ListViewItem lvi = new ListViewItem(entry);
-			listViewRoutes.Items.Add(lvi);
-		}
-
 		private void comboBoxPlanes_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (listViewRoutes.SelectedItems.Count > 0)
@@ -122,8 +101,8 @@ namespace CovidAirlines
 				var cityList = db.Cities.ToList();//used to convert indices to corresponding names
 				City nullCity = new City
 				{
-					Name = "N/A",
-					Code = "N/A"
+					Name = "-",
+					Code = "-"
 				};
 				//Pushes cities up one to correct index AND now null values (for no stops) will pull from this entry in list
 				cityList.Insert(0, nullCity);
@@ -132,22 +111,22 @@ namespace CovidAirlines
 
 				var routes = db.Routes;
 				//Present every possible route in the ListView table for customer
-				foreach (Route r in routes)
+				foreach (Route f in routes)
 				{
 					string[] entry = {
-						r.RouteID.ToString(),
-						cityList[r.OriginCityID].Code + " - " + cityList[r.OriginCityID].Name,
-						cityList[r.DestinationCityID].Code + " - " + cityList[r.DestinationCityID].Name,
-						r.DepartureTime.TimeOfDay.ToString(),
-						r.ArrivalTime.TimeOfDay.ToString(),
-						cityList[r.Stop1CityID.GetValueOrDefault()].Name,
-						r.Stop1ArrivalTime.GetValueOrDefault().TimeOfDay.ToString(),
-						r.Stop1DepartureTime.GetValueOrDefault().TimeOfDay.ToString(),
-						cityList[r.Stop2CityID.GetValueOrDefault()].Name,
-						r.Stop2ArrivalTime.GetValueOrDefault().TimeOfDay.ToString(),
-						r.Stop2DepartureTime.GetValueOrDefault().TimeOfDay.ToString(),
-						((AirplaneType)r.AirplaneID).ToString(),
-						planeList[r.AirplaneID].Capacity.ToString()
+						f.RouteID.ToString(),
+						cityList[f.OriginCityID].Code + " - " + cityList[f.OriginCityID].Name,
+						cityList[f.DestinationCityID].Code + " - " + cityList[f.DestinationCityID].Name,
+						f.DepartureTime.TimeOfDay.ToString(),
+						f.ArrivalTime.TimeOfDay.ToString(),
+						cityList[f.Stop1CityID.GetValueOrDefault()].Name,
+						f.Stop1ArrivalTime.GetValueOrDefault().TimeOfDay.ToString(),
+						f.Stop1DepartureTime.GetValueOrDefault().TimeOfDay.ToString(),
+						cityList[f.Stop2CityID.GetValueOrDefault()].Name,
+						f.Stop2ArrivalTime.GetValueOrDefault().TimeOfDay.ToString(),
+						f.Stop2DepartureTime.GetValueOrDefault().TimeOfDay.ToString(),
+						((AirplaneType)f.AirplaneID).ToString(),
+						planeList[f.AirplaneID].Capacity.ToString()
 					};
 					ListViewItem lvi = new ListViewItem(entry);
 					listViewRoutes.Items.Add(lvi);

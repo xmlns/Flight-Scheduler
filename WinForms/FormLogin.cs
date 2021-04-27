@@ -206,9 +206,9 @@ namespace CovidAirlines
                 entities.SaveChanges();
             }
 
+            ClearAllTextBoxes(this.Controls);
             labelResult.Text = "Success! ID: " + randUserID;
             labelResult.Visible = true;
-            ClearAllTextBoxes(this.Controls);
             UsernameTextBox.Text = randUserID;
         }
 

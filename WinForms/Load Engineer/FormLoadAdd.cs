@@ -99,8 +99,6 @@ namespace CovidAirlines
 				return;
 			}
 
-			
-
 			using (var db = new CovidAirlinesEntities()) {
 				List<City> CityList = db.Cities.ToList();
 				

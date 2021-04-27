@@ -30,33 +30,33 @@ namespace CovidAirlines
 		private void InitializeComponent()
 		{
 			this.labelFlightNum1 = new System.Windows.Forms.Label();
-			this.labelFlightNum2 = new System.Windows.Forms.Label();
+			this.labelFlightNum = new System.Windows.Forms.Label();
 			this.labelOrigin1 = new System.Windows.Forms.Label();
-			this.labelOrigin2 = new System.Windows.Forms.Label();
+			this.labelOrigin = new System.Windows.Forms.Label();
 			this.labelDestination1 = new System.Windows.Forms.Label();
-			this.labelDestination2 = new System.Windows.Forms.Label();
+			this.labelDestination = new System.Windows.Forms.Label();
 			this.labelBoardingPass = new System.Windows.Forms.Label();
 			this.labelName1 = new System.Windows.Forms.Label();
-			this.labelName2 = new System.Windows.Forms.Label();
+			this.labelName = new System.Windows.Forms.Label();
 			this.labelAcctNumber1 = new System.Windows.Forms.Label();
-			this.labelAcctNumber2 = new System.Windows.Forms.Label();
+			this.labelAcctNumber = new System.Windows.Forms.Label();
 			this.labelStop12 = new System.Windows.Forms.Label();
-			this.labelStop11 = new System.Windows.Forms.Label();
+			this.labelStop1 = new System.Windows.Forms.Label();
 			this.labelStop21 = new System.Windows.Forms.Label();
-			this.labelStop22 = new System.Windows.Forms.Label();
+			this.labelStop2 = new System.Windows.Forms.Label();
 			this.labelDepart1 = new System.Windows.Forms.Label();
-			this.labelDepart2 = new System.Windows.Forms.Label();
+			this.labelDepart = new System.Windows.Forms.Label();
 			this.labelArrive1 = new System.Windows.Forms.Label();
-			this.labelArrive2 = new System.Windows.Forms.Label();
+			this.labelArrive = new System.Windows.Forms.Label();
 			this.labelStop1Arrive1 = new System.Windows.Forms.Label();
 			this.labelStop2Arrive1 = new System.Windows.Forms.Label();
-			this.labelStop1Arrive2 = new System.Windows.Forms.Label();
-			this.labelStop2Arrive2 = new System.Windows.Forms.Label();
-			this.labelStopsHeader = new System.Windows.Forms.Label();
+			this.labelStop1Arrive = new System.Windows.Forms.Label();
+			this.labelStop2Arrive = new System.Windows.Forms.Label();
+			this.labelConnectionHeader = new System.Windows.Forms.Label();
 			this.labelStop1Depart1 = new System.Windows.Forms.Label();
-			this.labelStop1Depart2 = new System.Windows.Forms.Label();
+			this.labelStop1Depart = new System.Windows.Forms.Label();
 			this.labelStop2Depart1 = new System.Windows.Forms.Label();
-			this.labelStop2Depart2 = new System.Windows.Forms.Label();
+			this.labelStop2Depart = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// labelFlightNum1
@@ -70,14 +70,14 @@ namespace CovidAirlines
 			this.labelFlightNum1.TabIndex = 0;
 			this.labelFlightNum1.Text = "Flight Number:";
 			// 
-			// labelFlightNum2
+			// labelFlightNum
 			// 
-			this.labelFlightNum2.AutoSize = true;
-			this.labelFlightNum2.Location = new System.Drawing.Point(445, 79);
-			this.labelFlightNum2.Name = "labelFlightNum2";
-			this.labelFlightNum2.Size = new System.Drawing.Size(137, 13);
-			this.labelFlightNum2.TabIndex = 1;
-			this.labelFlightNum2.Text = "*Flight Number Listed Here*";
+			this.labelFlightNum.AutoSize = true;
+			this.labelFlightNum.Location = new System.Drawing.Point(445, 79);
+			this.labelFlightNum.Name = "labelFlightNum";
+			this.labelFlightNum.Size = new System.Drawing.Size(137, 13);
+			this.labelFlightNum.TabIndex = 1;
+			this.labelFlightNum.Text = "*Flight Number Listed Here*";
 			// 
 			// labelOrigin1
 			// 
@@ -90,14 +90,14 @@ namespace CovidAirlines
 			this.labelOrigin1.TabIndex = 0;
 			this.labelOrigin1.Text = "Origin City:";
 			// 
-			// labelOrigin2
+			// labelOrigin
 			// 
-			this.labelOrigin2.AutoSize = true;
-			this.labelOrigin2.Location = new System.Drawing.Point(46, 143);
-			this.labelOrigin2.Name = "labelOrigin2";
-			this.labelOrigin2.Size = new System.Drawing.Size(119, 13);
-			this.labelOrigin2.TabIndex = 1;
-			this.labelOrigin2.Text = "*Origin City Listed Here*";
+			this.labelOrigin.AutoSize = true;
+			this.labelOrigin.Location = new System.Drawing.Point(46, 143);
+			this.labelOrigin.Name = "labelOrigin";
+			this.labelOrigin.Size = new System.Drawing.Size(119, 13);
+			this.labelOrigin.TabIndex = 1;
+			this.labelOrigin.Text = "*Origin City Listed Here*";
 			// 
 			// labelDestination1
 			// 
@@ -110,14 +110,14 @@ namespace CovidAirlines
 			this.labelDestination1.TabIndex = 0;
 			this.labelDestination1.Text = "Destination City:";
 			// 
-			// labelDestination2
+			// labelDestination
 			// 
-			this.labelDestination2.AutoSize = true;
-			this.labelDestination2.Location = new System.Drawing.Point(230, 143);
-			this.labelDestination2.Name = "labelDestination2";
-			this.labelDestination2.Size = new System.Drawing.Size(145, 13);
-			this.labelDestination2.TabIndex = 1;
-			this.labelDestination2.Text = "*Destination City Listed Here*";
+			this.labelDestination.AutoSize = true;
+			this.labelDestination.Location = new System.Drawing.Point(230, 143);
+			this.labelDestination.Name = "labelDestination";
+			this.labelDestination.Size = new System.Drawing.Size(145, 13);
+			this.labelDestination.TabIndex = 1;
+			this.labelDestination.Text = "*Destination City Listed Here*";
 			// 
 			// labelBoardingPass
 			// 
@@ -141,14 +141,14 @@ namespace CovidAirlines
 			this.labelName1.TabIndex = 3;
 			this.labelName1.Text = "Passenger Name:";
 			// 
-			// labelName2
+			// labelName
 			// 
-			this.labelName2.AutoSize = true;
-			this.labelName2.Location = new System.Drawing.Point(46, 79);
-			this.labelName2.Name = "labelName2";
-			this.labelName2.Size = new System.Drawing.Size(119, 13);
-			this.labelName2.TabIndex = 1;
-			this.labelName2.Text = "*Full Name Listed Here*";
+			this.labelName.AutoSize = true;
+			this.labelName.Location = new System.Drawing.Point(46, 79);
+			this.labelName.Name = "labelName";
+			this.labelName.Size = new System.Drawing.Size(119, 13);
+			this.labelName.TabIndex = 1;
+			this.labelName.Text = "*Full Name Listed Here*";
 			// 
 			// labelAcctNumber1
 			// 
@@ -161,14 +161,14 @@ namespace CovidAirlines
 			this.labelAcctNumber1.TabIndex = 3;
 			this.labelAcctNumber1.Text = "Account Number:";
 			// 
-			// labelAcctNumber2
+			// labelAcctNumber
 			// 
-			this.labelAcctNumber2.AutoSize = true;
-			this.labelAcctNumber2.Location = new System.Drawing.Point(230, 79);
-			this.labelAcctNumber2.Name = "labelAcctNumber2";
-			this.labelAcctNumber2.Size = new System.Drawing.Size(152, 13);
-			this.labelAcctNumber2.TabIndex = 1;
-			this.labelAcctNumber2.Text = "*Account Number Listed Here*";
+			this.labelAcctNumber.AutoSize = true;
+			this.labelAcctNumber.Location = new System.Drawing.Point(230, 79);
+			this.labelAcctNumber.Name = "labelAcctNumber";
+			this.labelAcctNumber.Size = new System.Drawing.Size(152, 13);
+			this.labelAcctNumber.TabIndex = 1;
+			this.labelAcctNumber.Text = "*Account Number Listed Here*";
 			// 
 			// labelStop12
 			// 
@@ -180,15 +180,17 @@ namespace CovidAirlines
 			this.labelStop12.Size = new System.Drawing.Size(90, 13);
 			this.labelStop12.TabIndex = 0;
 			this.labelStop12.Text = "First Stop City:";
+			this.labelStop12.Visible = false;
 			// 
-			// labelStop11
+			// labelStop1
 			// 
-			this.labelStop11.AutoSize = true;
-			this.labelStop11.Location = new System.Drawing.Point(46, 312);
-			this.labelStop11.Name = "labelStop11";
-			this.labelStop11.Size = new System.Drawing.Size(120, 13);
-			this.labelStop11.TabIndex = 1;
-			this.labelStop11.Text = "*Stop1 City Listed Here*";
+			this.labelStop1.AutoSize = true;
+			this.labelStop1.Location = new System.Drawing.Point(46, 312);
+			this.labelStop1.Name = "labelStop1";
+			this.labelStop1.Size = new System.Drawing.Size(120, 13);
+			this.labelStop1.TabIndex = 1;
+			this.labelStop1.Text = "*Stop1 City Listed Here*";
+			this.labelStop1.Visible = false;
 			// 
 			// labelStop21
 			// 
@@ -200,15 +202,17 @@ namespace CovidAirlines
 			this.labelStop21.Size = new System.Drawing.Size(109, 13);
 			this.labelStop21.TabIndex = 0;
 			this.labelStop21.Text = "Second Stop City:";
+			this.labelStop21.Visible = false;
 			// 
-			// labelStop22
+			// labelStop2
 			// 
-			this.labelStop22.AutoSize = true;
-			this.labelStop22.Location = new System.Drawing.Point(46, 370);
-			this.labelStop22.Name = "labelStop22";
-			this.labelStop22.Size = new System.Drawing.Size(120, 13);
-			this.labelStop22.TabIndex = 1;
-			this.labelStop22.Text = "*Stop2 City Listed Here*";
+			this.labelStop2.AutoSize = true;
+			this.labelStop2.Location = new System.Drawing.Point(46, 370);
+			this.labelStop2.Name = "labelStop2";
+			this.labelStop2.Size = new System.Drawing.Size(120, 13);
+			this.labelStop2.TabIndex = 1;
+			this.labelStop2.Text = "*Stop2 City Listed Here*";
+			this.labelStop2.Visible = false;
 			// 
 			// labelDepart1
 			// 
@@ -221,14 +225,14 @@ namespace CovidAirlines
 			this.labelDepart1.TabIndex = 0;
 			this.labelDepart1.Text = "Departure Time:";
 			// 
-			// labelDepart2
+			// labelDepart
 			// 
-			this.labelDepart2.AutoSize = true;
-			this.labelDepart2.Location = new System.Drawing.Point(46, 200);
-			this.labelDepart2.Name = "labelDepart2";
-			this.labelDepart2.Size = new System.Drawing.Size(144, 13);
-			this.labelDepart2.TabIndex = 1;
-			this.labelDepart2.Text = "*Departing Time Listed Here*";
+			this.labelDepart.AutoSize = true;
+			this.labelDepart.Location = new System.Drawing.Point(46, 200);
+			this.labelDepart.Name = "labelDepart";
+			this.labelDepart.Size = new System.Drawing.Size(144, 13);
+			this.labelDepart.TabIndex = 1;
+			this.labelDepart.Text = "*Departing Time Listed Here*";
 			// 
 			// labelArrive1
 			// 
@@ -241,14 +245,14 @@ namespace CovidAirlines
 			this.labelArrive1.TabIndex = 0;
 			this.labelArrive1.Text = "Arrival Time:";
 			// 
-			// labelArrive2
+			// labelArrive
 			// 
-			this.labelArrive2.AutoSize = true;
-			this.labelArrive2.Location = new System.Drawing.Point(230, 200);
-			this.labelArrive2.Name = "labelArrive2";
-			this.labelArrive2.Size = new System.Drawing.Size(127, 13);
-			this.labelArrive2.TabIndex = 1;
-			this.labelArrive2.Text = "*Arrival Time Listed Here*";
+			this.labelArrive.AutoSize = true;
+			this.labelArrive.Location = new System.Drawing.Point(230, 200);
+			this.labelArrive.Name = "labelArrive";
+			this.labelArrive.Size = new System.Drawing.Size(127, 13);
+			this.labelArrive.TabIndex = 1;
+			this.labelArrive.Text = "*Arrival Time Listed Here*";
 			// 
 			// labelStop1Arrive1
 			// 
@@ -260,6 +264,7 @@ namespace CovidAirlines
 			this.labelStop1Arrive1.Size = new System.Drawing.Size(136, 13);
 			this.labelStop1Arrive1.TabIndex = 0;
 			this.labelStop1Arrive1.Text = "First Stop Arrival Time:";
+			this.labelStop1Arrive1.Visible = false;
 			// 
 			// labelStop2Arrive1
 			// 
@@ -271,35 +276,39 @@ namespace CovidAirlines
 			this.labelStop2Arrive1.Size = new System.Drawing.Size(155, 13);
 			this.labelStop2Arrive1.TabIndex = 0;
 			this.labelStop2Arrive1.Text = "Second Stop Arrival Time:";
+			this.labelStop2Arrive1.Visible = false;
 			// 
-			// labelStop1Arrive2
+			// labelStop1Arrive
 			// 
-			this.labelStop1Arrive2.AutoSize = true;
-			this.labelStop1Arrive2.Location = new System.Drawing.Point(230, 312);
-			this.labelStop1Arrive2.Name = "labelStop1Arrive2";
-			this.labelStop1Arrive2.Size = new System.Drawing.Size(132, 13);
-			this.labelStop1Arrive2.TabIndex = 1;
-			this.labelStop1Arrive2.Text = "*Stop1 Arrival Listed Here*";
+			this.labelStop1Arrive.AutoSize = true;
+			this.labelStop1Arrive.Location = new System.Drawing.Point(230, 312);
+			this.labelStop1Arrive.Name = "labelStop1Arrive";
+			this.labelStop1Arrive.Size = new System.Drawing.Size(132, 13);
+			this.labelStop1Arrive.TabIndex = 1;
+			this.labelStop1Arrive.Text = "*Stop1 Arrival Listed Here*";
+			this.labelStop1Arrive.Visible = false;
 			// 
-			// labelStop2Arrive2
+			// labelStop2Arrive
 			// 
-			this.labelStop2Arrive2.AutoSize = true;
-			this.labelStop2Arrive2.Location = new System.Drawing.Point(230, 370);
-			this.labelStop2Arrive2.Name = "labelStop2Arrive2";
-			this.labelStop2Arrive2.Size = new System.Drawing.Size(132, 13);
-			this.labelStop2Arrive2.TabIndex = 1;
-			this.labelStop2Arrive2.Text = "*Stop2 Arrival Listed Here*";
+			this.labelStop2Arrive.AutoSize = true;
+			this.labelStop2Arrive.Location = new System.Drawing.Point(230, 370);
+			this.labelStop2Arrive.Name = "labelStop2Arrive";
+			this.labelStop2Arrive.Size = new System.Drawing.Size(132, 13);
+			this.labelStop2Arrive.TabIndex = 1;
+			this.labelStop2Arrive.Text = "*Stop2 Arrival Listed Here*";
+			this.labelStop2Arrive.Visible = false;
 			// 
-			// labelStopsHeader
+			// labelConnectionHeader
 			// 
-			this.labelStopsHeader.AutoSize = true;
-			this.labelStopsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelStopsHeader.ForeColor = System.Drawing.Color.Red;
-			this.labelStopsHeader.Location = new System.Drawing.Point(46, 243);
-			this.labelStopsHeader.Name = "labelStopsHeader";
-			this.labelStopsHeader.Size = new System.Drawing.Size(174, 20);
-			this.labelStopsHeader.TabIndex = 0;
-			this.labelStopsHeader.Text = "Stops (if applicable):";
+			this.labelConnectionHeader.AutoSize = true;
+			this.labelConnectionHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelConnectionHeader.ForeColor = System.Drawing.Color.Red;
+			this.labelConnectionHeader.Location = new System.Drawing.Point(46, 243);
+			this.labelConnectionHeader.Name = "labelConnectionHeader";
+			this.labelConnectionHeader.Size = new System.Drawing.Size(114, 20);
+			this.labelConnectionHeader.TabIndex = 0;
+			this.labelConnectionHeader.Text = "Connections:";
+			this.labelConnectionHeader.Visible = false;
 			// 
 			// labelStop1Depart1
 			// 
@@ -311,15 +320,17 @@ namespace CovidAirlines
 			this.labelStop1Depart1.Size = new System.Drawing.Size(156, 13);
 			this.labelStop1Depart1.TabIndex = 0;
 			this.labelStop1Depart1.Text = "First Stop Departure Time:";
+			this.labelStop1Depart1.Visible = false;
 			// 
-			// labelStop1Depart2
+			// labelStop1Depart
 			// 
-			this.labelStop1Depart2.AutoSize = true;
-			this.labelStop1Depart2.Location = new System.Drawing.Point(411, 312);
-			this.labelStop1Depart2.Name = "labelStop1Depart2";
-			this.labelStop1Depart2.Size = new System.Drawing.Size(135, 13);
-			this.labelStop1Depart2.TabIndex = 1;
-			this.labelStop1Depart2.Text = "*Stop1 Depart Listed Here*";
+			this.labelStop1Depart.AutoSize = true;
+			this.labelStop1Depart.Location = new System.Drawing.Point(411, 312);
+			this.labelStop1Depart.Name = "labelStop1Depart";
+			this.labelStop1Depart.Size = new System.Drawing.Size(135, 13);
+			this.labelStop1Depart.TabIndex = 1;
+			this.labelStop1Depart.Text = "*Stop1 Depart Listed Here*";
+			this.labelStop1Depart.Visible = false;
 			// 
 			// labelStop2Depart1
 			// 
@@ -331,15 +342,17 @@ namespace CovidAirlines
 			this.labelStop2Depart1.Size = new System.Drawing.Size(175, 13);
 			this.labelStop2Depart1.TabIndex = 0;
 			this.labelStop2Depart1.Text = "Second Stop Departure Time:";
+			this.labelStop2Depart1.Visible = false;
 			// 
-			// labelStop2Depart2
+			// labelStop2Depart
 			// 
-			this.labelStop2Depart2.AutoSize = true;
-			this.labelStop2Depart2.Location = new System.Drawing.Point(411, 370);
-			this.labelStop2Depart2.Name = "labelStop2Depart2";
-			this.labelStop2Depart2.Size = new System.Drawing.Size(135, 13);
-			this.labelStop2Depart2.TabIndex = 1;
-			this.labelStop2Depart2.Text = "*Stop2 Depart Listed Here*";
+			this.labelStop2Depart.AutoSize = true;
+			this.labelStop2Depart.Location = new System.Drawing.Point(411, 370);
+			this.labelStop2Depart.Name = "labelStop2Depart";
+			this.labelStop2Depart.Size = new System.Drawing.Size(135, 13);
+			this.labelStop2Depart.TabIndex = 1;
+			this.labelStop2Depart.Text = "*Stop2 Depart Listed Here*";
+			this.labelStop2Depart.Visible = false;
 			// 
 			// FormBoardingPass
 			// 
@@ -349,19 +362,19 @@ namespace CovidAirlines
 			this.Controls.Add(this.labelAcctNumber1);
 			this.Controls.Add(this.labelName1);
 			this.Controls.Add(this.labelBoardingPass);
-			this.Controls.Add(this.labelDestination2);
-			this.Controls.Add(this.labelStop22);
-			this.Controls.Add(this.labelStop2Depart2);
-			this.Controls.Add(this.labelStop2Arrive2);
-			this.Controls.Add(this.labelStop1Depart2);
-			this.Controls.Add(this.labelStop1Arrive2);
-			this.Controls.Add(this.labelStop11);
-			this.Controls.Add(this.labelArrive2);
-			this.Controls.Add(this.labelDepart2);
-			this.Controls.Add(this.labelOrigin2);
-			this.Controls.Add(this.labelAcctNumber2);
-			this.Controls.Add(this.labelName2);
-			this.Controls.Add(this.labelFlightNum2);
+			this.Controls.Add(this.labelDestination);
+			this.Controls.Add(this.labelStop2);
+			this.Controls.Add(this.labelStop2Depart);
+			this.Controls.Add(this.labelStop2Arrive);
+			this.Controls.Add(this.labelStop1Depart);
+			this.Controls.Add(this.labelStop1Arrive);
+			this.Controls.Add(this.labelStop1);
+			this.Controls.Add(this.labelArrive);
+			this.Controls.Add(this.labelDepart);
+			this.Controls.Add(this.labelOrigin);
+			this.Controls.Add(this.labelAcctNumber);
+			this.Controls.Add(this.labelName);
+			this.Controls.Add(this.labelFlightNum);
 			this.Controls.Add(this.labelDestination1);
 			this.Controls.Add(this.labelStop21);
 			this.Controls.Add(this.labelStop2Depart1);
@@ -370,7 +383,7 @@ namespace CovidAirlines
 			this.Controls.Add(this.labelStop1Arrive1);
 			this.Controls.Add(this.labelStop12);
 			this.Controls.Add(this.labelArrive1);
-			this.Controls.Add(this.labelStopsHeader);
+			this.Controls.Add(this.labelConnectionHeader);
 			this.Controls.Add(this.labelDepart1);
 			this.Controls.Add(this.labelOrigin1);
 			this.Controls.Add(this.labelFlightNum1);
@@ -378,6 +391,7 @@ namespace CovidAirlines
 			this.MinimizeBox = false;
 			this.Name = "FormBoardingPass";
 			this.Text = "BoardingPass";
+			this.Load += new System.EventHandler(this.FormBoardingPass_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -386,32 +400,32 @@ namespace CovidAirlines
 		#endregion
 
 		private System.Windows.Forms.Label labelFlightNum1;
-		private System.Windows.Forms.Label labelFlightNum2;
+		private System.Windows.Forms.Label labelFlightNum;
 		private System.Windows.Forms.Label labelOrigin1;
-		private System.Windows.Forms.Label labelOrigin2;
+		private System.Windows.Forms.Label labelOrigin;
 		private System.Windows.Forms.Label labelDestination1;
-		private System.Windows.Forms.Label labelDestination2;
+		private System.Windows.Forms.Label labelDestination;
 		private System.Windows.Forms.Label labelBoardingPass;
 		private System.Windows.Forms.Label labelName1;
-		private System.Windows.Forms.Label labelName2;
+		private System.Windows.Forms.Label labelName;
 		private System.Windows.Forms.Label labelAcctNumber1;
-		private System.Windows.Forms.Label labelAcctNumber2;
+		private System.Windows.Forms.Label labelAcctNumber;
 		private System.Windows.Forms.Label labelStop12;
-		private System.Windows.Forms.Label labelStop11;
+		private System.Windows.Forms.Label labelStop1;
 		private System.Windows.Forms.Label labelStop21;
-		private System.Windows.Forms.Label labelStop22;
+		private System.Windows.Forms.Label labelStop2;
 		private System.Windows.Forms.Label labelDepart1;
-		private System.Windows.Forms.Label labelDepart2;
+		private System.Windows.Forms.Label labelDepart;
 		private System.Windows.Forms.Label labelArrive1;
-		private System.Windows.Forms.Label labelArrive2;
+		private System.Windows.Forms.Label labelArrive;
 		private System.Windows.Forms.Label labelStop1Arrive1;
 		private System.Windows.Forms.Label labelStop2Arrive1;
-		private System.Windows.Forms.Label labelStop1Arrive2;
-		private System.Windows.Forms.Label labelStop2Arrive2;
-		private System.Windows.Forms.Label labelStopsHeader;
+		private System.Windows.Forms.Label labelStop1Arrive;
+		private System.Windows.Forms.Label labelStop2Arrive;
+		private System.Windows.Forms.Label labelConnectionHeader;
 		private System.Windows.Forms.Label labelStop1Depart1;
-		private System.Windows.Forms.Label labelStop1Depart2;
+		private System.Windows.Forms.Label labelStop1Depart;
 		private System.Windows.Forms.Label labelStop2Depart1;
-		private System.Windows.Forms.Label labelStop2Depart2;
+		private System.Windows.Forms.Label labelStop2Depart;
 	}
 }

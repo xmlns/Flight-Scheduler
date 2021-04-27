@@ -36,18 +36,17 @@ namespace CovidAirlines
 			this.columnHeaderDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderArrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderStop1Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop1Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderStop2Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop2Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderPlane = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderCapacity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.labelPlanes = new System.Windows.Forms.Label();
 			this.comboBoxPlanes = new System.Windows.Forms.ComboBox();
 			this.buttonUpdate = new System.Windows.Forms.Button();
-			this.buttonDummy = new System.Windows.Forms.Button();
-			this.columnHeaderStop1Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderStop2Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.labelResponse = new System.Windows.Forms.Label();
-			this.columnHeaderCapacity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// listViewRoutes
@@ -109,6 +108,11 @@ namespace CovidAirlines
 			this.columnHeaderStop1.Text = "Stop 1";
 			this.columnHeaderStop1.Width = 70;
 			// 
+			// columnHeaderStop1Arrive
+			// 
+			this.columnHeaderStop1Arrive.Text = "Stop 1 Arrival Time";
+			this.columnHeaderStop1Arrive.Width = 103;
+			// 
 			// columnHeaderStop1Depart
 			// 
 			this.columnHeaderStop1Depart.Text = "Stop 1 Departure Time";
@@ -119,6 +123,11 @@ namespace CovidAirlines
 			this.columnHeaderStop2.Text = "Stop 2";
 			this.columnHeaderStop2.Width = 70;
 			// 
+			// columnHeaderStop2Arrive
+			// 
+			this.columnHeaderStop2Arrive.Text = "Stop 2 Arrival Time";
+			this.columnHeaderStop2Arrive.Width = 102;
+			// 
 			// columnHeaderStop2Depart
 			// 
 			this.columnHeaderStop2Depart.Text = "Stop 2 Departure Time";
@@ -128,6 +137,10 @@ namespace CovidAirlines
 			// 
 			this.columnHeaderPlane.Text = "Plane";
 			this.columnHeaderPlane.Width = 75;
+			// 
+			// columnHeaderCapacity
+			// 
+			this.columnHeaderCapacity.Text = "Capacity";
 			// 
 			// labelPlanes
 			// 
@@ -163,26 +176,6 @@ namespace CovidAirlines
 			this.buttonUpdate.UseVisualStyleBackColor = true;
 			this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
 			// 
-			// buttonDummy
-			// 
-			this.buttonDummy.Location = new System.Drawing.Point(1086, 311);
-			this.buttonDummy.Name = "buttonDummy";
-			this.buttonDummy.Size = new System.Drawing.Size(75, 23);
-			this.buttonDummy.TabIndex = 8;
-			this.buttonDummy.Text = "Add Dummy";
-			this.buttonDummy.UseVisualStyleBackColor = true;
-			this.buttonDummy.Click += new System.EventHandler(this.buttonDummy_Click);
-			// 
-			// columnHeaderStop1Arrive
-			// 
-			this.columnHeaderStop1Arrive.Text = "Stop 1 Arrival Time";
-			this.columnHeaderStop1Arrive.Width = 103;
-			// 
-			// columnHeaderStop2Arrive
-			// 
-			this.columnHeaderStop2Arrive.Text = "Stop 2 Arrival Time";
-			this.columnHeaderStop2Arrive.Width = 102;
-			// 
 			// labelResponse
 			// 
 			this.labelResponse.AutoSize = true;
@@ -194,17 +187,12 @@ namespace CovidAirlines
 			this.labelResponse.Text = "*Response message here*";
 			this.labelResponse.Visible = false;
 			// 
-			// columnHeaderCapacity
-			// 
-			this.columnHeaderCapacity.Text = "Capacity";
-			// 
 			// FormMarketing
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1184, 461);
 			this.Controls.Add(this.labelResponse);
-			this.Controls.Add(this.buttonDummy);
 			this.Controls.Add(this.buttonUpdate);
 			this.Controls.Add(this.comboBoxPlanes);
 			this.Controls.Add(this.labelPlanes);
@@ -234,7 +222,6 @@ namespace CovidAirlines
 		private System.Windows.Forms.Label labelPlanes;
 		private System.Windows.Forms.ComboBox comboBoxPlanes;
 		private System.Windows.Forms.Button buttonUpdate;
-		private System.Windows.Forms.Button buttonDummy;
 		private System.Windows.Forms.ColumnHeader columnHeaderStop1Arrive;
 		private System.Windows.Forms.ColumnHeader columnHeaderStop2Arrive;
 		private System.Windows.Forms.Label labelResponse;
