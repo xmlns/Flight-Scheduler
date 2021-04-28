@@ -94,30 +94,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Route_Airplane">
-          <End Role="Airplane" Type="Self.Airplane" Multiplicity="1" />
-          <End Role="Route" Type="Self.Route" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Airplane">
-              <PropertyRef Name="AirplaneID" />
-            </Principal>
-            <Dependent Role="Route">
-              <PropertyRef Name="AirplaneID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Route_City">
-          <End Role="City" Type="Self.City" Multiplicity="1" />
-          <End Role="Route" Type="Self.Route" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityID" />
-            </Principal>
-            <Dependent Role="Route">
-              <PropertyRef Name="OriginCityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Transaction_Route">
           <End Role="Route" Type="Self.Route" Multiplicity="1" />
           <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
@@ -152,14 +128,6 @@
           <AssociationSet Name="FK_Flight_Route" Association="Self.FK_Flight_Route">
             <End Role="Route" EntitySet="Route" />
             <End Role="Flight" EntitySet="Flight" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Route_Airplane" Association="Self.FK_Route_Airplane">
-            <End Role="Airplane" EntitySet="Airplane" />
-            <End Role="Route" EntitySet="Route" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Route_City" Association="Self.FK_Route_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="Route" EntitySet="Route" />
           </AssociationSet>
           <AssociationSet Name="FK_Transaction_Route" Association="Self.FK_Transaction_Route">
             <End Role="Route" EntitySet="Route" />
