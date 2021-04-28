@@ -387,6 +387,7 @@ namespace CovidAirlines
 			this.Controls.Add(this.labelDepart1);
 			this.Controls.Add(this.labelOrigin1);
 			this.Controls.Add(this.labelFlightNum1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormBoardingPass";

@@ -156,6 +156,9 @@ namespace CovidAirlines
 			this.Controls.Add(this.listViewRoutes);
 			this.Controls.Add(this.buttonNew);
 			this.Controls.Add(this.buttonDelete);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormLoad";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FormLoad";

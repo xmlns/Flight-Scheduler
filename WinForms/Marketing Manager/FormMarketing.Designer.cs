@@ -197,6 +197,9 @@ namespace CovidAirlines
 			this.Controls.Add(this.comboBoxPlanes);
 			this.Controls.Add(this.labelPlanes);
 			this.Controls.Add(this.listViewRoutes);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormMarketing";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Main Menu - Marketing Manager";
