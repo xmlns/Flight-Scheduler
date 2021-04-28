@@ -70,7 +70,6 @@ namespace CovidAirlines
 			listViewHistory.Items.Clear();
 			using (var entities = new CovidAirlinesEntities())
 			{
-				const string BLANK = "-";
 				var cities = entities.Cities.ToArray();
 				var histories = entities.Transactions.Where(x => x.UserID == CUSTOMER.UserID)
 					.Join(entities.Routes, t => t.RouteID, r => r.RouteID, (t, r) => new {t, r})
@@ -87,11 +86,13 @@ namespace CovidAirlines
 									y.x.r.DestinationCityID,
 									DepartureDateTime = $"{y.f.FlightDate.ToShortDateString()} {y.x.r.DepartureTime.TimeOfDay}",
 									ArrivalDateTime = $"{y.f.FlightDate.ToShortDateString()} {y.x.r.ArrivalTime.TimeOfDay}",
-									Stop1CityID = y.x.r.Stop1CityID == null ? BLANK : y.x.r.Stop1CityID.ToString(),
-									Stop1DepartureTime = y.x.r.Stop1DepartureTime == null ? BLANK : y.x.r.Stop1DepartureTime.ToString(),
-									Stop2CityID = y.x.r.Stop2CityID == null ? BLANK : y.x.r.Stop2CityID.ToString(),
-									Stop2DepartureTime = y.x.r.Stop2DepartureTime == null ? BLANK : y.x.r.Stop2DepartureTime.ToString()
+									y.x.r.Stop1CityID,
+									y.x.r.Stop1DepartureTime,
+									y.x.r.Stop2CityID,
+									y.x.r.Stop2DepartureTime
 								});
+
+				const string BLANK = "-";
 				foreach (var history in histories)
 				{
 					var flightDate = entities.Flights.Find(history.FlightNumber).FlightDate;
@@ -101,10 +102,10 @@ namespace CovidAirlines
 						entities.Cities.Find(history.DestinationCityID).Code,
 						history.DepartureDateTime,
 						history.ArrivalDateTime,
-						entities.Cities.Find(history.Stop1CityID).Code,
-						history.Stop1DepartureTime,
-						entities.Cities.Find(history.Stop2CityID).Code,
-						history.Stop2DepartureTime,
+						history.Stop1CityID == null ? BLANK : entities.Cities.Find(history.Stop1CityID).Code,
+						history.Stop1DepartureTime == null ? BLANK : history.Stop1DepartureTime.ToString(),
+						history.Stop2CityID == null ? BLANK : entities.Cities.Find(history.Stop2CityID).Code,
+						history.Stop2DepartureTime == null ? BLANK : history.Stop2DepartureTime.ToString(),
 						Enum.Parse(typeof(StatusType), history.StatusType.ToString()).ToString(),
 						history.TicketPrice.ToString()
 					};
