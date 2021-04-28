@@ -35,12 +35,12 @@ namespace CovidAirlines
 			this.columnHeaderDestination = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderArrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderIncome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderPassengers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderCapacity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderPercent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderCreditCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderIncome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.labelCompanyHeader = new System.Windows.Forms.Label();
 			this.labelTotalFlights = new System.Windows.Forms.Label();
 			this.labelFlights = new System.Windows.Forms.Label();
@@ -105,16 +105,6 @@ namespace CovidAirlines
 			this.columnHeaderArrive.Text = "Arrival Time";
 			this.columnHeaderArrive.Width = 125;
 			// 
-			// columnHeaderPrice
-			// 
-			this.columnHeaderPrice.Text = "Ticket Price";
-			this.columnHeaderPrice.Width = 70;
-			// 
-			// columnHeaderIncome
-			// 
-			this.columnHeaderIncome.Text = "Total Income";
-			this.columnHeaderIncome.Width = 90;
-			// 
 			// columnHeaderPassengers
 			// 
 			this.columnHeaderPassengers.Text = "Passengers Booked";
@@ -130,10 +120,20 @@ namespace CovidAirlines
 			this.columnHeaderPercent.Text = "Percent Capacity";
 			this.columnHeaderPercent.Width = 97;
 			// 
+			// columnHeaderPrice
+			// 
+			this.columnHeaderPrice.Text = "Ticket Price";
+			this.columnHeaderPrice.Width = 70;
+			// 
 			// columnHeaderCreditCount
 			// 
 			this.columnHeaderCreditCount.Text = "Paid With Credit";
 			this.columnHeaderCreditCount.Width = 90;
+			// 
+			// columnHeaderIncome
+			// 
+			this.columnHeaderIncome.Text = "Total Income";
+			this.columnHeaderIncome.Width = 90;
 			// 
 			// labelCompanyHeader
 			// 
@@ -257,6 +257,9 @@ namespace CovidAirlines
 			this.Controls.Add(this.labelTotalFlights);
 			this.Controls.Add(this.labelCompanyHeader);
 			this.Controls.Add(this.listViewFlights);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormAccountant";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Main Menu - Accounting Manager";

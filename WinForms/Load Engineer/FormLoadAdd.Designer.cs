@@ -370,6 +370,9 @@ namespace CovidAirlines
 			this.Controls.Add(this.labelOrigin);
 			this.Controls.Add(this.comboBoxStop1);
 			this.Controls.Add(this.comboBoxOrigin);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormLoadAdd";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Add New Route!";

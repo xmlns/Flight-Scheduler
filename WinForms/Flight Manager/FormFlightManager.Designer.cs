@@ -36,13 +36,13 @@ namespace CovidAirlines
 			this.columnHeaderDepart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderArrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderS1Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderS1Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderStop2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderS2Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderS2Depart = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeaderTickets = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.buttonGenerate = new System.Windows.Forms.Button();
-			this.columnHeaderS1Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeaderS2Arrive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// listViewFlights
@@ -102,6 +102,11 @@ namespace CovidAirlines
 			// 
 			this.columnHeaderStop1.Text = "Stop 1";
 			// 
+			// columnHeaderS1Arrive
+			// 
+			this.columnHeaderS1Arrive.Text = "Stop 1 Arrival Time";
+			this.columnHeaderS1Arrive.Width = 125;
+			// 
 			// columnHeaderS1Depart
 			// 
 			this.columnHeaderS1Depart.Text = "Stop 1 Departure Time";
@@ -110,6 +115,11 @@ namespace CovidAirlines
 			// columnHeaderStop2
 			// 
 			this.columnHeaderStop2.Text = "Stop 2";
+			// 
+			// columnHeaderS2Arrive
+			// 
+			this.columnHeaderS2Arrive.Text = "Stop 2 Arrival Time";
+			this.columnHeaderS2Arrive.Width = 125;
 			// 
 			// columnHeaderS2Depart
 			// 
@@ -132,16 +142,6 @@ namespace CovidAirlines
 			this.buttonGenerate.UseVisualStyleBackColor = true;
 			this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
 			// 
-			// columnHeaderS1Arrive
-			// 
-			this.columnHeaderS1Arrive.Text = "Stop 1 Arrival Time";
-			this.columnHeaderS1Arrive.Width = 125;
-			// 
-			// columnHeaderS2Arrive
-			// 
-			this.columnHeaderS2Arrive.Text = "Stop 2 Arrival Time";
-			this.columnHeaderS2Arrive.Width = 125;
-			// 
 			// FormFlightManager
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +149,9 @@ namespace CovidAirlines
 			this.ClientSize = new System.Drawing.Size(1184, 461);
 			this.Controls.Add(this.buttonGenerate);
 			this.Controls.Add(this.listViewFlights);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormFlightManager";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Main Menu - Flight Manager";
