@@ -84,6 +84,7 @@ namespace CovidAirlines
 									y.x.r.PointsAwarded,
 									y.x.r.OriginCityID,
 									y.x.r.DestinationCityID,
+									y.f.FlightDate,
 									DepartureDateTime = $"{y.f.FlightDate.ToShortDateString()} {y.x.r.DepartureTime.TimeOfDay}",
 									ArrivalDateTime = $"{y.f.FlightDate.ToShortDateString()} {y.x.r.ArrivalTime.TimeOfDay}",
 									y.x.r.Stop1CityID,
@@ -103,9 +104,9 @@ namespace CovidAirlines
 						history.DepartureDateTime,
 						history.ArrivalDateTime,
 						history.Stop1CityID == null ? BLANK : entities.Cities.Find(history.Stop1CityID).Code,
-						history.Stop1DepartureTime == null ? BLANK : history.Stop1DepartureTime.ToString(),
+						history.Stop1DepartureTime.HasValue ? $"{history.FlightDate.ToShortDateString()} {history.Stop1DepartureTime.Value.TimeOfDay}" : BLANK,
 						history.Stop2CityID == null ? BLANK : entities.Cities.Find(history.Stop2CityID).Code,
-						history.Stop2DepartureTime == null ? BLANK : history.Stop2DepartureTime.ToString(),
+						history.Stop2DepartureTime.HasValue ? $"{history.FlightDate.ToShortDateString()} {history.Stop2DepartureTime.Value.TimeOfDay}" : BLANK,
 						Enum.Parse(typeof(StatusType), history.StatusType.ToString()).ToString(),
 						history.TicketPrice.ToString()
 					};
