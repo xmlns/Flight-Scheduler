@@ -23,13 +23,12 @@ namespace CovidAirlines
 		{
 			labelFlightNumHere.Text = flightNumber.ToString();
 
-
 			using (var db = new CovidAirlinesEntities())
 			{
 				var flight = db.Flights.Where(f => f.FlightNumber == flightNumber).FirstOrDefault();
-				labelDateHere.Text = flight.FlightDate.ToString("MM/dd/yyyy h:mm tt");
+				DateTime departureDate = flight.FlightDate.Date.Add(flight.Route.DepartureTime.TimeOfDay);
+				labelDateHere.Text = departureDate.ToString("MM/dd/yyyy h:mm tt");
 				
-
 				//Get every transaction with the matching flight number and of those who have boarded
 				var transactions = db.Transactions.Where(f => f.FlightNumber == flightNumber).Where(t => t.StatusType == (byte)StatusType.Boarded).ToList();
 				labelPassengerHere.Text = transactions.Count + "/" + flight.CurrentPassengers;

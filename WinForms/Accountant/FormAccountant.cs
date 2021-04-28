@@ -50,7 +50,7 @@ namespace CovidAirlines
 				foreach (Flight f in flights)
 				{
 					//For total income, we must only count bookings using credit card
-					int creditPaymentCount = db.Transactions.Where(t => t.FlightNumber == f.FlightNumber).Where(t=>t.PaymentType == (byte)PaymentType.Credit).Count();
+					int creditPaymentCount = db.Transactions.Where(t => t.FlightNumber == f.FlightNumber).Where(t=> t.StatusType != (byte)StatusType.Cancelled).Where(t=>t.PaymentType == (byte)PaymentType.Credit).Count();
 
 					string[] entry = {
 						f.FlightNumber.ToString(),
@@ -69,7 +69,6 @@ namespace CovidAirlines
 					totalPassengers += f.CurrentPassengers;
 					totalCapacity += f.MaxPassengers;
 					totalIncome += f.Route.TicketPrice * creditPaymentCount;
-
 
 					ListViewItem lvi = new ListViewItem(entry);
 					listViewFlights.Items.Add(lvi);

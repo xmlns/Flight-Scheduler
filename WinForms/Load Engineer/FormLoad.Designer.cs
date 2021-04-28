@@ -159,6 +159,7 @@ namespace CovidAirlines
 			this.Name = "FormLoad";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FormLoad";
+			this.Load += new System.EventHandler(this.FormLoad_Load_1);
 			this.ResumeLayout(false);
 
 		}

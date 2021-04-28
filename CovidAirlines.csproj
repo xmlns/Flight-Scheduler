@@ -120,12 +120,6 @@
     <Compile Include="WinForms\Accountant\FormAccountant.Designer.cs">
       <DependentUpon>FormAccountant.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\Accountant\FormAccountantSummary.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForms\Accountant\FormAccountantSummary.Designer.cs">
-      <DependentUpon>FormAccountantSummary.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinForms\Customer\FormBoardingPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,9 +191,6 @@
     </Compile>
     <EmbeddedResource Include="WinForms\Accountant\FormAccountant.resx">
       <DependentUpon>FormAccountant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\Accountant\FormAccountantSummary.resx">
-      <DependentUpon>FormAccountantSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\Customer\FormBoardingPass.resx">
       <DependentUpon>FormBoardingPass.cs</DependentUpon>

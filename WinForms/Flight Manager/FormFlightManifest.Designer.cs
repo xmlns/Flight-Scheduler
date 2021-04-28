@@ -91,9 +91,9 @@ namespace CovidAirlines
 			this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelDate.Location = new System.Drawing.Point(13, 48);
 			this.labelDate.Name = "labelDate";
-			this.labelDate.Size = new System.Drawing.Size(73, 13);
+			this.labelDate.Size = new System.Drawing.Size(98, 13);
 			this.labelDate.TabIndex = 1;
-			this.labelDate.Text = "Flight Date:";
+			this.labelDate.Text = "Departure Date:";
 			// 
 			// labelPassenger
 			// 

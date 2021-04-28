@@ -26,6 +26,7 @@ namespace CovidAirlines
 			DEPART_FLIGHTNUMBER = departNumber;
 			RETURN_FLIGHTNUMBER = returnNumber;
 			//get list of all cities
+
 			using (var db = new CovidAirlinesEntities())
 			{
 				cityList = db.Cities.ToList();
@@ -33,6 +34,13 @@ namespace CovidAirlines
 				labelName.Text = customer.FullName;
 				labelAcctNumber.Text = USERID.ToString();
 			}
+			City nullCity = new City
+			{
+				Name = "-",
+				Code = "-"
+			};
+			//Pushes cities up one to correct index AND now null values (for no stops) will pull from this entry in list
+			cityList.Insert(0, nullCity);
 		}
 
 		private void FormConfirmation_Load(object sender, EventArgs e)
@@ -78,6 +86,10 @@ namespace CovidAirlines
 						labelDStop1.Show();
 						labelDStop1Arrive.Show();
 						labelDStop1Depart.Show();
+						
+						labelDStop11.Show();
+						labelDStop1Arrive1.Show();
+						labelDStop1Depart1.Show();
 
 						if (departureRoute.Stop2CityID != null)
 						{
@@ -89,6 +101,10 @@ namespace CovidAirlines
 							labelDStop2.Show();
 							labelDStop2Arrive.Show();
 							labelDStop2Depart.Show();
+							
+							labelDStop21.Show();
+							labelDStop2Arrive1.Show();
+							labelDStop2Depart1.Show();
 						}
 					}
 				}
@@ -126,6 +142,10 @@ namespace CovidAirlines
 						labelRStop1.Show();
 						labelRStop1Arrive.Show();
 						labelRStop1Depart.Show();
+						
+						labelRStop11.Show();
+						labelRStop1Arrive1.Show();
+						labelRStop1Depart1.Show();
 
 						if (returnRoute.Stop2CityID != null)
 						{
@@ -137,6 +157,10 @@ namespace CovidAirlines
 							labelRStop2.Show();
 							labelRStop2Arrive.Show();
 							labelRStop2Depart.Show();
+							
+							labelRStop21.Show();
+							labelRStop2Arrive1.Show();
+							labelRStop2Depart1.Show();
 						}
 					}
 				}

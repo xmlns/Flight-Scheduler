@@ -21,6 +21,7 @@ namespace CovidAirlines
 				//Update status to 'Boarded'
 				var transaction = db.Transactions.Where(t => t.FlightNumber == flightNumber).Where(t => t.UserID == userID).FirstOrDefault();
 				transaction.StatusType = (byte)StatusType.Boarded;
+
 				db.SaveChanges();
 				
 				//get database entries
@@ -62,6 +63,10 @@ namespace CovidAirlines
 					labelStop1Depart.Text = flight.FlightDate.Add(flight.Route.Stop1DepartureTime.Value.TimeOfDay).ToString();
 					labelStop1Depart.Show();
 
+					labelStop11.Show();
+					labelStop1Arrive1.Show();
+					labelStop1Depart1.Show();
+
 				}
 				
 				//Populate Stop2 info if exists
@@ -77,7 +82,10 @@ namespace CovidAirlines
 
 					labelStop2Depart.Text = flight.FlightDate.Add(flight.Route.Stop2DepartureTime.Value.TimeOfDay).ToString();
 					labelStop2Depart.Show();
-
+					
+					labelStop21.Show();
+					labelStop2Arrive1.Show();
+					labelStop2Depart1.Show();
 				}
 
 			}

@@ -43,9 +43,9 @@
 			this.groupBoxBilling = new System.Windows.Forms.GroupBox();
 			this.comboBoxMonth = new System.Windows.Forms.ComboBox();
 			this.comboBoxYear = new System.Windows.Forms.ComboBox();
-			this.textBoxCSV = new System.Windows.Forms.TextBox();
+			this.textBoxCVV = new System.Windows.Forms.TextBox();
 			this.textBoxCC = new System.Windows.Forms.TextBox();
-			this.labelCSV = new System.Windows.Forms.Label();
+			this.labelCVV = new System.Windows.Forms.Label();
 			this.labelExpiration = new System.Windows.Forms.Label();
 			this.labelCC = new System.Windows.Forms.Label();
 			this.groupBoxContactInfo = new System.Windows.Forms.GroupBox();
@@ -223,9 +223,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBoxBilling.Controls.Add(this.comboBoxMonth);
 			this.groupBoxBilling.Controls.Add(this.comboBoxYear);
-			this.groupBoxBilling.Controls.Add(this.textBoxCSV);
+			this.groupBoxBilling.Controls.Add(this.textBoxCVV);
 			this.groupBoxBilling.Controls.Add(this.textBoxCC);
-			this.groupBoxBilling.Controls.Add(this.labelCSV);
+			this.groupBoxBilling.Controls.Add(this.labelCVV);
 			this.groupBoxBilling.Controls.Add(this.labelExpiration);
 			this.groupBoxBilling.Controls.Add(this.labelCC);
 			this.groupBoxBilling.Location = new System.Drawing.Point(3, 262);
@@ -253,12 +253,12 @@
 			this.comboBoxYear.Size = new System.Drawing.Size(49, 21);
 			this.comboBoxYear.TabIndex = 2;
 			// 
-			// textBoxCSV
+			// textBoxCVV
 			// 
-			this.textBoxCSV.Location = new System.Drawing.Point(114, 77);
-			this.textBoxCSV.Name = "textBoxCSV";
-			this.textBoxCSV.Size = new System.Drawing.Size(49, 20);
-			this.textBoxCSV.TabIndex = 3;
+			this.textBoxCVV.Location = new System.Drawing.Point(114, 77);
+			this.textBoxCVV.Name = "textBoxCVV";
+			this.textBoxCVV.Size = new System.Drawing.Size(49, 20);
+			this.textBoxCVV.TabIndex = 3;
 			// 
 			// textBoxCC
 			// 
@@ -267,14 +267,14 @@
 			this.textBoxCC.Size = new System.Drawing.Size(197, 20);
 			this.textBoxCC.TabIndex = 0;
 			// 
-			// labelCSV
+			// labelCVV
 			// 
-			this.labelCSV.AutoSize = true;
-			this.labelCSV.Location = new System.Drawing.Point(80, 80);
-			this.labelCSV.Name = "labelCSV";
-			this.labelCSV.Size = new System.Drawing.Size(28, 13);
-			this.labelCSV.TabIndex = 0;
-			this.labelCSV.Text = "CSV";
+			this.labelCVV.AutoSize = true;
+			this.labelCVV.Location = new System.Drawing.Point(80, 80);
+			this.labelCVV.Name = "labelCVV";
+			this.labelCVV.Size = new System.Drawing.Size(28, 13);
+			this.labelCVV.TabIndex = 0;
+			this.labelCVV.Text = "CVV";
 			// 
 			// labelExpiration
 			// 
@@ -460,6 +460,8 @@
 			this.Controls.Add(this.splitContainer1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Margin = new System.Windows.Forms.Padding(1);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormLogin";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Login";
@@ -494,7 +496,7 @@
 		private System.Windows.Forms.ComboBox comboBoxMonth;
 		private System.Windows.Forms.ComboBox comboBoxYear;
 		private System.Windows.Forms.TextBox textBoxCC;
-		private System.Windows.Forms.Label labelCSV;
+		private System.Windows.Forms.Label labelCVV;
 		private System.Windows.Forms.Label labelExpiration;
 		private System.Windows.Forms.Label labelCC;
 		private System.Windows.Forms.GroupBox groupBoxContactInfo;
@@ -514,7 +516,7 @@
 		private System.Windows.Forms.Label labelConfirmPassword;
 		private System.Windows.Forms.Label labelPassword;
 		private System.Windows.Forms.TextBox textBoxPassword;
-		private System.Windows.Forms.TextBox textBoxCSV;
+		private System.Windows.Forms.TextBox textBoxCVV;
 		private System.Windows.Forms.TextBox textBoxNumber;
 		private System.Windows.Forms.Label ErrorMessage;
 	}

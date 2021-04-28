@@ -108,5 +108,10 @@ namespace CovidAirlines
 			if (listViewRoutes.SelectedItems.Count > 0) buttonDelete.Enabled = true;
 			else buttonDelete.Enabled = false;
 		}
+
+		private void FormLoad_Load_1(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

@@ -121,6 +121,34 @@ namespace CovidAirlines
                 };
             }
         }
+
+        static void FillFlight(int flightNum)
+        {          
+            using (var db = new CovidAirlinesEntities())
+            {
+                var flightToBook = db.Flights.Where(f => f.FlightNumber == flightNum).FirstOrDefault();
+
+                for (int i = 0; i < flightToBook.MaxPassengers; i++)
+                {
+                    User customer = db.Users.Where(u => u.FullName == ("CUSTOMER #" + i)).FirstOrDefault();
+
+                    Transaction transaction = new Transaction
+                    {
+                        FlightNumber = flightNum,
+                        RouteID = flightToBook.RouteID,
+                        Date = flightToBook.FlightDate,
+                        PaymentType = 1,
+                        UserID = customer.UserID,
+                        StatusType = 3
+                    };
+                    db.Transactions.Add(transaction);
+                    flightToBook.CurrentPassengers++;
+
+                    db.SaveChanges();
+                }
+            }
+        }
+
         static void AddUser()
         {
             using (var entities = new CovidAirlinesEntities())
@@ -143,7 +171,7 @@ namespace CovidAirlines
                     PointsAvailable = 999999999,
                     PointsRedeemed = 0
                 };
-                
+
                 User loadEngineer = new User
                 {
                     UserID = 1,

@@ -40,7 +40,7 @@ namespace CovidAirlines
 			this.labelName = new System.Windows.Forms.Label();
 			this.labelAcctNumber1 = new System.Windows.Forms.Label();
 			this.labelAcctNumber = new System.Windows.Forms.Label();
-			this.labelStop12 = new System.Windows.Forms.Label();
+			this.labelStop11 = new System.Windows.Forms.Label();
 			this.labelStop1 = new System.Windows.Forms.Label();
 			this.labelStop21 = new System.Windows.Forms.Label();
 			this.labelStop2 = new System.Windows.Forms.Label();
@@ -170,17 +170,17 @@ namespace CovidAirlines
 			this.labelAcctNumber.TabIndex = 1;
 			this.labelAcctNumber.Text = "*Account Number Listed Here*";
 			// 
-			// labelStop12
+			// labelStop11
 			// 
-			this.labelStop12.AutoSize = true;
-			this.labelStop12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelStop12.ForeColor = System.Drawing.Color.Red;
-			this.labelStop12.Location = new System.Drawing.Point(46, 285);
-			this.labelStop12.Name = "labelStop12";
-			this.labelStop12.Size = new System.Drawing.Size(90, 13);
-			this.labelStop12.TabIndex = 0;
-			this.labelStop12.Text = "First Stop City:";
-			this.labelStop12.Visible = false;
+			this.labelStop11.AutoSize = true;
+			this.labelStop11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelStop11.ForeColor = System.Drawing.Color.Red;
+			this.labelStop11.Location = new System.Drawing.Point(46, 285);
+			this.labelStop11.Name = "labelStop11";
+			this.labelStop11.Size = new System.Drawing.Size(90, 13);
+			this.labelStop11.TabIndex = 0;
+			this.labelStop11.Text = "First Stop City:";
+			this.labelStop11.Visible = false;
 			// 
 			// labelStop1
 			// 
@@ -381,7 +381,7 @@ namespace CovidAirlines
 			this.Controls.Add(this.labelStop2Arrive1);
 			this.Controls.Add(this.labelStop1Depart1);
 			this.Controls.Add(this.labelStop1Arrive1);
-			this.Controls.Add(this.labelStop12);
+			this.Controls.Add(this.labelStop11);
 			this.Controls.Add(this.labelArrive1);
 			this.Controls.Add(this.labelConnectionHeader);
 			this.Controls.Add(this.labelDepart1);
@@ -390,6 +390,7 @@ namespace CovidAirlines
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FormBoardingPass";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "BoardingPass";
 			this.Load += new System.EventHandler(this.FormBoardingPass_Load);
 			this.ResumeLayout(false);
@@ -410,7 +411,7 @@ namespace CovidAirlines
 		private System.Windows.Forms.Label labelName;
 		private System.Windows.Forms.Label labelAcctNumber1;
 		private System.Windows.Forms.Label labelAcctNumber;
-		private System.Windows.Forms.Label labelStop12;
+		private System.Windows.Forms.Label labelStop11;
 		private System.Windows.Forms.Label labelStop1;
 		private System.Windows.Forms.Label labelStop21;
 		private System.Windows.Forms.Label labelStop2;

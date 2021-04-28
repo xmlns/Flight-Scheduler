@@ -75,12 +75,6 @@ namespace CovidAirlines
                     // password doesnt match
                     if (!user.PasswordHash.SequenceEqual(Utility.GenerateHash(PasswordTextBox.Text)))
                     {
-                        if (!MatchesPasswordRequirement(PasswordTextBox.Text))
-                        {
-                            ErrorMessage.Text = "Password should be longer than 8 characters, \nshould have atleast one uppercase and one lowercase character.";
-                            ErrorMessage.Show();
-                            return;
-                        }
                         ErrorMessage.Text = "Username or password does not match";
                         ErrorMessage.Show();
                         PasswordTextBox.Text = string.Empty;
@@ -125,11 +119,12 @@ namespace CovidAirlines
         // check if password has 8 characters, 1 uppercase, and 1 lowercase character
         private bool MatchesPasswordRequirement(string password)
         {
-            return (password.Length > 8 && password.Any(char.IsUpper) && password.Any(char.IsLower));
+            return (password.Length >= 8 && password.Any(char.IsUpper) && password.Any(char.IsLower));
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
+            labelResult.Hide();
             //Grab all inputted information
             string[] newAccount = new string[12];
 
@@ -144,7 +139,7 @@ namespace CovidAirlines
             newAccount[8] = textBoxCC.Text;
             newAccount[9] = comboBoxMonth.GetItemText(comboBoxMonth.SelectedItem);
             newAccount[10] = comboBoxYear.GetItemText(comboBoxYear.SelectedItem);
-            newAccount[11] = textBoxCSV.Text;
+            newAccount[11] = textBoxCVV.Text;
             
             //Ensure all fields are filled
             bool allFieldsFilled = true;
@@ -163,11 +158,20 @@ namespace CovidAirlines
             if (newAccount[1] != newAccount[2])
             {
                 labelResult.Text = "Password and confirmation password do not match!";
-                labelResult.Visible = true;
+                labelResult.Show();
                 return;
             }
 
-            
+            if (!MatchesPasswordRequirement(newAccount[1]))
+            {
+                string message = "Your password must have at least 8 characters with at least one uppercase and lowercase character.";
+                string title = "Missing Password Requirements";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(message, title, buttons);               
+                return;
+            }
+
+
             //All fields valid, create user object using all user inputted data
             string randUserID = "";
             using (var entities = new CovidAirlinesEntities())
@@ -236,6 +240,6 @@ namespace CovidAirlines
             comboBoxMonth.SelectedIndex = -1;
             comboBoxYear.SelectedIndex = -1;
         }
-    }
+	}
 
 }

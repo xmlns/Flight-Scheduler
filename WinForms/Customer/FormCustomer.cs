@@ -118,19 +118,23 @@ namespace CovidAirlines
 		private void listViewHistory_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			//check if a flight is selected not cancelled (that leaves active or already printed)
-			if (listViewHistory.SelectedItems.Count > 0 && !string.Equals(listViewHistory.SelectedItems[0].SubItems[9].Text, "Cancelled"))
+			if (listViewHistory.SelectedItems.Count > 0)
 			{
 				var selectedFlightTime = DateTime.Parse(listViewHistory.SelectedItems[0].SubItems[3].Text);//get time of flight departure
 				DateTime currentTime = DateTime.Now;//time must be within 24hrs
 				DateTime printable = selectedFlightTime.AddHours(-24);//time must be within 24hrs
 				
-				if (currentTime >= printable)	buttonBoardingPass.Enabled = true;
-				else							buttonBoardingPass.Enabled = false;
+				if (currentTime >= printable && !string.Equals(listViewHistory.SelectedItems[0].SubItems[9].Text, "Cancelled"))	
+					buttonBoardingPass.Enabled = true;
+				else							
+					buttonBoardingPass.Enabled = false;
 
 
 				DateTime cancellable = selectedFlightTime.AddHours(-1);//time must be before the -1hr mark
-				if (currentTime >= cancellable)		buttonCancelFlight.Enabled = false;
-				else								buttonCancelFlight.Enabled = true;
+				if (currentTime >= cancellable || !string.Equals(listViewHistory.SelectedItems[0].SubItems[9].Text, "Active"))		
+					buttonCancelFlight.Enabled = false;
+				else								
+					buttonCancelFlight.Enabled = true;
 
 			}
 			else
@@ -295,7 +299,18 @@ namespace CovidAirlines
 		{
 			//TODO: Boarding Pass functionality, populate flight information and mark status as boarded in transaction table
 			buttonBoardingPass.Enabled = false;
-			FormBoardingPass fBoardingPass = new FormBoardingPass(CUSTOMER.UserID, int.Parse(listViewHistory.SelectedItems[0].Text));
+			int flightNum = int.Parse(listViewHistory.SelectedItems[0].Text);
+			if (string.Equals(listViewHistory.SelectedItems[0].SubItems[9].Text, "Active"))
+			{
+				using (var db = new CovidAirlinesEntities())
+				{
+					//Only add reward points to user once
+					var customer = db.Users.Where(u => u.UserID == CUSTOMER.UserID).FirstOrDefault();
+					customer.PointsAvailable += db.Flights.Where(f => f.FlightNumber == flightNum).FirstOrDefault().Route.PointsAwarded;
+					db.SaveChanges();
+				}
+			}
+			FormBoardingPass fBoardingPass = new FormBoardingPass(CUSTOMER.UserID, flightNum);
 			fBoardingPass.ShowDialog();
 			PopulateFlightHistory();//refresh history table
 		}
@@ -400,6 +415,11 @@ namespace CovidAirlines
 
 		private void PopulateUserInfo()
 		{
+			//Refresh UserInfo
+			using (var db = new CovidAirlinesEntities())
+			{
+				CUSTOMER = db.Users.Where(u => u.UserID == CUSTOMER.UserID).FirstOrDefault();
+			}
 			//Populate User Info
 			labelUserIDHere.Text = CUSTOMER.UserID.ToString();
 			labelPointsHere.Text = CUSTOMER.PointsAvailable.ToString();
@@ -445,7 +465,7 @@ namespace CovidAirlines
 					var flightNumber = int.Parse(row.SubItems[0].Text);
                     var flight = entities.Flights.Find(flightNumber);
                     var route = entities.Routes.Find(flight.RouteID);
-					var transaction = entities.Transactions.Where(t => t.RouteID == flight.RouteID).FirstOrDefault();
+					var transaction = entities.Transactions.Where(t => t.FlightNumber == flightNumber).FirstOrDefault();
 
                     flight.CurrentPassengers--;
                     transaction.StatusType = (byte)StatusType.Cancelled;
@@ -454,6 +474,7 @@ namespace CovidAirlines
 				}
 				entities.SaveChanges();
 			}
+			buttonCancelFlight.Enabled = false;
 			PopulateFlightHistory();//refresh table
 		}
 	}
