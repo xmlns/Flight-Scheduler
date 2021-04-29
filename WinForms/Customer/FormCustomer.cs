@@ -466,14 +466,20 @@ namespace CovidAirlines
 					var flightNumber = int.Parse(row.SubItems[0].Text);
                     var flight = entities.Flights.Find(flightNumber);
                     var route = entities.Routes.Find(flight.RouteID);
-					var transaction = entities.Transactions.Where(t => t.FlightNumber == flightNumber).FirstOrDefault();
+					var transaction = entities.Transactions.Where(t => t.FlightNumber == flightNumber && t.UserID == CUSTOMER.UserID).FirstOrDefault();
 
-                    flight.CurrentPassengers--;
+                    flight.CurrentPassengers = flight.CurrentPassengers > 0 ? flight.CurrentPassengers-- : flight.CurrentPassengers;
                     transaction.StatusType = (byte)StatusType.Cancelled;
 					var user = entities.Users.Find(CUSTOMER.UserID);
-                    user.PointsAvailable += route.PointsAwarded;
+
+					if (transaction.PaymentType == (byte)PaymentType.Points)
+					{
+						user.PointsAvailable += Convert.ToInt32(route.TicketPrice * 100);
+						user.PointsRedeemed -= route.PointsAwarded;
+					}
+					CUSTOMER = user;
+					entities.SaveChanges();
 				}
-				entities.SaveChanges();
 			}
 			buttonCancelFlight.Enabled = false;
 			PopulateFlightHistory();//refresh table

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CovidAirlines.Enums;
 
@@ -108,17 +106,6 @@ namespace CovidAirlines
                 };
                 entities.Cities.AddRange(CITIES);
                 entities.SaveChanges();
-            }
-        }
-
-        static void AddRoutes()
-        {
-            using (var entities = new CovidAirlinesEntities())
-            {
-                Route newRoute = new Route
-                {
-                    RouteID = 1
-                };
             }
         }
 
