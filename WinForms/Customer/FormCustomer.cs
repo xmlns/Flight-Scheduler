@@ -475,7 +475,7 @@ namespace CovidAirlines
 					if (transaction.PaymentType == (byte)PaymentType.Points)
 					{
 						user.PointsAvailable += Convert.ToInt32(route.TicketPrice * 100);
-						user.PointsRedeemed -= route.PointsAwarded;
+						user.PointsRedeemed -= Convert.ToInt32(route.TicketPrice * 100);
 					}
 					CUSTOMER = user;
 					entities.SaveChanges();
